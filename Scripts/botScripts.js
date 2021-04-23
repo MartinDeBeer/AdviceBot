@@ -443,7 +443,7 @@ function playVid() {
     document.getElementById('vid').play();
 }
 
-
+counter = 4;
 
 function showQuestion() {
     document.getElementById('Budget').innerHTML = "";
@@ -477,6 +477,7 @@ function showQuestion() {
     xmlhttp.open("GET", 'dataPages/questions.php?q=' + str, true);
     xmlhttp.send();
 }
+
 
 
 function registered() {

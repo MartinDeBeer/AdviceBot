@@ -1,27 +1,16 @@
-#register {
-    position: relative;
-    left: 10%;
-}
-
-#login {
-    position: relative;
-    font-size: 1vw;
-    left: 30%;
-}
-
 .userControl {
-    background-color: rgb(255, 255, 255, 30%);
-    padding-right: 10em;
-    width: fit-content;
-    position: absolute;
-    left: 35%;
-    top: 25%;
+    background-color: rgb(255, 255, 255, 40%);
+    position: relative;
+    margin: auto;
+    margin-top: 25%;
+    width: 50%;
     color: #006699;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 20px 20px #006699;
 }
 
 a {
-    color: white;
+    color: black;
 }
 
 button {

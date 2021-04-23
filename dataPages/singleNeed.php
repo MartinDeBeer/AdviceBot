@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Stylesheets/singleNeed.css">
     <script src="../Scripts/single.js" type="text/javascript"></script>
     <title>AdviceBot: Single Need</title>
-    <?php include('autoMail.php'); ?> 
+    <?php include('autoMail.php'); ?>
 </head>
 <body>
     <?php
@@ -32,14 +32,14 @@
             $buttonClicked = $_POST['will'];
         }
         elseif(isset($_POST['other'])){
-            $buttonClicked = $_POST['other'];
+            $buttonClicked = 'Special Need';
         }
         else {
             $buttonClicked = "";
         }
     ?>
     <h1>I need help with <?php echo $buttonClicked; ?></h1>
-    <h3>Please fill in the form then we will get back to you with an answer on your query as soon as possible.</h3>
+    <h3>Please fill in the form and we will get back to you with an answer on your query as soon as possible.</h3>
     <form action="singleNeed.php" method="post">
         <table>
             <tr>

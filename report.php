@@ -34,6 +34,7 @@
 
             $autoID = $_SESSION['autoID'];
             $select = "select * from report where userID = '$autoID' and reportID=(select max(reportID) from report)";
+            echo $autoID;
 
             $result = mysqli_query($conn, $select);
 
@@ -58,7 +59,7 @@
                 }
             }
             else{
-                echo "Error: " . mysqli_error($conn);
+                echo "Error: " . "Nothing to show, you lazy fucker";
             }
 
 

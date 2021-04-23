@@ -29,6 +29,7 @@
     <div id="buttons" style="visibility: hidden;">
         <input type="submit" id="start" value="Next" onclick="showQuestion()" />
     </div>
+    
 
 
     <!-- Robot and progress bar -->

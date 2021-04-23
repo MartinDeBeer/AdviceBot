@@ -12,13 +12,13 @@
 
     // Create User
     if (isset($_POST['createUser'])){
-        $userID = $_POST['idNumber'];
-        $age = $_POST['age'];
-        $gender = $_POST['gender'];
-        $firstName = $_POST['firstName'];
-        $lastName = $_POST['lastName'];
-        $emailAddress = $_POST['emailAddress'];
-        $pass = $_POST['pass'];
+        $userID = mysqli_real_escape_string($conn, $_POST['idNumber']);
+        $age = mysqli_real_escape_string($conn, $_POST['age']);
+        $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+        $firstName = mysqli_real_escape_string($conn, $_POST['firstName']);
+        $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
+        $emailAddress = mysqli_real_escape_string($conn, $_POST['emailAddress']);
+        $pass = mysqli_real_escape_string($conn, $_POST['pass']);
 
         // Get session ID
         $s = "select * from users where userID = '$userID'";
@@ -107,7 +107,9 @@
       $email = mysqli_real_escape_string($conn, $_POST['email']);
       $_SESSION['emailAddress'] = $email;
       // ensure that the user exists on our system
-      $query = "SELECT emailAddress FROM users WHERE emailAddress='$email'";  $results = mysqli_query($db, $query);
+      $query = "SELECT emailAddress FROM users WHERE emailAddress='$email'";
+      $results = mysqli_query($conn, $query);
+      $row = mysqli_fetch_assoc($results);
 
       if (empty($email)) {
         array_push($errors, "Your email is required");
@@ -157,6 +159,7 @@
       $token = $_SESSION['token'];
       if (empty($new_pass) || empty($new_pass_c)) array_push($errors, "Password is required");
       if ($new_pass !== $new_pass_c) array_push($errors, "Passwords do not match");
+      if ($new_pass == $row['password']) array_push($errors, "Password cannot be the same as an old one");
       if (count($errors) == 0) {
         // select email address of user from the password_reset table
         $sql = "SELECT email FROM passwordreset WHERE token='$token' LIMIT 1";
@@ -178,13 +181,4 @@
       }
     }
 
-    // Check that the new password is valid
-    if(isset('new_pass')){
-        $checkPass = "SELECT * FROM users WHERE emailAddress = $_SESSION['emailAddress']";
-        $result = mysqli_query($conn, $checkPass);
-        $row = mysqli_fetch_assoc($result);
-        if($_POST['new_pass'] == $row['password']){
-            echo "Password can't be the same as your previous password.";
-        }
-    }
 ?>

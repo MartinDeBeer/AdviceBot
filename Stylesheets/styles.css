@@ -2,8 +2,6 @@ html {
     background: url("../Images/side.jpg") no-repeat top;
     background-size: 90%;
     z-index: -100;
-    text-align: justify;
-    text-justify: center;
     padding-left: 5%;
     padding-right: 5%;
     background-color: gray;
@@ -25,20 +23,23 @@ header {
 }
 
 #menu {
-    position: absolute;
-    right: 10%;
-    top: 5%;
-    height: 20px;
-    padding: 2px;
+    position: relative;
+    display: flex;
+    float: right;
+    padding: 2em;
 }
 
 .menuBtn,
 .dropbtn {
-    background-color: lightgray;
+    background-color: #cccccc;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #006699;
-    font-size: 1.5vw;
-    float: right;
+    margin: .1em;
+    font-size: 1vw;
+    ;
+    height: 2em;
+    border: 2px groove;
+    border-radius: 8px;
 }
 
 
@@ -118,11 +119,12 @@ header {
     width: 100%;
     font-size: 1.5vw;
     padding: 2px;
-    border: 1px groove;
+    border: 2px groove;
     color: #006699;
 }
 
-.videoPlayer {
+.videoPlayer,
+figcaption {
     position: relative;
     left: 50vw;
     top: 3vh;
@@ -137,16 +139,15 @@ header {
 
 footer {
     background-color: lightgray;
+    display: flex;
     position: relative;
-    text-align: center;
     height: 30px;
     width: 100%;
     color: grey;
-    text-align: left;
 }
 
-footer a {
-    text-decoration: none;
+footer button {
+    width: 100%;
 }
 
 #footerTable {

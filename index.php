@@ -38,6 +38,8 @@
                         <a href="Tools/retirement.php" >Retirement Tool</a>
                     </div>
                 </div>
+                <button id="about" class="menuBtn">About Us</button>
+                <button id="contact" class="menuBtn">Contact Us</button>
                 <?php
                 if(isset($_SESSION['emailAddress'])){
                     echo '<button id="logout" class="menuBtn" onclick="window.location.href=\'UserControl/logout.php\'">Log Out </button>' .
@@ -85,11 +87,12 @@
                     <!-- Other ( Email ) -->
                     <input type="submit" id="other" class="singleButton" value="I have a special need" name="other" >
                 </form>
-                <div id="RoboHelp">
+                <figure id="RoboHelp">
                     <video class="videoPlayer" onmouseover="this.play();" onmouseout="this.pause();" muted="muted" onclick="questions()" >
                         <source src="Videos/intro.mp4" type="video/mp4" />
                     </video>
-                </div>
+                    <figcaption>Click on the robot to get free financial advice</figcaption>
+                </figure>
             </div>
         </form> 
         <div id="socials">  
@@ -100,16 +103,12 @@
             
     </div>
     <footer id="footer" style="text-align: center;">
-            <table id="footerTable">
-                <tr>
-                    <td><a href="Docs/disclosure.php">Disclosure Agreement</a></td>
-                    <td><a href="Docs/complaints.php">Complaints Procedure</a></td>
-                    <td><a href="Docs/privacy.php">Privacy Policy</a></td>
-                    <td><a href="Docs/use.php">Website Use</a></td>
-                    <td><a href="feedback.php">Feedback</a></td>
-                </tr>
-            </table>
-        </footer>
+        <button onclick="window.location.href='Docs/disclosure.php'">Disclosure Agreement</button>
+        <button onclick="window.location.href='Docs/complaints.php'">Complaints Procedure</button>
+        <button onclick="window.location.href='Docs/privacy.php'">Privacy Policy</button>
+        <button onclick="window.location.href='Docs/use.php'">Website Use</button>
+        <button onclick="window.location.href='feedback.php'">Feedback</button>
+    </footer>
         
 </body>
 </html>

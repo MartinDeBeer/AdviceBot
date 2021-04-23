@@ -6,29 +6,29 @@
     <meta name="description" content="Automated financial help" />
     <meta name="tags" content="financial help, finance, bot, robot, advice bot, advicebot, money, budget" />
     <meta name="author" content="Webtech Cyber Solutions" />
-    <script src="Scripts/budget.js" type="text/javascript"></script>
+    <script src="../Scripts/budget.js" type="text/javascript"></script>
     <link href="../Stylesheets/styles.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon" /> 
+    <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon" />
     <link href="../Stylesheets/budget.css" type="text/css" rel="stylesheet" />
     <title>Budget</title>
 
 </head>
 <body>
     <!-- income -->
-    <h1 style="text-align: center;">Budget</h1>
+    <h2 style="text-align: center;">Free Budget Tool</h2>
     <div id="budgetContent">
         <table id='income'>
             <th></th>
             <th>Income</th>
             <tr>
                 <td><label>Salary:</label></td>
-                <td>R<input type="text" id="salary"></td>            
+                <td>R<input type="text" id="salary"></td>
             </tr>
             <tr>
                 <td><label>Other Income if Applicable:</label></td>
                 <td>R<input type="text" id="otherIncome"></td>
             </tr>
-            
+
             <tr>
                 <td></td>
                 <td><input type="button" class="calcBtn" id="calculate"   value="Calculate" onclick="calculateIncome()"></td>
@@ -37,7 +37,7 @@
 
         <!-- Expenses -->
         <table id='expenses'>
-            <th></th>    
+            <th></th>
             <th>Expenses</th>
             <!-- House -->
             <tr><td><label>Mortgage / Rent Amount</label></td>
@@ -82,7 +82,7 @@
             <tr><td><label>Other Expenses</label> </td>
             <td>R<input type="text" id = "otherExpenses"></td></tr>
             <!-- Total Expenses -->
-            
+
             <tr>
                 <td></td>
                 <td><input type="button" class="calcBtn" value="Calculate" onclick="calculateExpenses()"></td>

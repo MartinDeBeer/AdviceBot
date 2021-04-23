@@ -160,6 +160,9 @@ function checkInput(id) {
                 document.getElementById('passConfError').innerText = "";
                 console.log(errors);
             }
+            if(document.getElementById('passConf').value === document.getElementById('pass').value){
+                document.getElementById('createUser').disabled = false;
+            }
             break;
 
     }

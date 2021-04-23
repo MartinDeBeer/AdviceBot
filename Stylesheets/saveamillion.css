@@ -1,9 +1,13 @@
 #million {
-    position: absolute;
-    left: 40%;
-    top: 30%;
-    font-size: 25px;
+    height: fit-content;
+    margin: auto;
+    width: 35%;
     background-color: rgb(255, 255, 255, 20%);
+    box-shadow: 0 0 20px 20px #006699;
+}
+
+h1 {
+    margin-bottom: 80px;
 }
 
 #calculate {
@@ -19,18 +23,10 @@
 }
 
 @media screen and (max-width: 1550px) {
-    #million {
-        position: absolute;
-        left: 35%;
-        top: 30%;
-        font-size: 1.5vw;
-        background-color: rgb(255, 255, 255, 20%);
+    input {
+        width: 80%;
     }
-    #calculate {
-        background-color: lightgray;
-        color: #006699;
-        font-size: 1.5vw;
-        width: fit-content;
-        height: fit-content;
+    #million {
+        width: 50%;
     }
 }

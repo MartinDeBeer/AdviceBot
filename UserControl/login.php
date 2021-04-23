@@ -10,9 +10,10 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="userControl">
-        <h1 class="form-title">Login</h1>
+    
+    <div class="userControl" style="width: 35%">
         <div id="login">
+            <h1 class="form-title">Login</h1>
             <form class="inputForm" action="login.php" method="post">
                 <!-- form validation messages -->
                 <?php include('messages.php'); ?>

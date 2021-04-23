@@ -3,10 +3,12 @@ div {
 }
 
 #retirement {
-    position: absolute;
-    left: 20%;
-    width: max-content;
+    display: flex;
+    margin: auto;
+    bottom: -70px;
+    width: 80%;
     background-color: rgb(255, 255, 255, 20%);
+    box-shadow: 0 0 20px 20px #006699;
 }
 
 table tr td {
@@ -17,22 +19,31 @@ td:nth-child(even) {
     width: fit-content;
 }
 
+h1 {
+    margin-bottom: 50px;
+}
+
 #div1 {
     padding: 20px;
-    float: left;
+    width: 100%;
 }
 
 #div2 {
     padding: 20px;
-    float: right;
+    width: 100%;
 }
 
 .btn {
     width: fit-content;
-    height: 100%;
+    height: fit-content;
     font-size: 15px;
     background-color: lightgray;
     color: #006699;
+}
+
+#follow {
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 table th {
@@ -45,9 +56,9 @@ table th {
 
 @media screen and (max-width: 1550px) {
     #retirement {
-        position: absolute;
-        left: 13%;
-        width: max-content;
+        position: relative;
+        top: 50px;
+        width: 90%;
         background-color: rgb(255, 255, 255, 20%);
     }
 }

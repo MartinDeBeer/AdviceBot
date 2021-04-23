@@ -65,12 +65,15 @@
                     </tr>
                     <tr>
                         <td>Please confirm your password</td>
-                        <td><input type="password" id="passConf" name="passConf" onfocusout="checkInput('passConf')" onchange="checkPass()"> *</td>
+                        <td><input type="password" id="passConf" name="passConf" oninput="checkInput('passConf')"> *</td>
                         <td><p class="error" id="passConfError"></p></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><button id="createUser" type="submit" name="createUser">Register</button></td>
+                        <td><button id="createUser" type="submit" name="createUser" disabled>Register</button></td>
+                    </tr>
+                    <tr>
+                        <td>Already have an account? <a href="login.php">Login</a></td>
                     </tr>
                 </table>
             </form>
