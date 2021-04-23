@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Stylesheets/styles.css" type="text/css" rel="stylesheet" />
     <link href="Stylesheets/report.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" /> 
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
     <script src="Scripts/reports.js"></script>
     <title>Report</title>
     <script>
@@ -30,7 +30,7 @@
         <?php
             session_start();
 
-            include('connectDB.php');
+            include('dataPages/connectDB.php');
 
             $autoID = $_SESSION['autoID'];
             $select = "select * from report where userID = '$autoID' and reportID=(select max(reportID) from report)";
@@ -45,10 +45,10 @@
                 echo '<tr><td>Savings: ' . '<td><progress id="savings" value="' . $row['savings'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'savings\')">Click here for full report</a>' . '</tr></td>';
                 echo '<tr><td>Retirement: ' . '<td><progress id="retirement" value="' . $row['retirement'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'retirement\')">Click here for full report</a>' . '</tr></td>';
                 if($row['will'] != 0){
-                    echo '<tr><td>Will:</td>' . '<td> Yes </td>' . '<td><a href="#" onclick="spec(\'will\')">Click here for full report</a></td></tr>'; 
+                    echo '<tr><td>Will:</td>' . '<td> Yes </td>' . '<td><a href="#" onclick="spec(\'will\')">Click here for full report</a></td></tr>';
                 }
                 else{
-                    echo '<tr><td>Will:</td>' . '<td> No </td>' . '<td><a href="#" onclick="spec(\'will\')">Click here for full report</a></td></tr>'; 
+                    echo '<tr><td>Will:</td>' . '<td> No </td>' . '<td><a href="#" onclick="spec(\'will\')">Click here for full report</a></td></tr>';
                 }
                 if($row['shortTerm'] != 0){
                     echo '<tr><td>Short Term: </td>' . '<td> Yes </td>' . '<td><a href="#" onclick="spec(\'shortTerm\')">Click here for full report</a></td></tr>';
@@ -61,10 +61,10 @@
                 echo "Error: " . mysqli_error($conn);
             }
 
-            
+
         ?>
     </div>
 
-    
+
 </body>
-</html> 
+</html>

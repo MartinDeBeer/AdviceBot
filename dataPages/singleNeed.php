@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Stylesheets/singleNeed.css">
     <script src="../Scripts/single.js" type="text/javascript"></script>
     <title>AdviceBot: Single Need</title>
-    <?php include('appLogic.php'); ?> 
+    <?php include('autoMail.php'); ?> 
 </head>
 <body>
     <?php

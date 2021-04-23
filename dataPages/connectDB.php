@@ -1,6 +1,6 @@
 <?php
 
-$host = 'localhost';
+$host = '192.168.8.172';
 $username = 'root';
 $pass = '';
 $db = 'advicebot';
