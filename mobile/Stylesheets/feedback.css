@@ -1,0 +1,29 @@
+html {
+    background: url(../Images/side.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    font-size: 4vw;
+}
+
+form {
+    position: absolute;
+    top: 20%;
+}
+
+textarea {
+    width: 90vw;
+}
+
+input,
+textarea {
+    font-size: 4vw;
+}
+
+hr {
+    width: 85vw;
+}

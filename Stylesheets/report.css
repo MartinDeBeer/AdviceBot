@@ -1,0 +1,12 @@
+#priorityIndicator {
+    font-size: 1vw;
+    color: #006699;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #006699;
+}

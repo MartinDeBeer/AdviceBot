@@ -1,0 +1,32 @@
+html {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: url("../Images/side.jpg") no-repeat center;
+    background-size: cover;
+    height: 100%;
+    z-index: -100;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 2.5vw;
+}
+
+h1 {
+    text-align: center;
+}
+
+#million {
+    position: relative;
+    left: 5em;
+    width: fit-content;
+    background-color: rgb(255, 255, 255, 20%);
+}
+
+#calculate {
+    background-color: lightgray;
+    color: #006699;
+    width: fit-content;
+    height: fit-content;
+}
+
+#result {
+    color: #006699;
+}

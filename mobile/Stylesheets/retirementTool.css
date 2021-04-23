@@ -1,0 +1,42 @@
+html {
+    background: url("../Images/side.jpg") no-repeat center center fixed;
+    background-size: cover;
+    bottom: 0;
+    right: 0;
+    z-index: -100;
+    background-color: gray;
+    overflow: visible;
+    overflow-x: hidden;
+}
+
+body {
+    overflow: visible;
+    overflow-x: hidden;
+}
+
+td:nth-child(even) {
+    width: 60%;
+    text-align: center;
+}
+
+td:nth-child(odd) {
+    width: 40%;
+}
+
+table {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 100vw;
+    float: left;
+}
+
+input {
+    width: fit-content;
+    font-size: 2.5vw;
+}
+
+.btn {
+    background-color: darkgrey;
+    color: #006699;
+    font-weight: 600;
+    padding: 3px;
+}

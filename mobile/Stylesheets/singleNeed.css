@@ -1,0 +1,11 @@
+.error {
+    color: red;
+}
+
+table td {
+    height: max-content;
+}
+
+td:nth-child(3) {
+    width: 100%;
+}

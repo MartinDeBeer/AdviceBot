@@ -1,0 +1,13 @@
+html {
+    background: url("../Images/side.jpg") no-repeat center;
+    background-size: cover;
+    height: 100%;
+    z-index: -100;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: gray;
+}
+
+body {
+    font-size: 3vw;
+}

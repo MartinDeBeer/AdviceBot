@@ -1,0 +1,208 @@
+/* Global Styles */
+
+html {
+    background: url(../Images/side.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+body {
+    height: 90vh;
+    position: relative;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.logo {
+    position: absolute;
+    float: right;
+    top: 3%;
+    right: 50%;
+    background-repeat: no-repeat;
+    float: right;
+    width: 60vw;
+}
+
+#logoImage {}
+
+
+/* Home Page */
+
+#menu {
+    max-height: 80%;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    color: #006699;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    text-align: center;
+    padding: 4px;
+    font-family: Tahoma;
+}
+
+a:visited {
+    color: blue;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menuBtn {
+    background-color: lightgray;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #006699;
+    border: none;
+    font-size: 3vw;
+    width: 100px;
+    padding: 5px;
+}
+
+.menuBtn:hover {
+    background-color: grey;
+}
+
+
+/* Dropdown Button */
+
+.dropbtn {
+    background-color: lightgray;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #006699;
+    font-size: 3vw;
+    height: fit-content;
+    padding: 8px;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    font-size: 3vw;
+    background-color: #f1f1f1;
+    width: max-content;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: #006699;
+    width: 100%;
+    background-color: lightgrey;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: gray;
+}
+
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    color: #006699;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {
+    background-color: gray;
+}
+
+#singleNeed {
+    position: absolute;
+    left: 1%;
+    top: 40%;
+    text-align: left;
+}
+
+.singleButton {
+    background-color: lightgrey;
+    width: 100%;
+    font-size: 3vw;
+    border: 1px groove;
+    color: #006699;
+}
+
+.singleButton:hover {
+    background-color: gray;
+}
+
+#RoboHelp {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+}
+
+
+/* IFAA Styles */
+
+.videoPlayer {
+    width: 85%;
+    height: auto;
+}
+
+#otherPage {
+    position: absolute;
+    top: 40%;
+    height: max-content;
+}
+
+footer {
+    text-align: left;
+    background-color: lightgray;
+    position: absolute;
+    bottom: 0;
+    width: fit-content;
+    height: auto;
+    color: grey;
+    font-family: Tahoma;
+}
+
+#footerTable {
+    width: fit-content;
+    font-size: 3.5vw;
+    color: grey;
+}
+
+#footerTable a {
+    color: #006699;
+}
+
+.inputForm {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+
+#socials {
+    position: relative;
+    top: 60vh;
+    font-size: 2vw;
+}

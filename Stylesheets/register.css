@@ -1,0 +1,44 @@
+#register {
+    position: relative;
+    left: 10%;
+}
+
+#login {
+    position: relative;
+    font-size: 1vw;
+    left: 30%;
+}
+
+.userControl {
+    background-color: rgb(255, 255, 255, 30%);
+    padding-right: 10em;
+    width: fit-content;
+    position: absolute;
+    left: 35%;
+    top: 25%;
+    color: #006699;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    color: white;
+}
+
+button {
+    width: 100%;
+    background-color: darkgray;
+    color: #006699;
+}
+
+@media screen and (max-width: 1550px) {
+    #userControl {
+        background-color: rgb(255, 255, 255, 30%);
+        width: 70%;
+        position: absolute;
+        left: 15%;
+        top: 25%;
+        color: #006699;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        ;
+    }
+}

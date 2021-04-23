@@ -1,0 +1,92 @@
+#tip {
+    color: orange;
+    font-size: large;
+    width: 300px;
+    visibility: hidden;
+}
+
+#questions {
+    position: absolute;
+    width: 30%;
+    color: #006699;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#answers {
+    height: 1px;
+    visibility: hidden;
+}
+
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 30px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 8px;
+    background-color: #66ff33;
+}
+
+#roboAdvice {
+    position: absolute;
+    left: 50vw;
+    width: 30vw;
+}
+
+#Budget {
+    position: absolute;
+    font-size: 15px;
+    top: 20%;
+}
+
+#Budget h1 {
+    visibility: hidden;
+}
+
+#registered {
+    position: absolute;
+    top: 40%;
+}
+
+#vid {
+    width: 30vw;
+}
+
+#submitAnswers {
+    position: relative;
+    top: 25vh;
+}
+
+@media screen and (max-width: 1550px) {
+    #Budget {
+        position: absolute;
+        font-size: 15px;
+        top: 40%;
+    }
+    #reg {
+        position: absolute;
+        top: 25%;
+    }
+    #start {
+        position: absolute;
+        top: 25%;
+    }
+    #questions {
+        position: absolute;
+        width: 30%;
+        color: #006699;
+        font-size: 20px;
+        top: 30%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+}

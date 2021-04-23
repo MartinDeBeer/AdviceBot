@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: darkgrey;
+    /* overflow: hidden; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    margin: 0;
+}
+
+
+/* Robot Video */
+
+#vid {
+    position: static;
+    width: 100vw;
+    height: auto;
+    top: 0;
+    left: 0;
+}
+
+
+/* Body */
+
+#content {
+    padding: 0 5%;
+}
+
+
+/* Progress Bar */
+
+progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 35%;
+    height: 30px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 8px;
+    background-color: #66ff33;
+}
+
+#questionProgress {
+    width: 100%;
+}
+
+
+/* Answers */
+
+#answers {
+    visibility: hidden;
+}
+
+
+/* Budget */
+
+#Budget {
+    position: relative;
+    right: 40%;
+    /* font-size: 3vw; */
+}
+
+#Budget h1 {
+    visibility: hidden;
+}
+
+#Budget td:nth-child(even) {
+    width: 100%;
+}
+
+#Budget td:nth-child(odd) {
+    width: 50%;
+}
+
+#Budget #budgetContent {
+    font-size: 3vw;
+    width: 100vw;
+}
+
+#Budget table {
+    width: 100vw;
+    padding: 5px;
+    background-color: rgb(255, 255, 255, 20%);
+}
+
+#Budget label {
+    font-size: 3.5vw;
+}
+
+#Budget .budgetInput {
+    width: 80%;
+}
+
+#Budget th {
+    text-align: left;
+    font-size: 3vw;
+}
+
+#Budget .calcBtn {
+    background-color: lightgray;
+    color: #006699;
+    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
+    font-size: 2.5vw;
+}

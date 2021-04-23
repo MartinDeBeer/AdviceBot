@@ -1,0 +1,51 @@
+html {
+    background: url("../Images/side.jpg") no-repeat center center fixed;
+    background-size: cover;
+    bottom: 0;
+    right: 0;
+    z-index: -100;
+    background-color: gray;
+    overflow: visible;
+    overflow-x: hidden;
+}
+
+td:nth-child(even) {
+    width: 100%;
+}
+
+td:nth-child(odd) {
+    width: 50%;
+}
+
+#budgetContent {
+    font-size: 3vw;
+    width: 100vw;
+}
+
+table {
+    width: 100vw;
+    padding: 5px;
+    background-color: rgb(255, 255, 255, 20%);
+}
+
+label {
+    font-size: 3.5vw;
+}
+
+.budgetInput {
+    width: 80%;
+}
+
+th {
+    text-align: left;
+    font-size: 3vw;
+}
+
+.calcBtn {
+    background-color: lightgray;
+    color: #006699;
+    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
+    font-size: 2.5vw;
+}

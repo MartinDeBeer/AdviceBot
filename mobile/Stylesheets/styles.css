@@ -1,0 +1,191 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: darkgrey;
+    overflow: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    overflow: hidden;
+}
+
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translateX(calc((100% - 100vw) / 2));
+    opacity: 50%;
+    z-index: -100;
+}
+
+header {
+    position: relative;
+    width: 100%;
+}
+
+#menu,
+#menu .dropdown {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#menu {
+    padding: 0 5%;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.menuBtn,
+.dropbtn {
+    width: 100%;
+    font-size: 2.5vw;
+    color: #006699;
+    background-color: lightgrey;
+    font-weight: 600;
+}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    font-size: 20px;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+    color: #006699;
+    width: 100%;
+    background-color: lightgrey;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: gray;
+}
+
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    color: #006699;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {
+    background-color: gray;
+}
+
+.logo {
+    width: 35vw;
+}
+
+#goal {
+    position: relative;
+    left: 30%;
+    bottom: 17vh;
+    font-size: 3vw;
+    width: 65%;
+    height: fit-content;
+    border: 1px black solid;
+    color: #000000;
+    background-color: rgb(128, 128, 128, 70%);
+}
+
+#goal p {
+    padding: 0 5px;
+}
+
+#welcome {
+    position: relative;
+    bottom: 20vh;
+}
+
+#userControl {
+    position: fixed;
+}
+
+#homePage {
+    position: relative;
+    bottom: 15vh;
+    text-align: center;
+    padding: 0 20%;
+    height: 40vh;
+    margin-bottom: 1%;
+}
+
+.singleButton {
+    font-size: 3vw;
+    width: 100%;
+}
+
+
+/* -------------- Social Media ------------------ */
+
+#socials {
+    position: relative;
+    left: 30%;
+    bottom: 15vh;
+}
+
+.social {
+    width: 10vw;
+    padding: 3px;
+}
+
+
+/* ------------- Footer ---------------- */
+
+footer {
+    position: relative;
+    bottom: 15vh;
+    background-color: lightgray;
+    height: fit-content;
+    color: grey;
+    width: 100%;
+}
+
+#div1,
+#div2 {
+    display: flex;
+}
+
+#div1 .footerBtn,
+#div2 .footerBtn {
+    width: 100%;
+    color: #006699;
+    background-color: lightgrey;
+    font-weight: 600;
+}

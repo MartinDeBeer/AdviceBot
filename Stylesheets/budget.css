@@ -1,0 +1,57 @@
+td:nth-child(even) {
+    width: fit-content;
+}
+
+td:nth-child(odd) {
+    width: 300px;
+}
+
+#budgetContent {
+    position: absolute;
+    font-size: 25px;
+    left: 35%;
+    top: 7%;
+}
+
+table {
+    padding: 10px;
+    background-color: rgb(255, 255, 255, 20%);
+}
+
+label {
+    font-size: 25px;
+}
+
+th {
+    font-size: 20px;
+}
+
+.calcBtn {
+    background-color: lightgray;
+    color: #006699;
+    font-size: larger;
+    font-weight: bold;
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1550px) {
+    #budgetContent {
+        position: absolute;
+        font-size: 1.5vw;
+        left: 35%;
+        top: 10%;
+    }
+    .calcBtn {
+        background-color: lightgray;
+        color: #006699;
+        width: fit-content;
+    }
+    label {
+        font-size: 1.5vw;
+    }
+    th {
+        font-size: 1.5vw;
+    }
+}

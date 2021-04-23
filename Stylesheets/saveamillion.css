@@ -1,0 +1,36 @@
+#million {
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    font-size: 25px;
+    background-color: rgb(255, 255, 255, 20%);
+}
+
+#calculate {
+    background-color: lightgray;
+    color: #006699;
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+#result {
+    color: #006699;
+}
+
+@media screen and (max-width: 1550px) {
+    #million {
+        position: absolute;
+        left: 35%;
+        top: 30%;
+        font-size: 1.5vw;
+        background-color: rgb(255, 255, 255, 20%);
+    }
+    #calculate {
+        background-color: lightgray;
+        color: #006699;
+        font-size: 1.5vw;
+        width: fit-content;
+        height: fit-content;
+    }
+}

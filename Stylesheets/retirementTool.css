@@ -1,0 +1,53 @@
+div {
+    font-size: 1vw;
+}
+
+#retirement {
+    position: absolute;
+    left: 20%;
+    width: max-content;
+    background-color: rgb(255, 255, 255, 20%);
+}
+
+table tr td {
+    width: 350px;
+}
+
+td:nth-child(even) {
+    width: fit-content;
+}
+
+#div1 {
+    padding: 20px;
+    float: left;
+}
+
+#div2 {
+    padding: 20px;
+    float: right;
+}
+
+.btn {
+    width: fit-content;
+    height: 100%;
+    font-size: 15px;
+    background-color: lightgray;
+    color: #006699;
+}
+
+table th {
+    text-align: center;
+}
+
+.step {
+    color: #006699;
+}
+
+@media screen and (max-width: 1550px) {
+    #retirement {
+        position: absolute;
+        left: 13%;
+        width: max-content;
+        background-color: rgb(255, 255, 255, 20%);
+    }
+}
