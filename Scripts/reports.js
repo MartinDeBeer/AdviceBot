@@ -4,3 +4,8 @@ function tellMore(id) {
     let body = 'Name: ' + '%0a' + 'Surname: ' + '%0a' + 'ID Number: ' + '%0a' + 'Cellphone Number: ' + '%0a' + 'Ask a question: ';
     window.location.href = "mailto:" + address + "?subject=" + subject + "&body=" + body;
 }
+
+function haveCover(id) {
+    document.getElementById('amounts').style.visibility = "visible";
+
+}

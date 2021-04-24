@@ -9,7 +9,7 @@
     <title>Disability</title>
     <?php
         session_start();
-        include("../connectDB.php");
+        include("../dataPages/connectDB.php");
         $userID = $_SESSION['autoID'];
         $getMarriage = "select marriage, children, salaryAmount, liabilities from answers where userID = '$userID'";
         $result = mysqli_query($conn, $getMarriage);
@@ -37,10 +37,10 @@
     <p>The amount of cover needed will depend on your specific circumstances. You mentioned that your marriage status is <?php if($marriageStatus == "yes"){echo "married";}else{echo "single";} ?> and that you <?php if($kidsStatus == "yes"){echo "have dependents";}else{echo "don't have dependents";} ?>. You earn an income of R<?php echo $salary; ?> and have liabilities of R<?php echo $liabilities; ?>. As a rule of thumb, the minimum amount of Disability cover you will need is 6 (six) times income plus liabilities.</p>
     <p>In your instance R<?php echo $lifeCoverAmount; ?></p>
 
-    <button>I have Disability and Trauma cover</button>
+    <button id="trauma" onclick="haveCover('trauma')">I have Disability and Trauma cover</button>
     <input id="disability" type="button" value="I don't have disability cover" onclick="tellMore('disability')">
 
-    <div id="amounts">
+    <div id="amounts" style="visibility: hidden;">
         <table>
             <tr>
                 <td>Amount of Disability Cover</td>

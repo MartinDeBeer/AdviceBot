@@ -8,7 +8,7 @@
     <title>Life Cover</title>
     <?php
         session_start();
-        include("../connectDB.php");
+        include("../dataPages/connectDB.php");
         $userID = $_SESSION['autoID'];
         $getMarriage = "select marriage, children, salaryAmount, liabilities from answers where userID = '$userID'";
         $result = mysqli_query($conn, $getMarriage);

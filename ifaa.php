@@ -55,7 +55,7 @@
 
 
     <!-- Form to submit data -->
-    <form action="dataPost.php" method="POST">
+    <form action="dataPages/dataPost.php" method="POST">
 
         <!-- Ajax Budget -->
         <div id="Budget"></div>

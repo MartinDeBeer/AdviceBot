@@ -34,12 +34,13 @@
 
             $autoID = $_SESSION['autoID'];
             $select = "select * from report where userID = '$autoID' and reportID=(select max(reportID) from report)";
-            echo $autoID;
 
             $result = mysqli_query($conn, $select);
 
             if(mysqli_num_rows($result) > 0){
                 $row = mysqli_fetch_assoc($result);
+                echo '<h3>The progress bars show which one of these types of insurance are important for your portfolio</h3>';
+                echo '<h4>Please tick the boxes of the type of insurance you have queries about and click submit. An email will be sent to us so we can get in touch with you</h4>';
                 echo "<table id='report'>";
                 echo '<tr><td>Death: </td>' . '<td><progress id="death" value="' . $row['deathCover'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'lifeCover\')">Click here for full report</a>' . '</tr></td>';
                 echo '<tr><td>Disability: ' . '<td><progress id="disability" value="' . $row['disability'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'disability\')">Click here for full report</a>' . '</tr></td>';
@@ -59,7 +60,7 @@
                 }
             }
             else{
-                echo "Error: " . "Nothing to show, you lazy fucker";
+                echo "Error: " . mysqli_error($conn);
             }
 
 
