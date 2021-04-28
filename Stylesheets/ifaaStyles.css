@@ -10,7 +10,7 @@
 }
 
 #questions {
-    position: absolute;
+    position: static;
     width: 30%;
     color: #006699;
     font-size: 20px;
@@ -55,6 +55,12 @@ progress[value]::-moz-progress-bar {
     left: 50vw;
     width: 30vw;
 }
+
+
+/* #buttons {
+    position: relative;
+    top: 20vh;
+} */
 
 #Budget {
     position: absolute;

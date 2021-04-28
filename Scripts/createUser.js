@@ -139,6 +139,28 @@ function checkInput(id) {
                 console.log(errors);
             }
             break;
+        case 'cell':
+            if (document.getElementById(id).value == "") {
+                errors.push("Cellphone number is empty");
+                for (let i = 0; i < errors.length; i++) {
+                    if (errors[i] === "Cellphone number is empty") {
+                        document.getElementById('cellError').innerText = errors[i].toString();
+                    }
+                }
+            } else if (document.getElementById(id).value.length < 10) {
+                errors.push("Cellphone number is too short");
+                for (let i = 0; i < errors.length; i++) {
+                    if (errors[i] === "Cellphone number is too short") {
+                        document.getElementById('cellError').innerText = errors[i].toString();
+                    }
+                }
+            } else {
+                removeError('Cellphone number is empty');
+                removeError('Cellphone number is too short');
+                document.getElementById('cellError').innerText = "";
+                console.log(errors);
+            }
+            break;
         case 'passConf':
             if (document.getElementById(id).value == "") {
                 errors.push("Password confirmation is empty");
@@ -160,7 +182,7 @@ function checkInput(id) {
                 document.getElementById('passConfError').innerText = "";
                 console.log(errors);
             }
-            if(document.getElementById('passConf').value === document.getElementById('pass').value){
+            if (document.getElementById('passConf').value === document.getElementById('pass').value) {
                 document.getElementById('createUser').disabled = false;
             }
             break;

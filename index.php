@@ -21,15 +21,14 @@
 </head>
 <body>
     <?php session_start(); ?>
-    <div id="wrapper">
+    <div class="wrapper">
         <header>            
             <!-- Logo -->
             <img class="logo" src="Images/Logo.png" alt="Advicebot Logo" onclick="window.location.href='index.php'"/>
 
             <!-- Menu -->
-            <nav id="menu">
+            <nav class="menu">
                 <button id="home" class="menuBtn" onclick="window.location.href='index.php'" >Home</button> 
-                <button id="ifaa" class="menuBtn" onclick="questions()" >Get Advice</button>
                 <div class="dropdown">
                     <button class="dropbtn menuBtn">Tools</button>
                     <div class="dropdown-content">
@@ -38,12 +37,13 @@
                         <a href="Tools/retirement.php" >Retirement Tool</a>
                     </div>
                 </div>
-                <button id="about" class="menuBtn">About Us</button>
-                <button id="contact" class="menuBtn">Contact Us</button>
+                <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
+                <button id="contact" class="menuBtn" onclick="window.location.href='contact.php'">Contact Us</button>
                 <?php
                 if(isset($_SESSION['emailAddress'])){
                     echo '<button id="logout" class="menuBtn" onclick="window.location.href=\'UserControl/logout.php\'">Log Out </button>' .
-                    '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>';
+                    '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>'. 
+                    '<button id="ifaa" class="menuBtn" onclick="questions()" >Get Advice</button>';
                 }else {
                     echo '<button id="register" class="menuBtn" onclick="window.location.href=\'UserControl/register.php\'" >Sign Up</button>';
                     echo '<button id="login" class="menuBtn" onclick="window.location.href=\'UserControl/login.php\'" >Log In</button>';

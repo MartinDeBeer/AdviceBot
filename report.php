@@ -25,47 +25,51 @@
 </head>
 <body>
     <div id="specReport"></div>
-    <div id="priorityIndicator">
-    <h1 style="text-align: center;">Priority Indicator</h1>
-        <?php
-            session_start();
+    <form action="dataPages/autoMail.php" method="post">
+        <div id="priorityIndicator">
+            <h1 style="text-align: center;">Priority Indicator</h1>
+            <?php
+                session_start();
 
-            include('dataPages/connectDB.php');
+                include('dataPages/connectDB.php');
 
-            $autoID = $_SESSION['autoID'];
-            $select = "select * from report where userID = '$autoID' and reportID=(select max(reportID) from report)";
+                $autoID = $_SESSION['autoID'];
+                $select = "select * from report where userID = '$autoID' and reportID=(select max(reportID) from report)";
 
-            $result = mysqli_query($conn, $select);
+                $result = mysqli_query($conn, $select);
 
-            if(mysqli_num_rows($result) > 0){
-                $row = mysqli_fetch_assoc($result);
-                echo '<h3>The progress bars show which one of these types of insurance are important for your portfolio</h3>';
-                echo '<h4>Please tick the boxes of the type of insurance you have queries about and click submit. An email will be sent to us so we can get in touch with you</h4>';
-                echo "<table id='report'>";
-                echo '<tr><td>Death: </td>' . '<td><progress id="death" value="' . $row['deathCover'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'lifeCover\')">Click here for full report</a>' . '</tr></td>';
-                echo '<tr><td>Disability: ' . '<td><progress id="disability" value="' . $row['disability'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'disability\')">Click here for full report</a>' . '</tr></td>';
-                echo '<tr><td>Savings: ' . '<td><progress id="savings" value="' . $row['savings'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'savings\')">Click here for full report</a>' . '</tr></td>';
-                echo '<tr><td>Retirement: ' . '<td><progress id="retirement" value="' . $row['retirement'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'retirement\')">Click here for full report</a>' . '</tr></td>';
-                if($row['will'] != 0){
-                    echo '<tr><td>Will:</td>' . '<td> Yes </td>' . '<td><a href="#" onclick="spec(\'will\')">Click here for full report</a></td></tr>';
+                if(mysqli_num_rows($result) > 0){
+                    $row = mysqli_fetch_assoc($result);
+                    echo '<h3>The progress bars show which one of these types of insurance are important for your portfolio</h3>';
+                    echo '<h4>Please tick the boxes of the type of insurance you have queries about and click submit.<br> An email will be sent to us so we can get in touch with you</h4>';
+                    echo "<table id='report'>";
+                    echo '<tr><td></td><td></td><td>Select All</td><td><input id="checkAll" name="checkAll" type="checkbox" onclick="checkBoxes()"></td></tr>';
+                    echo '<tr><td>Death: </td>' . '<td><progress id="death" value="' . $row['deathCover'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'lifeCover\')">Click here for full report</a>' . '</td><td><input id="deathCheck" class="check" name="deathCheck" type="checkbox"></td></tr>';
+                    echo '<tr><td>Disability: ' . '<td><progress id="disability" value="' . $row['disability'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'disability\')">Click here for full report</a>' . '</td><td><input id="disabilityCheck" class="check" name="disabilityCheck" type="checkbox"></td></td></tr>';
+                    echo '<tr><td>Savings: ' . '<td><progress id="savings" value="' . $row['savings'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'savings\')">Click here for full report</a>' . '</td><td><input id="savingsCheck" class="check" name="savingsCheck" type="checkbox"></td></td></tr>';
+                    echo '<tr><td>Retirement: ' . '<td><progress id="retirement" value="' . $row['retirement'] .'" max="65"></progress></td>' . '<td><a href="#" onclick="spec(\'retirement\')">Click here for full report</a>' . '</td><td><input id="retirementCheck" class="check" name="retirementCheck" type="checkbox"></td></td></tr>';
+                    if($row['will'] != 0){
+                    }
+                    else{
+                        echo '<tr><td>Will:</td>' . '<td> No </td>' . '<td><a href="#" onclick="spec(\'will\')">Click here for full report</a></td><td><input id="willCheck" class="check" name="willCheck" type="checkbox"></td></tr>';
+                    }
+                    if($row['shortTerm'] != 0){
+                        echo '<tr><td>Short Term: </td>' . '<td> Yes </td>' . '<td><a href="#" onclick="spec(\'shortTerm\')">Click here for full report</a></td><td><input id="shortTermCheck" class="check" name="shortTermCheck" type="checkbox"></td></tr>';
+                        echo '</table>';
+                    }
+                    else{
+                        echo '<tr><td>Short Term: </td>' . '<td> No </td>' . '<td><a href="#" onclick="spec(\'shortTerm\')">Click here for full report</a></td><td><input id="shortTermCheck" class="check" name="shortTermCheck" type="checkbox"></td></tr>';
+                        echo '</table>';
+                    }
                 }
                 else{
-                    echo '<tr><td>Will:</td>' . '<td> No </td>' . '<td><a href="#" onclick="spec(\'will\')">Click here for full report</a></td></tr>';
+                    echo "Error: " . mysqli_error($conn);
                 }
-                if($row['shortTerm'] != 0){
-                    echo '<tr><td>Short Term: </td>' . '<td> Yes </td>' . '<td><a href="#" onclick="spec(\'shortTerm\')">Click here for full report</a></td></tr>';
-                }
-                else{
-                    echo '<tr><td>Short Term: </td>' . '<td> No </td>' . '<td><a href="#" onclick="spec(\'shortTerm\')">Click here for full report</a></td></tr>';
-                }
-            }
-            else{
-                echo "Error: " . mysqli_error($conn);
-            }
-
-
-        ?>
-    </div>
+            ?>
+        </div>
+        <button type="submit" name="coverChosen">Submit</button>
+    </form>
+    
 
 
 </body>

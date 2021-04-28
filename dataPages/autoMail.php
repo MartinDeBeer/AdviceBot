@@ -29,10 +29,10 @@
         }
 
         if($valid){
-            ini_set("SMTP", "smtp.afrihost.co.za");
-            ini_set("smtp_port", 25);
-            ini_set("sendmail_from", "no-reply@advicebot.co.za");
-            $to = 'admin@advicebot.co.za';
+            // ini_set("SMTP", "smtp.afrihost.co.za");
+            // ini_set("smtp_port", 25);
+            // ini_set("sendmail_from", "no-reply@advicebot.co.za");
+            $to = 'root@localhost';
             $subject = $_POST['subject'];
             $msg = "
             <html>
@@ -83,7 +83,7 @@
 
 
         // Recipient
-        $to = 'admin@advicebot.co.za';
+        $to = 'root@localhost';
 
         // Sender
         $from = 'no-reply@advicebot.co.za';
@@ -149,6 +149,59 @@
 
         }else{
         echo "<h1>Email sending failed.</h1>";
+        }
+    }
+
+    if(isset($_POST['coverChosen'])){
+        $firstName = $_SESSION['firstName'];
+        $surname = $_SESSION['lastName'];
+        $idNum = $_SESSION['userID'];
+        $email = $_SESSION['emailAddress'];
+        $cell = $_SESSION['cell'];
+        if(isset($_POST['checkAll'])){
+            // ini_set("SMTP", "smtp.afrihost.co.za");
+            // ini_set("smtp_port", 25);
+            // ini_set("sendmail_from", "no-reply@advicebot.co.za");            
+            $to = 'root@localhost';
+            $subject = "I am interested in all of the options offered.";
+            $msg = "
+            <html>
+            <head>
+            <title>HTML email</title>
+            </head>
+            <body>
+            <p>First Name: " . $firstName . "</p>
+            <p>Last Name: " . $surname . "</p>
+            <p>Email Address: " . $email . "</p>
+            <p>ID Number: " . $idNum . "</p>
+            <p>Cellphone Number: " . $cell . "</p>
+            </body>
+            </html>
+            ";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+            $headers .= "From: <martin@advicebot.co.za>" . "\r\n";
+            $mail = @mail($to, $subject, $msg, $headers);
+            if($mail){
+                echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
+                header('location: ../index.php');
+            }else{
+                echo "Mail not sent.";
+            }
+        }
+        else{
+            $subject;
+            foreach($_POST as $post => $value){      
+                if($post == "coverChosen"){
+                    break;
+                }          
+                $subject = [];
+                array_push($subject, $post);
+                for($i = 0; $i < count($subject); $i++){  
+                    $subject += $insurance[$i] . " ";
+                }
+            }
+            echo $subject;
         }
     }
 

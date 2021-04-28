@@ -26,9 +26,6 @@
 
         ?>
     </div>
-    <div id="buttons" style="visibility: hidden;">
-        <input type="submit" id="start" value="Next" onclick="showQuestion()" />
-    </div>
     
 
 
@@ -61,6 +58,9 @@
         <div id="Budget"></div>
         <!-- Ajax Questions -->
         <div id='questions'></div><br>
+        <div id="buttons" style="visibility: hidden;">
+            <input type="button" id="start" value="Next" onclick="showQuestion()" />
+        </div>
         <div id="typewriterQuestions"></div>
         <!-- Answers to be posted -->
         <div id="answers" >

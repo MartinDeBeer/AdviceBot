@@ -8,7 +8,7 @@ html {
     overflow: hidden;
 }
 
-#wrapper {
+.wrapper {
     height: 95vh;
 }
 
@@ -22,7 +22,7 @@ header {
     top: 15px;
 }
 
-#menu {
+.menu {
     position: relative;
     display: flex;
     float: right;
@@ -36,9 +36,8 @@ header {
     color: #006699;
     margin: .1em;
     font-size: 1vw;
-    ;
     height: 2em;
-    border: 2px groove;
+    border: 2px solid;
     border-radius: 8px;
 }
 
@@ -119,7 +118,7 @@ header {
     width: 100%;
     font-size: 1.5vw;
     padding: 2px;
-    border: 2px groove;
+    border: 2px solid;
     color: #006699;
 }
 

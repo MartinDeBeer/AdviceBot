@@ -19,6 +19,7 @@
         $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
         $emailAddress = mysqli_real_escape_string($conn, $_POST['emailAddress']);
         $pass = mysqli_real_escape_string($conn, $_POST['pass']);
+        $cell = mysqli_real_escape_string($conn, $_POST['cell']);
 
         // Get session ID
         $s = "select * from users where userID = '$userID'";
@@ -50,7 +51,7 @@
         // Create User
         if(count($errors) == 0){
           $pass = md5($pass);
-          $createUser = "INSERT INTO users VALUES (Null, '$userID', $age, '$gender', '$firstName', '$lastName','$emailAddress', '$pass')";
+          $createUser = "INSERT INTO users VALUES (Null, '$userID', $age, '$gender', '$firstName', '$lastName','$emailAddress', '$pass', $cell)";
           $results = mysqli_query($conn, $createUser);
           $result = mysqli_query($conn, $s);
           $row = mysqli_fetch_array($result);
@@ -87,8 +88,10 @@
           $_SESSION['autoID'] = $row['autoID'];
           $_SESSION['userID'] = $row['userID'];
           $_SESSION['firstName'] = $row['firstName'];
+          $_SESSION['lastName'] = $row['lastName'];
           $_SESSION['age'] = $row['age'];
           $_SESSION['gender'] = $row['gender'];
+          $_SESSION['cell'] = $row['cell'];
           $_SESSION['success'] = "You are now logged in";
           header('location: ../index.php');
         }else {
