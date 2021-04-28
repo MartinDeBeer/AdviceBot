@@ -8,7 +8,7 @@
     <title>Life Cover</title>
     <?php
         session_start();
-        include("../connectDB.php");
+        include("../dataPages/connectDB.php");
         $userID = $_SESSION['autoID'];
         $getMarriage = "select marriage, children, salaryAmount, liabilities from answers where userID = '$userID'";
         $result = mysqli_query($conn, $getMarriage);
@@ -45,17 +45,23 @@
     </ul>
 
     <p>The amount of life cover needed will depend on your specific circumstances. You mentioned that your marriage status is <?php if($marriageStatus == "yes"){echo "married";}else{echo "single";} ?> and that you <?php if($kidsStatus == "yes"){echo "have dependents";}else{echo "don't have dependents";} ?>. You earn an income of R<?php echo $salary; ?> and have liabilities of R<?php echo $liabilities; ?>. As a rule of thumb, the minimum amount of life cover you will need is 6 (six) times income plus liabilities.</p>
-    <p>In your instance R<?php echo $lifeCoverAmount; ?></p>
 
 
-    <button onclick="haveCover()">I have life cover in place</button>
-    <button onclick="tellMore()">Tell me more</button> <br>
+    <button onclick="haveCover()">I have life cover in place</button>    
+    <input id="life" type="button" value="I need life cover" onclick="tellMore('life')"><br>
 
     <div id="amounts" style="visibility: hidden;">
+        
         <label for="lifeCoverAmount">Amount of life cover</label>
-        <input type="text" id="lifeCoverAmount"><br>
-        <input id="life" type="button" value="I need life cover" onclick="tellMore('life')"><br>
-        <button onclick="window.location.href='Reports/permission.php'">I don't know how much life cover I have</button>
+        <input type="text" id="lifeCoverAmount"><br>        
+        <button onclick="window.location.href='Reports/permission.php'">I don't know how much life cover I have</button><br>
+
+        <button onclick="showSupposed('life')">See how much you're supposed to be covered for</button>
+        <div id="supposed" style="visibility: hidden;">
+            <label for="supposedAmount">You should have</label>
+            <input id="supposedAmount" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
+            <p id="diff">The difference between the cover you have and what you should have is</p>
+        </div>
     </div>
     <hr>
 

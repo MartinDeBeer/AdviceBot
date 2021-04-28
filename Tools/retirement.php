@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../Scripts/retirementTool.js"></script>
     <link href="../Stylesheets/styles.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon" /> 
+    <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon" />
     <link href="../Stylesheets/retirementTool.css" type="text/css" rel="stylesheet" />
     <title>Early retirement tool</title>
 </head>
 <body>
     <h1 style="text-align: center;">Early Retirement Calculator</h1>
+    
     <div id="retirement">
         <div id="div1">
+            <h2 id="follow">Follow the steps to see what the earliest age is you can retire at.</h2>
             <h3 class="step">Step 1</h3>
             <table id="currentInvestments">
                 <tr>
@@ -61,7 +63,10 @@
             </table>
 
             <hr>
-            <h3 class="step">Step 2</h3>
+
+        </div>
+        <div id="div2">
+        <h3 class="step">Step 2</h3>
             <table id="expenses">
                 <tr>
                     <th>Current Expenses</th>
@@ -75,13 +80,8 @@
                     <td>Yearly</td>
                     <td>R<input id="yearlyExpenses" type="text" disabled></td>
                 </tr>
-                <tr>
-                    <td><button class="btn" onclick="calcCurrentExp()">Calculate Expenses</button></td>
-                </tr>
-
             </table>
-        </div>
-        <div id="div2">
+            <button class="btn" onclick="calcCurrentExp()">Calculate Expenses</button>
             <!-- Ages -->
             <h3 class="step">Step 3</h3>
             <table id="ages">
@@ -105,10 +105,8 @@
                     <td>Amount needed to retire early</td>
                     <td>R<input id="amountNeeded" type="text" disabled></td>
                 </tr>
-                <tr>
-                    <td><button class="btn" onclick="calculateEarlyAge()">Calculate how much you need to retire early</button></td>
-                </tr>
             </table>
+            <button class="btn" onclick="calculateEarlyAge()">Calculate how much you need to retire early</button>
             <hr>
 
             <!-- New Investments -->
@@ -133,10 +131,8 @@
                     <td>Yearly Additional Investment</td>
                     <td>R<input id="yearlyAddInvestment" type="text" disabled></td>
                 </tr>
-                <tr>
-                    <td><button class="btn" onclick="calculateAddInvestment()" onclick="calculateTime()">Calculate Yearly Additional Investment</button></td>
-                </tr>
             </table>
+            <button class="btn" onclick="calculateAddInvestment()" onclick="calculateTime()">Calculate Yearly Additional Investment</button>
         </div>
     </div>
 </body>

@@ -10,32 +10,72 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="userControl">
-        <h1 class="form-title">Login</h1>
-        <div id="login">
-            <form class="inputForm" action="login.php" method="post">
-                <!-- form validation messages -->
-                <?php include('messages.php'); ?>
-                <table>
-                    <tr>
-                        <td>Email</td>
-                        <td><input type="text" name="emailAddress"></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><button type="submit" name="login_user" class="login-btn">Login</button></td>
-                    </tr>
-                    <tr>
-                        <td>Not a <a href="register.php">member</a>?</td>
-                        <td><a href="enterEmail.php">Forgot your password?</a></td>
-                    </tr>
-                </table>
-            </form>
+    <div class="wrapper">
+    <header>            
+        <!-- Logo -->
+        <img class="logo" src="../Images/Logo.png" alt="Advicebot Logo" onclick="window.location.href='index.php'"/>
+
+        <!-- Menu -->
+        <nav class="menu">
+            <button id="home" class="menuBtn" onclick="window.location.href='index.php'" >Home</button> 
+            <div class="dropdown">
+                <button class="dropbtn menuBtn">Tools</button>
+                <div class="dropdown-content">
+                    <a href="../Tools/budget.php">Budget Tool</a>
+                    <a href="../Tools/saveamillion.php">Save a Million</a>
+                    <a href="../Tools/retirement.php" >Retirement Tool</a>
+                </div>
+            </div>
+            <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
+            <button id="contact" class="menuBtn" onclick="window.location.href='contact.php'">Contact Us</button>
+            <?php
+            if(isset($_SESSION['emailAddress'])){
+                echo '<button id="logout" class="menuBtn" onclick="window.location.href=\'UserControl/logout.php\'">Log Out </button>' .
+                '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>'. 
+                '<button id="ifaa" class="menuBtn" onclick="questions()" >Get Advice</button>';
+            }else {
+                echo '<button id="register" class="menuBtn" onclick="window.location.href=\'register.php\'" >Sign Up</button>';
+            }
+            ?>
+        </nav>
+    </header>
+
+        <div class="userControl" style="width: 35%">
+            <div id="login">
+                <h1 class="form-title">Login</h1>
+                <form class="inputForm" action="login.php" method="post">
+                    <!-- form validation messages -->
+                    <?php include('messages.php'); ?>
+                    <table>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type="text" name="emailAddress"></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button type="submit" name="login_user" class="login-btn">Login</button></td>
+                        </tr>
+                        <tr>
+                            <td>Not a <a href="register.php">member</a>?</td>
+                            <td><a href="enterEmail.php">Forgot your password?</a></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
         </div>
     </div>
+    
+
+    <footer id="footer" style="text-align: center;">
+        <button onclick="window.location.href='Docs/disclosure.php'">Disclosure Agreement</button>
+        <button onclick="window.location.href='Docs/complaints.php'">Complaints Procedure</button>
+        <button onclick="window.location.href='Docs/privacy.php'">Privacy Policy</button>
+        <button onclick="window.location.href='Docs/use.php'">Website Use</button>
+        <button onclick="window.location.href='feedback.php'">Feedback</button>
+    </footer>
 </body>
 </html>

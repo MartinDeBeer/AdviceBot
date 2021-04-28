@@ -18,8 +18,6 @@
         <p>I will help you choose the best Regulation 28 compliant portfolio blend for your specific goals and risk tolerance.</p>
         <p>We can also "rebalance" your portfolio regularly so you can receive the maximum benefit from your portfolio choice.</p>
         <p>Do you contribute to a retirement plan at the moment?</p>
-
-        <p>Do you contribute to a retirement plan at the moment?</p>
         <input type="button" value="I do have a retirement plan" id="haveRetirement" onclick="tellMore('haveRetirement')" >
         <input type="button" value="I don't have a retirement plan" id="noRetirement" onclick="tellMore('noRetirement')">
         <button onclick="window.location.href='Reports/permission.php'">I'm not sure if I have a retirement plan</button>

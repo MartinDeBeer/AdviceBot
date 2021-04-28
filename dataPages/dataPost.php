@@ -74,7 +74,7 @@
 
     if(mysqli_query($conn, $postData) && mysqli_query($conn, $postAnswers)){
         echo "New record created";
-        header('location: report.php');
+        header('location: ../report.php');
     }else{
         echo "Error: " . mysqli_error($conn);
     }

@@ -7,51 +7,43 @@ td:nth-child(odd) {
 }
 
 #budgetContent {
-    position: absolute;
-    font-size: 25px;
-    left: 35%;
-    top: 7%;
+    background-color: rgb(255, 255, 255, 40%);
+    position: relative;
+    top: 50px;
+    margin: auto;
+    width: 50%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    box-shadow: 0 0 20px 20px #006699;
 }
 
 table {
-    padding: 10px;
-    background-color: rgb(255, 255, 255, 20%);
+    margin: auto;
 }
 
 label {
-    font-size: 25px;
+    font-size: 1em;
 }
 
 th {
-    font-size: 20px;
+    font-size: 1em;
 }
 
 .calcBtn {
     background-color: lightgray;
     color: #006699;
-    font-size: larger;
-    font-weight: bold;
-    width: 150px;
+    width: fit-content;
     height: 30px;
-    font-size: 20px;
+    font-size: 1em;
 }
 
 @media screen and (max-width: 1550px) {
     #budgetContent {
-        position: absolute;
-        font-size: 1.5vw;
-        left: 35%;
-        top: 10%;
+        font-size: .7em;
     }
-    .calcBtn {
-        background-color: lightgray;
-        color: #006699;
-        width: fit-content;
+    input {
+        width: 80%;
     }
-    label {
-        font-size: 1.5vw;
-    }
-    th {
-        font-size: 1.5vw;
+    td:nth-child(odd) {
+        width: 150px;
     }
 }

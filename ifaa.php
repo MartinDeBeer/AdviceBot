@@ -15,51 +15,52 @@
     <div id="reg">
         <?php
             session_start();
-            include('connectDB.php');
+            include('dataPages/connectDB.php');
 
             if(!(isset($_SESSION['emailAddress']))){
                 echo "You need to have an account to use this functionality. Please go <a href='UserControl/register.php'>here</a> to create an account.";
             }
             else{
-                echo '<input type="button" id="loggedIn" value="CLICK HERE TO GET STARTED" onclick="registered()">'; 
+                echo '<input type="button" id="loggedIn" value="CLICK HERE TO GET STARTED" onclick="registered()">';
             }
 
-        ?> 
+        ?>
     </div>
-    <div id="buttons" style="visibility: hidden;">
-        <input type="submit" id="start" value="Next" onclick="showQuestion()" />
-    </div>
+    
 
 
     <!-- Robot and progress bar -->
     <div id="roboAdvice">
         <!-- Progress Bar  -->
-        <progress  id="questionProgress" value="0" max="29" >0</progress>  
+        <progress  id="questionProgress" value="0" max="29" >0</progress>
         <!-- Video -->
         <video id="vid" autoplay = 'autoplay' muted="muted">
             <source src="Videos/sentence.mp4" type="video/mp4" />
         </video>
-              
-        
-        
+
+
+
     </div>
 
     <!-- Tips -->
-    <div style="float: right; position:absolute; right:50%; top: 1%" id="progress">            
+    <div style="float: right; position:absolute; right:50%; top: 1%" id="progress">
         <div id="tip">
             <h3 id="tipHeading" >IFAA TIP:</h3>
             <p id="ifaaTip"></p>
         </div>
     </div>
-    
+
 
     <!-- Form to submit data -->
-    <form action="dataPost.php" method="POST">
+    <form action="dataPages/dataPost.php" method="POST">
 
         <!-- Ajax Budget -->
         <div id="Budget"></div>
         <!-- Ajax Questions -->
         <div id='questions'></div><br>
+        <div id="buttons" style="visibility: hidden;">
+            <input type="button" id="start" value="Next" onclick="showQuestion()" />
+        </div>
         <div id="typewriterQuestions"></div>
         <!-- Answers to be posted -->
         <div id="answers" >
@@ -98,14 +99,14 @@
             <input type="text" id='savingsW' name="savings" >
             Retirement:
             <input type="text" id='retirementW' name="retirement" >
-            Will: 
+            Will:
             <input type="text" id='willWeight' name="will" >
-            Short Term: 
-            <input type="text" id='shortTermInsurance' name="shortTerm" >            
-        </div>  
+            Short Term:
+            <input type="text" id='shortTermInsurance' name="shortTerm" >
+        </div>
         <input type="submit" value="Submit" id="submitAnswers" style="visibility: hidden;">
 
-        
-    </form>  
+
+    </form>
 </body>
 </html>

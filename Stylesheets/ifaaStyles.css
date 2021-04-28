@@ -5,8 +5,12 @@
     visibility: hidden;
 }
 
+#reg {
+    max-width: 27%;
+}
+
 #questions {
-    position: absolute;
+    position: static;
     width: 30%;
     color: #006699;
     font-size: 20px;
@@ -16,6 +20,10 @@
 #answers {
     height: 1px;
     visibility: hidden;
+}
+
+progress {
+    border-radius: 8px;
 }
 
 progress[value] {
@@ -37,11 +45,22 @@ progress[value]::-webkit-progress-value {
     background-color: #66ff33;
 }
 
+progress[value]::-moz-progress-bar {
+    border-radius: 8px;
+    background-color: #66ff33;
+}
+
 #roboAdvice {
     position: absolute;
     left: 50vw;
     width: 30vw;
 }
+
+
+/* #buttons {
+    position: relative;
+    top: 20vh;
+} */
 
 #Budget {
     position: absolute;
@@ -75,6 +94,7 @@ progress[value]::-webkit-progress-value {
     }
     #reg {
         position: absolute;
+        width: 30%;
         top: 25%;
     }
     #start {

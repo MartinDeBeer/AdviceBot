@@ -1,0 +1,16 @@
+p {
+    line-height: 1.5em;
+    text-justify: inter-word;
+}
+
+.ourMission,
+.freeAdvice,
+.liveChat,
+.independent {
+    padding: 0 10px;
+    background-color: rgb(255, 255, 255, 20%);
+}
+
+h1 {
+    text-align: center;
+}

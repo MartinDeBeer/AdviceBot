@@ -1,7 +1,7 @@
 <?php
 $q = intval($_GET['q']);
 
-include("../connectDB.php");
+include("connectDB.php");
 
 $command = "SELECT * FROM questions WHERE questionID = '".$q."'";
 $result = $conn -> query($command);
@@ -29,8 +29,9 @@ function buildAspects(){
 switch($row['typeID']){
     case 1:
         if($row['questionID'] == 5){
-            echo $row['question'] . "." . 'Use our free budget tool <a href=# onclick="budget()">here.</a>' . '<br />';
-            echo '<input class="question" type="text" id="' . $row['object'] . '" onkeypress="nextQuestion(event)" >';
+            echo $row['question'] . '<br />';
+            echo '<input class="question" type="text" id="' . $row['object'] . '" onkeypress="nextQuestion(event)" ><br>';
+            echo 'Use our free budget tool <a href=# onclick="budget()">here.</a>';
         }else{
             echo $q;
             echo $row['question'] . '<br />';
