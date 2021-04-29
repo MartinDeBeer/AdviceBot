@@ -28,25 +28,30 @@ video {
 header {
     position: relative;
     width: 100%;
+    margin-bottom: 10%;
 }
 
-#menu,
 #menu .dropdown {
-    display: flex;
     width: 100%;
     justify-content: space-around;
 }
 
-#menu {
-    padding: 0 5%;
+.menu {
+    display: flex;
+    padding: 0 1%;
     width: 100%;
+    margin-top: 5px;
     margin-bottom: 25px;
 }
 
-.menuBtn,
-.dropbtn {
+.dropbtn,
+.menuBtn {
     width: 100%;
-    font-size: 2.5vw;
+    height: 5em;
+    font-size: 1.75vw;
+    border: 1px solid black;
+    margin: 0 1px;
+    border-radius: 8px;
     color: #006699;
     background-color: lightgrey;
     font-weight: 600;
@@ -112,25 +117,8 @@ header {
     width: 35vw;
 }
 
-#goal {
-    position: relative;
-    left: 30%;
-    bottom: 17vh;
-    font-size: 3vw;
-    width: 65%;
-    height: fit-content;
-    border: 1px black solid;
-    color: #000000;
-    background-color: rgb(128, 128, 128, 70%);
-}
-
-#goal p {
-    padding: 0 5px;
-}
-
 #welcome {
     position: relative;
-    bottom: 20vh;
 }
 
 #userControl {
@@ -139,15 +127,21 @@ header {
 
 #homePage {
     position: relative;
-    bottom: 15vh;
     text-align: center;
     padding: 0 20%;
     height: 40vh;
     margin-bottom: 1%;
 }
 
+#singleNeed {
+    margin-bottom: 20%;
+}
+
 .singleButton {
     font-size: 3vw;
+    color: #006699;
+    border-radius: 8px;
+    border: 2px solid black;
     width: 100%;
 }
 
@@ -157,7 +151,6 @@ header {
 #socials {
     position: relative;
     left: 30%;
-    bottom: 15vh;
 }
 
 .social {
@@ -169,8 +162,8 @@ header {
 /* ------------- Footer ---------------- */
 
 footer {
-    position: relative;
-    bottom: 15vh;
+    position: absolute;
+    bottom: 0;
     background-color: lightgray;
     height: fit-content;
     color: grey;
@@ -185,6 +178,7 @@ footer {
 #div1 .footerBtn,
 #div2 .footerBtn {
     width: 100%;
+    border: black 1px solid;
     color: #006699;
     background-color: lightgrey;
     font-weight: 600;

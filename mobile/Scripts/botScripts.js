@@ -373,6 +373,43 @@ function updateWeight() {
                 will += 0
                 retirement += 6;
             }
+            if (Number(document.getElementById('age').value) > 0 && Number(document.getElementById('age').value) <= 25) {
+                deathCover += 5;
+                disability += 2;
+                savings += 1;
+                retirement += 5;
+            } else if (Number(document.getElementById('age').value) > 25 && Number(document.getElementById('age').value) <= 35) {
+                deathCover += 4;
+                disability += 5;
+                savings += 2;
+                retirement += 5;
+            } else if (Number(document.getElementById('age').value) > 35 && Number(document.getElementById('age').value) <= 45) {
+                deathCover += 3;
+                disability += 5;
+                savings += 3;
+                retirement += 2;
+            } else if (Number(document.getElementById('age').value) > 45 && Number(document.getElementById('age').value) <= 60) {
+                deathCover += 2;
+                disability += 1;
+                savings += 6;
+                retirement += 3;
+            } else if (Number(document.getElementById('age').value) > 60 && Number(document.getElementById('age').value) <= 100) {
+                deathCover += 1;
+                disability += 0;
+                savings += 1;
+                retirement += 1;
+            }
+            if (document.getElementById('gender').value == "male") {
+                deathCover += 5;
+                disability += 5;
+                savings += 5;
+                retirement += 3;
+            } else {
+                deathCover += 0;
+                disability += 2;
+                savings += 1;
+                retirement += 6;
+            }
             console.log(deathCover);
             console.log(disability);
             console.log(savings);
@@ -388,17 +425,25 @@ function updateWeight() {
             document.getElementById('vehicleOwnedAnswer').value = document.getElementById('vehicleOwned').value;
             getDate();
             document.getElementById('submitAnswers').style.visibility = "visible";
+            document.getElementById('buttons').style.visibility = 'hidden';
             break;
-
-
     }
 
 }
+
+function nextQuestion(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        showQuestion();
+    }
+}
+
 
 function playVid() {
     document.getElementById('vid').play();
 }
 
+counter = 4;
 
 function showQuestion() {
     document.getElementById('Budget').innerHTML = "";
@@ -420,6 +465,7 @@ function showQuestion() {
         }
     }
     counter++;
+
     str = counter;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -428,7 +474,7 @@ function showQuestion() {
         }
     };
 
-    xmlhttp.open("GET", '../dataPages/questions.php?q=' + str, true);
+    xmlhttp.open("GET", 'dataPages/questions.php?q=' + str, true);
     xmlhttp.send();
 }
 
@@ -437,7 +483,6 @@ function showQuestion() {
 function registered() {
 
     document.getElementById('loggedIn').style.visibility = "hidden";
-    document.getElementById('roboAdvice').style.visibility = "visible";
     document.getElementById('buttons').style.visibility = 'visible';
 
     playVid();
@@ -465,14 +510,9 @@ function registered() {
         }
     };
 
-    xmlhttp.open("GET", '../dataPages/questions.php?q=' + str, true);
+    xmlhttp.open("GET", 'dataPages/questions.php?q=' + str, true);
     xmlhttp.send();
 }
-
-if (document.getElementById('loggedIn')) {
-    alert("Hello world");
-}
-
 
 function budget() {
 
@@ -485,4 +525,6 @@ function budget() {
 
     xmlhttp.open("GET", 'Tools/budget.php', true);
     xmlhttp.send();
+    typewriter();
+
 }

@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include("../../connectDB.php");
+    include("../dataPages/connectDB.php");
 
 
     // Permission

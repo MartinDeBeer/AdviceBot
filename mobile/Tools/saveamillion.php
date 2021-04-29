@@ -7,29 +7,32 @@
     <meta name="tags" content="financial help, finance, bot, robot, advice bot, advicebot, money, budget" />
     <meta name="author" content="Webtech Cyber Solutions" />
     <script src="../Scripts/saveamillion.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="../../Images/favicon.ico" type="image/x-icon" /> 
+    <link href="../Stylesheets/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="shortcut icon" href="../Images/favicon.ico" type="image/x-icon" />
     <link href="../Stylesheets/saveamillion.css" type="text/css" rel="stylesheet" />
     <title>Save a Million</title>
 </head>
 <body>
-    <h1>Save a million</h1>
+    <h1 style="text-align: center">Save a million goal calculator</h1>
+
     <div id="million">
+        <h3 style="text-align: center;">See how long you have to save to get to your goal.</h3>
         <table id = "saveAMil">
             <tr>
-                <td>Current Amount Saved: </td>
-                <td><input type="text" class="input" id = 'amountSaved'></td>
+                <td>Current Amount Already Saved: </td>
+                <td>R<input type="text" class="input" id = 'amountSaved'></td>
             </tr>
             <tr>
-                <td>Monthly Savings: </td>
-                <td><input type="text" class="input" id = 'monthlySavings'></td>
+                <td>New Monthly Savings: </td>
+                <td>R<input type="text" class="input" id = 'monthlySavings'></td>
             </tr>
             <tr>
                 <td>Annual Interest: </td>
-                <td><input type="text" class="input" id = 'interest'></td>
+                <td>%<input type="text" class="input" id = 'interest'></td>
             </tr>
             <tr>
                 <td>Goal: </td>
-                <td><input type="text" class="input" id = 'goal'></td>
+                <td>R<input type="text" class="input" id = 'goal' value="1000000"></td>
             </tr>
             <tr>
                 <td><input type="button" value="Calculate" id="calculate" onclick="calculateTime()"></td>

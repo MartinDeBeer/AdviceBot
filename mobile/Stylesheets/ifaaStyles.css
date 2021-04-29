@@ -14,6 +14,11 @@ body {
     margin: 0;
 }
 
+#questions,
+#buttons {
+    padding: 0 10px;
+}
+
 
 /* Robot Video */
 
@@ -56,6 +61,7 @@ progress[value]::-webkit-progress-value {
 
 #questionProgress {
     width: 100%;
+    padding: 0 5px;
 }
 
 
@@ -70,7 +76,6 @@ progress[value]::-webkit-progress-value {
 
 #Budget {
     position: relative;
-    right: 40%;
     /* font-size: 3vw; */
 }
 

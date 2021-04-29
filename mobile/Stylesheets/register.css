@@ -1,0 +1,13 @@
+.userControl {
+    background-color: rgb(255, 255, 255, 40%);
+    position: relative;
+    margin: auto;
+    margin-top: 5%;
+    width: 100%;
+    color: #006699;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+a {
+    color: black;
+}

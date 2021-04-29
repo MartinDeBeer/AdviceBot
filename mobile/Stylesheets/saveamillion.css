@@ -15,9 +15,12 @@ h1 {
 
 #million {
     position: relative;
-    left: 5em;
-    width: fit-content;
+    width: 100%;
     background-color: rgb(255, 255, 255, 20%);
+}
+
+.input {
+    font-size: 1.3em;
 }
 
 #calculate {

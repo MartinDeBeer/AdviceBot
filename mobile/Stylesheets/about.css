@@ -1,0 +1,9 @@
+html,
+body {
+    overflow: visible;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+}
