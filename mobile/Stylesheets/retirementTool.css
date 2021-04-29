@@ -5,33 +5,32 @@ html {
     right: 0;
     z-index: -100;
     background-color: gray;
-    overflow: visible;
-    overflow-x: hidden;
-}
-
-body {
-    overflow: visible;
-    overflow-x: hidden;
+    overflow: scroll;
 }
 
 td:nth-child(even) {
-    width: 60%;
+    width: 100%;
     text-align: center;
 }
 
 td:nth-child(odd) {
-    width: 40%;
+    width: 60%;
 }
 
-table {
+#retirement {
+    margin-left: 5%;
+}
+
+
+/* table {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100vw;
     float: left;
-}
+} */
 
 input {
     width: fit-content;
-    font-size: 2.5vw;
+    font-size: 2vw;
 }
 
 .btn {
@@ -39,4 +38,5 @@ input {
     color: #006699;
     font-weight: 600;
     padding: 3px;
+    font-size: 2vw;
 }

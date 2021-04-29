@@ -4,15 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../Stylesheets/styles.css" type="text/css" rel="stylesheet" />
     <title>Short Term Insurance</title>
-    <script>
-        function uploadSchedule(){
-            let subject = "Short term schedule";
-            let address = 'adriaan@advicebot.co.za';
-            let body = "<a href='C:/'>Find document</a>";
-            window.location.href = "mailto:" + address + "?subject=" + subject + "&body=" + body;
-        }
-    </script>
 </head>
 <body>
     <h1 style="text-align: center;">Short term Insurance</h1>

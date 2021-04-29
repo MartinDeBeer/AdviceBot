@@ -10,7 +10,8 @@ function calcCurrInv() {
     let total = document.getElementById('total').value = Number(bankAccount + pension + endowment + shares + other);
 
     document.getElementById('yearlyIncome').value = Number(total) * 0.04;
-    document.getElementById('monthlyIncome').value = Number(document.getElementById('yearlyIncome').value) / 12;
+    let monthlyIncome = document.getElementById('monthlyIncome').value = Number(document.getElementById('yearlyIncome').value) / 12;
+    monthlyIncome = monthlyIncome;
 
 }
 
@@ -31,16 +32,17 @@ function calculateAddInvestment() {
 function calculateTime() {
     let currentAmount = Number(document.getElementById('total').value);
     let monthlyAmount = Number(document.getElementById('lumpSum').value) + (Number(document.getElementById('monthlyInvestment').value) * 12);
+    monthlyAmount = monthlyAmount;
     let intRate = Number(document.getElementById('returnRate').value);
     let goal = Number(document.getElementById('amountNeeded').value);
     let count = Number(document.getElementById('currentAge').value);
     while (currentAmount != goal) {
         count += 1;
         currentAmount = (currentAmount + monthlyAmount) * (intRate / 100) + (currentAmount + monthlyAmount);
-        formattedAmount = currentAmount.toFixed(2);
+        formattedAmount = currentAmount;
         console.log(count, " / ", formattedAmount);
         if (currentAmount > goal) {
-            formattedAmount = currentAmount.toFixed(2);
+            formattedAmount = currentAmount;
             console.log(count, " / ", formattedAmount);
             break;
         }

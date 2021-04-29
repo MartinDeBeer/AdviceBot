@@ -1,10 +1,9 @@
 html {
-    background: url("../Images/side.jpg") no-repeat center;
+    background: url(../Images/side.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    height: 100%;
-    z-index: -100;
-    padding-left: 5%;
-    padding-right: 5%;
     background-color: gray;
 }
 

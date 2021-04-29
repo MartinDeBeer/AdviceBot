@@ -28,21 +28,25 @@
             <table>
                 <tr>
                     <td>Full names of client</td>
-                    <td><input name="firstName" style="width: 300px;" type="text"></td>
-                    <td><input name="lastName" style="width: 300px;" type="text"></td>
+                    <td><input name="firstName" style="width: 300px;" placeholder="First Name" required type="text"></td>
+                    <td><input name="lastName" style="width: 300px;" placeholder="Surname" required type="text"></td>
+                </tr>
+                <tr>
+                    <td>Client Email Address</td>
+                    <td><input name="emailAddress" style="width: 300px;" placeholder="Email Address" required type="text"></td>
                 </tr>
                 <tr>
                     <td>ID Number</td>
-                    <td><input name="idNumber" style="width: 300px;" type="text"></td>
+                    <td><input name="idNumber" style="width: 300px;" placeholder="13 Digit ID Number"  required type="text"></td>
                 </tr>
                 <tr>
-                    <td>Personal Capacity</td>
-                    <td><input type="radio" name="personal" value="yes" />Yes </td>
-                    <td><input type="radio" name="personal" value="no" onclick="document.getElementById('rep').style.visibility = 'visible'"/>No</td>
+                    <td>Full names of Spouse</td>
+                    <td><input name="spouseFirst" style="width: 300px;" placeholder="First Name" type="text"></td>
+                    <td><input name="spouseLast" style="width: 300px;" placeholder="Surname" type="text"></td>
                 </tr>
-                <tr id="rep" style="visibility:hidden">
-                    <td>Representing</td>
-                    <td><input style="width: 300px;" type="text" name="rep"></td>
+                <tr>
+                    <td>Spouse ID Number</td>
+                    <td><input name="spouseId" style="width: 300px;" placeholder="13 Digit ID Number" type="text"></td>
                 </tr>
             </table>
         </div>
@@ -95,9 +99,9 @@
         <p>This consent shall remain valid for a period of <b>6 months</b> from the date of my signature</p>
 
         <p id="date"></p>
-        <input type="checkbox" id="accept">
+        <input type="checkbox" id="accept" required>
         <label for="accept">By clicking the checkbox I accept to the mentioned terms and conditions</label>
-        <input type="submit" value="Submit" name="permission">
+        <input type="submit" style="color: blue; font-weight: bold; font-size: large; " value="Submit" name="permission">
     </form>
     
 </body>
