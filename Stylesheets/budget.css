@@ -6,6 +6,15 @@ td:nth-child(odd) {
     width: 300px;
 }
 
+header {
+    height: 10vh;
+}
+
+footer {
+    position: relative;
+    top: 13vh;
+}
+
 #budgetContent {
     background-color: rgb(255, 255, 255, 40%);
     position: relative;

@@ -99,8 +99,7 @@ header {
 
 #welcome {
     position: relative;
-    left: 40vw;
-    bottom: 80px;
+    left: 30vw;
     width: fit-content;
 }
 
@@ -129,6 +128,12 @@ figcaption {
     top: 3vh;
     width: 30%;
     height: auto;
+}
+
+figcaption {
+    background-color: lightgray;
+    color: #006699;
+    text-align: center;
 }
 
 #homePage::after {
@@ -179,6 +184,9 @@ footer button {
         height: fit-content;
         width: fit-content;
     }
+    /* #welcome {
+        top: 10%;
+    } */
     .singleButton {
         background-color: lightgrey;
         width: 100%;

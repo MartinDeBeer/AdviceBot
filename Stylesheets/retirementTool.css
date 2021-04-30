@@ -2,10 +2,18 @@ div {
     font-size: 1vw;
 }
 
+header {
+    height: 12vh;
+}
+
+html,
+body {
+    overflow-y: visible;
+}
+
 #retirement {
     display: flex;
     margin: auto;
-    bottom: -70px;
     width: 80%;
     background-color: rgb(255, 255, 255, 20%);
     box-shadow: 0 0 20px 20px #006699;
@@ -20,7 +28,7 @@ td:nth-child(even) {
 }
 
 h1 {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 #div1 {

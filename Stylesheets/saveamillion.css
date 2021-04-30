@@ -6,6 +6,11 @@
     box-shadow: 0 0 20px 20px #006699;
 }
 
+footer {
+    position: relative;
+    top: 39vh;
+}
+
 h1 {
     margin-bottom: 80px;
 }

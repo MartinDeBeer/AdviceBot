@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Stylesheets/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="Stylesheets/report.css">
+
     <title>Life Cover</title>
     <?php
         session_start();
@@ -28,10 +30,10 @@
 
     <h1 style="text-align: center;">Life Cover</h1>
     <p>Life cover provides financial support to your family or beneficiaries in the form of a lump sum after your death. It is also a big contributor to generational wealth.</p>
-    <h3><u>IFAA TIP:</u></h3>
+    <h4><u>IFAA TIP:</u></h4>
     <p>A life policy can have different premium patterns. You can decide to pay the same premium over the premium paying term or to pay less in the beginning and gradually more at a fixed percentage or according to your age. It is extremely important to choose the right premium pattern to ensure the future sustainability of your policy.</p>
 
-    <h2>Examples of people who may need life cover:</h2>
+    <h3>Examples of people who may need life cover:</h3>
     <ul>
         <li>Single parents or where only family member earns an income</li>
         <li>Parents with minor or special-needs children</li>
@@ -54,18 +56,14 @@
         
         <label for="lifeCoverAmount">Amount of life cover</label>
         <input type="text" id="lifeCoverAmount"><br>        
-        <button onclick="window.location.href='Reports/permission.php'">I don't know how much life cover I have</button><br>
+        <button onclick="window.location.href='permission.php'">I don't know how much life cover I have</button><br>
 
-        <button onclick="showSupposed('life')">See how much you're supposed to be covered for</button>
+        <button onclick="showSupposed('life')" id="suppBtnLife" type="submit">See how much you're supposed to be covered for</button>
         <div id="supposed" style="visibility: hidden;">
             <label for="supposedAmount">You should have</label>
             <input id="supposedAmount" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
             <p id="diff">The difference between the cover you have and what you should have is</p>
         </div>
     </div>
-    <hr>
-
-
-    
 </body>
 </html>

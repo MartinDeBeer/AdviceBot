@@ -3,6 +3,16 @@
     color: #006699;
 }
 
+html,
+body {
+    overflow-y: visible;
+}
+
+body::after {
+    content: '';
+    height: 50vh;
+}
+
 a {
     text-decoration: none;
 }

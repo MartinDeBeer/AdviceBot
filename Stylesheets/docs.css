@@ -1,0 +1,15 @@
+html,
+body {
+    overflow-y: scroll;
+}
+
+html {
+    background-image: none;
+    background-color: white;
+    padding: 0;
+}
+
+header {
+    width: 100vw;
+    background-color: darkgray;
+}

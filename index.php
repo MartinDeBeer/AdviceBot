@@ -73,7 +73,7 @@
                     <input type="submit" id="disability" class="singleButton" value="Disability and Trauma" name="disability"><br>
                     <br>
                     <!-- Savings & Emergency -->
-                    <input type="submit" id="savings" class="singleButton" value="Savings and Emergency" name="savings"><br />
+                    <input type="submit" id="savings" class="singleButton" value="Savings and Emergency Fund" name="savings"><br />
                     <br>
                     <!-- Retirement Planning -->
                     <input type="submit" id="retirement" class="singleButton" value="Retirement Planning" name="retirement"><br />

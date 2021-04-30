@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Stylesheets/report.css">
+
     <title>Will and Last Testament</title>
 </head>
 <body>
@@ -29,6 +31,5 @@
         <input type="submit" value="I need a will">
         <input type="submit" value="My will is in order">
     </form>
-    <hr>
 </body>
 </html>

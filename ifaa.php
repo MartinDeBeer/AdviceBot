@@ -10,7 +10,7 @@
 </head>
 
 
-<body >
+<body onkeypress="nextQuestion(event)" >
     <!-- Check if user is logged in -->
     <div id="reg">
         <?php
@@ -42,15 +42,6 @@
 
     </div>
 
-    <!-- Tips -->
-    <div style="float: right; position:absolute; right:50%; top: 1%" id="progress">
-        <div id="tip">
-            <h3 id="tipHeading" >IFAA TIP:</h3>
-            <p id="ifaaTip"></p>
-        </div>
-    </div>
-
-
     <!-- Form to submit data -->
     <form action="dataPages/dataPost.php" method="POST">
 
@@ -58,8 +49,15 @@
         <div id="Budget"></div>
         <!-- Ajax Questions -->
         <div id='questions'></div><br>
+        
         <div id="buttons" style="visibility: hidden;">
             <input type="button" id="start" value="Next" onclick="showQuestion()" />
+        </div>
+        <!-- Tips -->
+        <div id="tip">
+            <h3 id="tipHeading" >IFAA TIP:</h3>
+            <p id="ifaaTip"></p>
+            <input type="button" id="closeTip" onclick="document.getElementById('tip').style.visibility = 'hidden'" value="Close Tip">
         </div>
         <div id="typewriterQuestions"></div>
         <!-- Answers to be posted -->

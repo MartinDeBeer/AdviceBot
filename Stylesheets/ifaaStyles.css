@@ -1,8 +1,15 @@
 #tip {
-    color: orange;
+    position: relative;
+    color: #006699;
+    background-color: rgb(255, 255, 255, 30%);
     font-size: large;
-    width: 300px;
+    width: 30%;
+    left: 10vw;
+    top: 10vh;
+    padding: 10px;
+    font-weight: 900;
     visibility: hidden;
+    border: 1px black solid;
 }
 
 #reg {
@@ -12,6 +19,7 @@
 #questions {
     position: static;
     width: 30%;
+    margin-bottom: 10px;
     color: #006699;
     font-size: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -56,12 +64,6 @@ progress[value]::-moz-progress-bar {
     width: 30vw;
 }
 
-
-/* #buttons {
-    position: relative;
-    top: 20vh;
-} */
-
 #Budget {
     position: absolute;
     font-size: 15px;
@@ -83,7 +85,7 @@ progress[value]::-moz-progress-bar {
 
 #submitAnswers {
     position: relative;
-    top: 25vh;
+    /* top: 25vh; */
 }
 
 @media screen and (max-width: 1550px) {
@@ -91,6 +93,10 @@ progress[value]::-moz-progress-bar {
         position: absolute;
         font-size: 15px;
         top: 40%;
+    }
+    #buttons {
+        position: relative;
+        top: 1vh;
     }
     #reg {
         position: absolute;
@@ -100,13 +106,5 @@ progress[value]::-moz-progress-bar {
     #start {
         position: absolute;
         top: 25%;
-    }
-    #questions {
-        position: absolute;
-        width: 30%;
-        color: #006699;
-        font-size: 20px;
-        top: 30%;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 }

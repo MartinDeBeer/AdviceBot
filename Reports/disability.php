@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../Scripts/disability.js"></script>
+    <link rel="stylesheet" href="Stylesheets/report.css">
     
     <title>Disability</title>
     <?php
@@ -50,7 +51,6 @@
         </div>
         <button onclick="window.location.href='permission.php'">I don't know how much cover I have</button>
     </div>
-    <hr>
 
 </body>
 </html>

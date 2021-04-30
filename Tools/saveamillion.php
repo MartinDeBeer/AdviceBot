@@ -13,6 +13,34 @@
     <title>Save a Million</title>
 </head>
 <body>
+    <header>            
+        <!-- Logo -->
+        <img class="logo" src="../Images/Logo.png" alt="Advicebot Logo" onclick="window.location.href='../index.php'"/>
+
+        <!-- Menu -->
+        <nav class="menu">
+            <button id="home" class="menuBtn" onclick="window.location.href='../index.php'" >Home</button> 
+            <div class="dropdown">
+                <button class="dropbtn menuBtn">Tools</button>
+                <div class="dropdown-content">
+                    <a href="budget.php">Budget Tool</a>
+                    <a href="retirement.php" >Retirement Tool</a>
+                </div>
+            </div>
+            <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
+            <button id="contact" class="menuBtn" onclick="window.location.href='contact.php'">Contact Us</button>
+            <?php
+            if(isset($_SESSION['emailAddress'])){
+                echo '<button id="logout" class="menuBtn" onclick="window.location.href=\'UserControl/logout.php\'">Log Out </button>' .
+                '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>'. 
+                '<button id="ifaa" class="menuBtn" onclick="questions()" >Get Advice</button>';
+            }else {
+                echo '<button id="register" class="menuBtn" onclick="window.location.href=\'UserControl/register.php\'" >Sign Up</button>';
+                echo '<button id="login" class="menuBtn" onclick="window.location.href=\'UserControl/login.php\'" >Log In</button>';
+            }
+            ?>
+        </nav>
+    </header>
     <h1 style="text-align: center">Save a million goal calculator</h1>
 
     <div id="million">

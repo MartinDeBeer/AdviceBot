@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../Stylesheets/styles.css" type="text/css" rel="stylesheet" />
+    <link href="Stylesheets/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="Stylesheets/report.css">
+
     <title>Short Term Insurance</title>
 </head>
 <body>
@@ -26,7 +28,5 @@
     </form>
     <input type="button" id="noSchedule" value="I don't have a schedule" onclick="tellMore('noSchedule')">
     <input type="button" id="help" value="I need help" onclick="tellMore('help')" >
-
-    <hr>
 </body>
 </html>

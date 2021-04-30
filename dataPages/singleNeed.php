@@ -29,7 +29,7 @@
             $buttonClicked = $_POST['shortTerm'];
         }
         elseif(isset($_POST['will'])){
-            $buttonClicked = $_POST['will'];
+            $buttonClicked =  $_POST['will'];
         }
         elseif(isset($_POST['other'])){
             $buttonClicked = 'Special Need';
@@ -38,7 +38,7 @@
             $buttonClicked = "";
         }
     ?>
-    <h1>I need help with <?php echo $buttonClicked; ?></h1>
+    <h1>I need help with <?php if($buttonClicked == $_POST['will'] || $buttonClicked == 'Special Need') echo 'a ' . $buttonClicked ?></h1>
     <h3>Please fill in the form and we will get back to you with an answer on your query as soon as possible.</h3>
     <form action="singleNeed.php" method="post">
         <table>
