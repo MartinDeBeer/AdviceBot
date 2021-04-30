@@ -47,9 +47,11 @@
         <div id="Budget"></div>
         <!-- Ajax Questions -->
         <div id='questions'></div><br>
+        <input type="submit" value="Submit" id="submitAnswers" style="visibility: hidden;">
         <div id="buttons" style="visibility: hidden;">
             <input type="button" id="start" value="Next" onclick="showQuestion()" />
         </div>
+
         <div id="typewriterQuestions"></div>
         <!-- Answers to be posted -->
         <div id="answers" >
@@ -93,7 +95,6 @@
             Short Term:
             <input type="text" id='shortTermInsurance' name="shortTerm" >
         </div>
-        <input type="submit" value="Submit" id="submitAnswers" style="visibility: hidden;">
 
 
     </form>

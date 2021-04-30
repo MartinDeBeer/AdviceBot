@@ -31,11 +31,11 @@
                 </div>
                 <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
                 <button id="contact" class="menuBtn" onclick="window.location.href='contact.php'">Contact Us</button>
+                <button id="ifaa" class="menuBtn" onclick=window.location.href="ifaa.php" >Get Advice</button>
                 <?php
                 if(isset($_SESSION['emailAddress'])){
                     echo '<button id="logout" class="menuBtn" onclick="window.location.href=\'UserControl/logout.php\'">Log Out </button>' .
-                    '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>'. 
-                    '<button id="ifaa" class="menuBtn" onclick=window.location.href="ifaa.php" >Get Advice</button>';
+                    '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>';
                 }else {
                     echo '<button id="register" class="menuBtn" onclick="window.location.href=\'UserControl/register.php\'" >Sign Up</button>';
                     echo '<button id="login" class="menuBtn" onclick="window.location.href=\'UserControl/login.php\'" >Log In</button>';
@@ -62,24 +62,20 @@
         <div id="homePage">
             <!-- Single Need Menu -->
             <form action="dataPages/singleNeed.php" id="singleNeed" method="post">
+                    <!-- Robot Advice -->
+                    <input type="button" onclick='window.location.href="ifaa.php"' id="autoAdvice" class="singleButton" value="Get Auto Advice" name="autoAdvice"> <br>
                     <!-- Life Cover -->
                     <input type="submit" id="lifeCover" class="singleButton" value="Life Cover" name="lifeCover"> <br>
-                    <br>
                     <!-- Disability And Trauma -->
                     <input type="submit" id="disability" class="singleButton" value="Disability and Trauma" name="disability"><br>
-                    <br>
                     <!-- Savings & Emergency -->
-                    <input type="submit" id="savings" class="singleButton" value="Savings and Emergency" name="savings"><br />
-                    <br>
+                    <input type="submit" id="savings" class="singleButton" value="Savings and Emergency Fund" name="savings"><br />
                     <!-- Retirement Planning -->
                     <input type="submit" id="retirement" class="singleButton" value="Retirement Planning" name="retirement"><br />
-                    <br>
                     <!-- Short Term Insurance -->
                     <input type="submit" id="shortTerm" class="singleButton" value="Short Term Insurance" name="shortTerm" ><br />
-                    <br>
                     <!-- Will And Testament -->
                     <input type="submit" id="will" class="singleButton" value="Will and Testament" name="will"><br />
-                    <br>
                     <!-- Other ( Email ) -->
                     <input type="submit" id="other" class="singleButton" value="I have a special need" name="other" >
                 </form>

@@ -30,7 +30,7 @@ switch($row['typeID']){
     case 1:
         if($row['questionID'] == 5){
             echo $row['question'] . '<br />';
-            echo '<input class="question" type="text" id="' . $row['object'] . '" onkeypress="nextQuestion(event)" ><br>';
+            echo 'R<input class="question" type="text" id="' . $row['object'] . '" onkeypress="nextQuestion(event)" ><br>';
             echo 'Use our free budget tool <a href=# onclick="budget()">here.</a>';
         }else{
             echo $q;
@@ -90,7 +90,7 @@ switch($row['typeID']){
         else if($row['questionID'] == 27){
             echo '<select class="question" id="' . $row['object'] . '" onkeypress="nextQuestion(event)">';
             echo '<option value="none">Select An Option</option>';
-            echo '<option value="supporting">I support them</option>';
+            echo '<option value="supporting" onclick="support(\'family\')">I support them</option>';
             echo '<option value="beingSupported">They support me</option>';
             echo '<option value="notApplicable">N/A</option>';
             echo '</select>';
@@ -101,6 +101,13 @@ switch($row['typeID']){
             echo '<option value="owned">I own property</option>';
             echo '<option value="rent">I rent</option>';
             echo '<option value="neither">N/A</option>';
+            echo '</select>';
+        }
+        else if($row['questionID'] == 29){
+            echo '<select class="question" id="' . $row['object'] . '" onkeypress="nextQuestion(event)">';
+            echo '<option value="none">Select An Option</option>';
+            echo '<option onclick="support(\'vehicle\')" value="yes">Yes</option>';
+            echo '<option value="no">No</option>';
             echo '</select>';
         }
         else{
@@ -115,15 +122,15 @@ switch($row['typeID']){
         if($row['object'] == 'assets'){
             echo $row['question'] . '<br />';
             echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="10000000" value="0" step="1000" oninput="assetValue.value = this.value" onkeypress="nextQuestion(event)"/>';
-            echo '<input type="number" disabled id="assetValue" step="1000" oninput="assets.value = this.value"/>';
+            echo 'R<input type="number" disabled id="assetValue" step="1000" oninput="assets.value = this.value"/>';
         }else if($row['object'] == 'liabilities'){
             echo $row['question'] . '<br />';
             echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="10000000" value="0" step="1000" oninput="liabilitiesValue.value = this.value" onkeypress="nextQuestion(event)"/>';
-            echo '<input type="number" style="color: #990000;" disabled id="liabilitiesValue" step="1000" oninput="assets.value = this.value" />';
+            echo 'R<input type="number" style="color: #990000;" disabled id="liabilitiesValue" step="1000" oninput="assets.value = this.value" />';
         }else{
             echo $row['question'] . '<br />';
             echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="1000000" step="1000" oninput="salaryValue.value = this.value" onkeypress="nextQuestion(event)" />';
-            echo '<input type="number"  disabled id="salaryValue" step="1000" oninput="salary.value = this.value" />';
+            echo 'R<input type="number"  disabled id="salaryValue" step="1000" oninput="salary.value = this.value" />';
         }
     break;
     case 5:

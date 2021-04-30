@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="Stylesheets/report.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retirement Plan</title>
 </head>
@@ -21,6 +22,5 @@
         <input type="button" value="I do have a retirement plan" id="haveRetirement" onclick="tellMore('haveRetirement')" >
         <input type="button" value="I don't have a retirement plan" id="noRetirement" onclick="tellMore('noRetirement')">
         <button onclick="window.location.href='Reports/permission.php'">I'm not sure if I have a retirement plan</button>
-    <hr>
 </body>
 </html>
