@@ -15,30 +15,38 @@
         $buttonClicked;
         if(isset($_POST['lifeCover'])){
             $buttonClicked = $_POST['lifeCover'];
+            $buttonClickedSubject = $_POST['lifeCover'];
         }
         elseif(isset($_POST['disability'])){
             $buttonClicked = $_POST['disability'];
+            $buttonClickedSubject = $_POST['disability'];
         }
         elseif(isset($_POST['savings'])){
             $buttonClicked = $_POST['savings'];
+            $buttonClickedSubject = $_POST['savings'];
         }
         elseif(isset($_POST['retirement'])){
             $buttonClicked = $_POST['retirement'];
+            $buttonClickedSubject = $_POST['retirement'];
         }
         elseif(isset($_POST['shortTerm'])){
             $buttonClicked = $_POST['shortTerm'];
+            $buttonClickedSubject = $_POST['shortTerm'];
         }
         elseif(isset($_POST['will'])){
-            $buttonClicked = $_POST['will'];
+            $buttonClicked = 'a ' . $_POST['will'];
+            $buttonClickedSubject =  $_POST['will'];
         }
         elseif(isset($_POST['other'])){
-            $buttonClicked = 'Special Need';
+            $buttonClicked = 'a Special Need';
+            $buttonClickedSubject = 'Special Need';
         }
         else {
             $buttonClicked = "";
+            $buttonClickedSubject = "";
         }
     ?>
-    <h1>I need help with <?php echo $buttonClicked; ?></h1>
+    <h1>I need help with <?php echo $buttonClicked ?></h1>
     <h3>Please fill in the form and we will get back to you with an answer on your query as soon as possible.</h3>
     <form action="singleNeed.php" method="post">
         <table>
@@ -69,12 +77,12 @@
             </tr>
             <tr>
                 <td><label >Ask a Question</label></td>
-                <td><input type="textarea" id="question" name="question" onfocusout="checkInput('question')" ></td>
+                <td><input type="textarea" id="question" name="question" oninput="checkInput('question')" ></td>
                 <td><p class="error" id="questionError"></p></td>
             </tr>
             <tr>
                 <td>
-                <input type="text" name="subject" value="<?php echo $buttonClicked ?>">
+                <input type="text" name="subject" value="<?php echo $buttonClickedSubject ?>">
                 </td>
             </tr>
             <tr>

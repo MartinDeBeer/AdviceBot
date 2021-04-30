@@ -190,18 +190,59 @@
             }
         }
         else{
-            $subject;
-            foreach($_POST as $post => $value){      
-                if($post == "coverChosen"){
+            $tmp = '';
+            foreach($_POST as $post => $value){    
+                if($post == 'coverChosen'){
                     break;
-                }          
+                }
+                // echo $post . ' ';
                 $subject = [];
                 array_push($subject, $post);
-                for($i = 0; $i < count($subject); $i++){  
-                    $subject += $insurance[$i] . " ";
+                for($i = 0; $i < count($subject); $i++){
+                    if($subject[$i] == 'retirementCheck'){
+                        $subject[$i] = 'retirement Plan';
+                    }
+                    
+                    $tmp .= $subject[$i] . ', ';
                 }
+                
             }
-            echo $subject;
+            $sub = '';
+            $tmp = str_replace('Check', ' Cover', $tmp);
+            $count = strlen($tmp) - 2;
+            for($j = 0; $j < $count; $j++){
+                $sub .= $tmp[$j];
+                
+            }
+            
+            $sub = ucwords($sub);
+            echo $sub;
+            $to = 'root@localhost';
+            $msg = "
+            <html>
+            <head>
+            <title>HTML email</title>
+            </head>
+            <body>
+            <p>First Name: " . $firstName . "</p>
+            <p>Last Name: " . $surname . "</p>
+            <p>Email Address: " . $email . "</p>
+            <p>ID Number: " . $idNum . "</p>
+            <p>Cellphone Number: " . $cell . "</p>
+            </body>
+            </html>
+            ";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+            $headers .= "From: <martin@advicebot.co.za>" . "\r\n";
+            $mail = @mail($to, $sub, $msg, $headers);
+            if($mail){
+                echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
+                header('location: ../index.php');
+            }else{
+                echo "Mail not sent.";
+            }
+
         }
     }
 

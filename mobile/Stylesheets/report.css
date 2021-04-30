@@ -5,4 +5,10 @@ html {
     -o-background-size: cover;
     background-size: cover;
     font-size: 3vw;
+    overflow-y: scroll;
+}
+
+html,
+body {
+    overflow-y: scroll;
 }
