@@ -1,9 +1,9 @@
 <?php
 
-$host = '127.0.0.1';
-$username = 'root';
-$pass = '';
-$db = 'advicebot';
+$host = 'quake.aserv.co.za';
+$username = 'advicdxe_martin';
+$pass = 'Y9Pywjsh42tAW2s';
+$db = 'advicdxe_advicebot';
 
 $conn = mysqli_connect($host, $username,$pass, $db, '3306');
 

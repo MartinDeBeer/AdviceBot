@@ -29,10 +29,10 @@
         }
 
         if($valid){
-            // ini_set("SMTP", "smtp.afrihost.co.za");
-            // ini_set("smtp_port", 25);
-            // ini_set("sendmail_from", "no-reply@advicebot.co.za");
-            $to = 'root@localhost';
+            ini_set("SMTP", "smtp.afrihost.co.za");
+            ini_set("smtp_port", 25);
+            ini_set("sendmail_from", "no-reply@advicebot.co.za");
+            $to = 'admin@advicebot.co.za';
             $subject = $_POST['subject'];
             $msg = "
             <html>
@@ -51,7 +51,7 @@
             ";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-            $headers .= "From: <martin@advicebot.co.za>" . "\r\n";
+            $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
             mail($to, $subject, $msg, $headers);
             echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
             sleep(5);
@@ -83,7 +83,7 @@
 
 
         // Recipient
-        $to = 'root@localhost';
+        $to = 'admin@advicebot.co.za';
 
         // Sender
         $from = 'no-reply@advicebot.co.za';
@@ -159,10 +159,10 @@
         $email = $_SESSION['emailAddress'];
         $cell = $_SESSION['cell'];
         if(isset($_POST['checkAll'])){
-            // ini_set("SMTP", "smtp.afrihost.co.za");
-            // ini_set("smtp_port", 25);
-            // ini_set("sendmail_from", "no-reply@advicebot.co.za");            
-            $to = 'root@localhost';
+            ini_set("SMTP", "smtp.afrihost.co.za");
+            ini_set("smtp_port", 25);
+            ini_set("sendmail_from", "no-reply@advicebot.co.za");
+            $to = 'admin@advicebot.co.za';
             $subject = "I am interested in all of the options offered.";
             $msg = "
             <html>
@@ -180,7 +180,7 @@
             ";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-            $headers .= "From: <martin@advicebot.co.za>" . "\r\n";
+            $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
             $mail = @mail($to, $subject, $msg, $headers);
             if($mail){
                 echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
@@ -201,6 +201,12 @@
                 for($i = 0; $i < count($subject); $i++){
                     if($subject[$i] == 'retirementCheck'){
                         $subject[$i] = 'retirement Plan';
+                    } else if($subject[$i] == 'savingsCheck'){
+                        $subject[$i] = 'savings Plan';
+                    } else if($subject[$i] == 'willCheck'){
+                        $subject[$i] = 'will';
+                    } else if($subject[$i] == 'shortTermCheck'){
+                        $subject[$i] = 'short term insurance';
                     }
                     
                     $tmp .= $subject[$i] . ', ';
@@ -217,7 +223,10 @@
             
             $sub = ucwords($sub);
             echo $sub;
-            $to = 'root@localhost';
+            ini_set("SMTP", "smtp.afrihost.co.za");
+            ini_set("smtp_port", 25);
+            ini_set("sendmail_from", "no-reply@advicebot.co.za");
+            $to = 'admin@advicebot.co.za';
             $msg = "
             <html>
             <head>
@@ -234,10 +243,9 @@
             ";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-            $headers .= "From: <martin@advicebot.co.za>" . "\r\n";
+            $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
             $mail = @mail($to, $sub, $msg, $headers);
             if($mail){
-                echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
                 header('location: ../index.php');
             }else{
                 echo "Mail not sent.";

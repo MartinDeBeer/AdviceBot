@@ -12,6 +12,9 @@
         if($personal == 'no'){
             $rep = $_POST['rep'];
         }
+        ini_set("SMTP", "smtp.afrihost.co.za");
+        ini_set("smtp_port", 25);
+        ini_set("sendmail_from", "no-reply@advicebot.co.za"); 
         $to = 'root@localhost';
         $subject = "Consent to get information from Astute";
         $msg = "
@@ -30,7 +33,7 @@
         ";
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-        $headers .= "From: <martin@advicebot.co.za>" . "\r\n"; 
+        $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
         mail($to, $subject, $msg, $headers);
         header('location: ../report.php'); 
     }

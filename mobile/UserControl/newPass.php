@@ -32,7 +32,6 @@
         $token = $_GET['token'];
         $_SESSION['token'] = $token;
         $session_token = $_SESSION['token'];
-        echo $session_token;
         }else{
         echo "no token";
         }

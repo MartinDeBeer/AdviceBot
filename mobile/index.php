@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
-                <button id="contact" class="menuBtn" onclick="window.location.href='contact.php'">Contact Us</button>
+                <button id="contact" class="menuBtn" onclick="window.location.href='mailto:admin@advicebot.co.za'">Contact Us</button>
                 <button id="ifaa" class="menuBtn" onclick=window.location.href="ifaa.php" >Get Advice</button>
                 <?php
                 if(isset($_SESSION['emailAddress'])){

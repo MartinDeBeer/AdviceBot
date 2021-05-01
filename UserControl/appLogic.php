@@ -34,6 +34,7 @@
         if(empty($userID)) array_push($errors, "ID number is required");
         if(empty($pass)) array_push($errors, "Password is required");
         $_SESSION['firstName'] = $firstName;
+ 
 
         // Check if user exists
         $sql = "SELECT * FROM users WHERE emailAddress = '$emailAddress' AND userID = '$userID'" ;
@@ -55,6 +56,7 @@
           $results = mysqli_query($conn, $createUser);
           $result = mysqli_query($conn, $s);
           $row = mysqli_fetch_array($result);
+          $_SESSION['emailAddress'] = $row['emailAddress'];
           $_SESSION['firstName'] = $row['firstName'];
           $_SESSION['autoID'] = $row['autoID'];
           $_SESSION['userID'] = $row['userID'];
@@ -127,12 +129,12 @@
         ini_set("smtp_port", 25);
         ini_set("sendmail_from", "no-reply@advicebot.co.za");
         // store token in the password-reset database table against the user's email
-        $sql = "INSERT INTO passwordreset(email, token) VALUES ('$email', '$token')";
+        $sql = "INSERT INTO passwordreset VALUES (Null, '$email', '$token')";
         $results = mysqli_query($conn, $sql);
 
         /* Send email to user with the token in a link they can click on */
         $to = $email;
-        $link = '<a href = "https://www.advicebot.co.za/UserControl/newPass.php?token=' . $token . '">link</a>';
+        $link = '<a href = "https://www.advicebot.co.za/beta/UserControl/newPass.php?token=' . $token . '">link</a>';
         $subject = "Reset your password on https://advicebot.co.za";
         $msg = "
         <html>
