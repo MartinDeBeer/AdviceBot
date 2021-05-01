@@ -13,11 +13,13 @@
 }
 
 #reg {
+    position: static;
     max-width: 27%;
 }
 
 #questions {
     position: static;
+    top: 10vh;
     width: 30%;
     margin-bottom: 10px;
     color: #006699;
