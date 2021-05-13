@@ -27,17 +27,11 @@
             </div>
             <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
             <button id="contact" class="menuBtn" onclick="window.location.href='contact.php'">Contact Us</button>
-            <?php
-            if(isset($_SESSION['emailAddress'])){
-                echo '<button id="logout" class="menuBtn" onclick="window.location.href=\'UserControl/logout.php\'">Log Out </button>' .
-                '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>'. 
-                '<button id="ifaa" class="menuBtn" onclick="questions()" >Get Advice</button>';
-            }else {
-                echo '<button id="register" class="menuBtn" onclick="window.location.href=\'UserControl/register.php\'" >Sign Up</button>';
-                echo '<button id="login" class="menuBtn" onclick="window.location.href=\'UserControl/login.php\'" >Log In</button>';
-            }
-            ?>
+            
         </nav>
+        <div class="quote">
+            <p>"To become financially free you must be disciplined. The financial instrument is secondary" - IFAA</p>
+        </div>
     </header>
     <h1 style="text-align: center;">Early Retirement Calculator</h1>
     
@@ -160,7 +154,7 @@
                     <td>R<input id="yearlyAddInvestment" type="text" disabled></td>
                 </tr>
             </table>
-            <button class="btn" onclick="calculateAddInvestment()" onclick="calculateTime()">Calculate Yearly Additional Investment</button>
+            <button class="btn" onclick="calculateAddInvestment()">Calculate Yearly Additional Investment</button>
         </div>
     </div>
 </body>

@@ -6,19 +6,51 @@
     <title>Document</title>
     <script src="Scripts/botScripts.js" type="text/javascript"></script>
     <link rel="stylesheet" href="Stylesheets/ifaaStyles.css">
+    <link rel="stylesheet" href="Stylesheets/styles.css">
 
 </head>
 
 
 <body onkeypress="nextQuestion(event)" >
+
+    <header>            
+        <!-- Logo -->
+        <img class="logo" src="Images/Logo.png" alt="Advicebot Logo" onclick="window.location.href='index.php'"/>
+
+        <!-- Menu -->
+        <nav class="menu">
+            <div class="dropdown">
+                <button class="dropbtn menuBtn">Tools</button>
+                <div class="dropdown-content">
+                    <a  href="Tools/budget.php">Budget Tool</a>
+                    <a href="Tools/saveamillion.php">Save a Million</a>
+                    <a href="Tools/retirement.php" >Retirement Tool</a>
+                </div>
+            </div>
+            <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
+            <button id="contact" class="menuBtn" onclick="window.location.href='mailto:admin@advicebot.co.za'">Contact Us</button>
+            <?php
+                session_start();
+                if(isset($_SESSION['emailAddress'])){
+                    echo '<button id="logout" class="menuBtn" onclick="window.location.href=\'UserControl/logout.php\'">Log Out </button>' .
+                    '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>';
+                }else {
+                    echo '<button id="login" class="menuBtn" onclick="window.location.href=\'UserControl/login.php\'" >Log In</button>';
+                }
+            ?>
+        </nav>            
+        <div class="quote">
+            <p>"To become financially free you must be disciplined. The financial instrument is secondary" - IFAA</p>
+        </div>
+    </header>
     <!-- Check if user is logged in -->
     <div id="reg">
         <?php
-            session_start();
             include('dataPages/connectDB.php');
 
             if(!(isset($_SESSION['emailAddress']))){
-                echo "You need to have an account to use this functionality. Please go <a href='UserControl/register.php'>here</a> to create an account.";
+                header('location: UserControl/register.php');
+                header('location: UserControl/login.php');
             }
             else{
                 echo '<input type="button" id="loggedIn" value="CLICK HERE TO GET STARTED" onclick="registered()">';

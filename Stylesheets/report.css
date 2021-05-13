@@ -1,6 +1,12 @@
 #priorityIndicator {
+    margin: auto;
+    width: 100%;
     font-size: 1vw;
     color: #006699;
+}
+
+.answer {
+    text-align: left;
 }
 
 html,
@@ -13,10 +19,10 @@ body::after {
     height: 50vh;
 }
 
-a {
-    text-decoration: none;
-}
-
 a:visited {
     color: #006699;
+}
+
+table td {
+    height: 1em;
 }

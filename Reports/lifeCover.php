@@ -49,20 +49,20 @@
     <p>The amount of life cover needed will depend on your specific circumstances. You mentioned that your marriage status is <?php if($marriageStatus == "yes"){echo "married";}else{echo "single";} ?> and that you <?php if($kidsStatus == "yes"){echo "have dependents";}else{echo "don't have dependents";} ?>. You earn an income of R<?php echo $salary; ?> and have liabilities of R<?php echo $liabilities; ?>. As a rule of thumb, the minimum amount of life cover you will need is 6 (six) times income plus liabilities.</p>
 
 
-    <button onclick="haveCover()">I have life cover in place</button>    
-    <input id="life" type="button" value="I need life cover" onclick="tellMore('life')"><br>
+    <input type="button" id="haveLife" onclick="yesOrNo('haveLife')" value="I have life cover in place">
+    <input id="needLife" type="button" value="I need life cover" onclick="yesOrNo('needLife')"><br>
 
-    <div id="amounts" style="visibility: hidden;">
+    <div id="amounts" class="extra" style="visibility: hidden;">
         
         <label for="lifeCoverAmount">Amount of life cover</label>
         <input type="text" id="lifeCoverAmount"><br>        
         <button onclick="window.location.href='permission.php'">I don't know how much life cover I have</button><br>
+        <input type="button" id="suppBtnLife" value="See how much you're supposed to be covered for" onclick="showSupposed('life')">
 
-        <button onclick="showSupposed('life')" id="suppBtnLife" type="submit">See how much you're supposed to be covered for</button>
-        <div id="supposed" style="visibility: hidden;">
+        <div id="supposed"  style="visibility: hidden;">
             <label for="supposedAmount">You should have</label>
             <input id="supposedAmount" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
-            <p id="diff">The difference between the cover you have and what you should have is</p>
+            <p id="diff"></p>
         </div>
     </div>
 </body>

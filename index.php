@@ -28,86 +28,114 @@
 
             <!-- Menu -->
             <nav class="menu">
-                <button id="home" class="menuBtn" onclick="window.location.href='index.php'" >Home</button> 
                 <div class="dropdown">
                     <button class="dropbtn menuBtn">Tools</button>
                     <div class="dropdown-content">
-                        <a href="Tools/budget.php">Budget Tool</a>
+                        <a  href="Tools/budget.php">Budget Tool</a>
                         <a href="Tools/saveamillion.php">Save a Million</a>
                         <a href="Tools/retirement.php" >Retirement Tool</a>
                     </div>
                 </div>
+                <button id="providers" class="menuBtn" onclick="window.location.href='providers.php'" >Product Providers</button>
                 <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
                 <button id="contact" class="menuBtn" onclick="window.location.href='mailto:admin@advicebot.co.za'">Contact Us</button>
                 <?php
                 if(isset($_SESSION['emailAddress'])){
                     echo '<button id="logout" class="menuBtn" onclick="window.location.href=\'UserControl/logout.php\'">Log Out </button>' .
                     '<button id="profile" class="menuBtn" onclick="window.location.href=\'report.php\'" >My Profile</button>'. 
-                    '<button id="ifaa" class="menuBtn" onclick="questions()" >Get Advice</button>';
+                    '';
                 }else {
-                    echo '<button id="register" class="menuBtn" onclick="window.location.href=\'UserControl/register.php\'" >Sign Up</button>';
                     echo '<button id="login" class="menuBtn" onclick="window.location.href=\'UserControl/login.php\'" >Log In</button>';
                 }
                 ?>
-            </nav>
+            </nav>            
+            <div class="quote">
+                <p>"To become financially free you must be disciplined. The financial instrument is secondary" - IFAA</p>
+            </div>
+        </header>
+        <!-- Robohelp Menu -->
+        <div id="page1">
 
-            
-            <div id="welcome" style="text-align: center;">
+                <figure id="RoboHelp">
+                    <video class="videoPlayer" onmouseover="this.play();" onmouseout="this.pause();" muted="muted" onclick="window.location.href='ifaa.php'" >
+                        <source src="Videos/intro.mp4" type="video/mp4" />
+                    </video>                    
+                </figure>
                 <?php
-                    if(isset($_SESSION['emailAddress'])){
-                        echo "<h2>Welcome " . $_SESSION['firstName'] . "</h2>";
+                    if(!isset($_SESSION['emailAddress'])){
+                        echo '<div id="registration">
+                        <p>Sign up for a free account to start getting automated financial advice</p>
+                        <button id="register" class="menuBtn" onclick="window.location.href=\'UserControl/register.php\'" >Sign Up</button>
+                        </div>';
+                    }
+                    else {
+                        echo '<div id="registration">
+                        <h3>Welcome ' . $_SESSION['firstName'] . '</h3>
+                        <p>Click on the robot to start your free automated financial advice process</p>
+                    </div>';
                     }
                 ?>
             </div>
-        </header>
-        <!-- Ajax pages -->
-        <div id="otherPage"></div> 
-        <!-- Robohelp Menu -->
-        <div id="homePage">
+
+        <div id="page2">
+            <h1>Single Need</h1>
             <!-- Single Need Menu -->
             <form action="dataPages/singleNeed.php" id="singleNeed" method="post">
-                    <!-- Life Cover -->
-                    <input type="submit" id="lifeCover" class="singleButton" value="Life Cover" name="lifeCover"> <br>
-                    <br>
-                    <!-- Disability And Trauma -->
-                    <input type="submit" id="disability" class="singleButton" value="Disability and Trauma" name="disability"><br>
-                    <br>
-                    <!-- Savings & Emergency -->
-                    <input type="submit" id="savings" class="singleButton" value="Savings and Emergency Fund" name="savings"><br />
-                    <br>
-                    <!-- Retirement Planning -->
-                    <input type="submit" id="retirement" class="singleButton" value="Retirement Planning" name="retirement"><br />
-                    <br>
-                    <!-- Short Term Insurance -->
-                    <input type="submit" id="shortTerm" class="singleButton" value="Short Term Insurance" name="shortTerm" ><br />
-                    <br>
-                    <!-- Will And Testament -->
-                    <input type="submit" id="will" class="singleButton" value="Will and Testament" name="will"><br />
-                    <br>
-                    <!-- Other ( Email ) -->
-                    <input type="submit" id="other" class="singleButton" value="I have a special need" name="other" >
-                </form>
-                <figure id="RoboHelp">
-                    <video class="videoPlayer" onmouseover="this.play();" onmouseout="this.pause();" muted="muted" onclick="questions()" >
-                        <source src="Videos/intro.mp4" type="video/mp4" />
-                    </video>
-                    <figcaption>Click on the robot to get free financial advice</figcaption>
-                </figure>
-            </div>
-        </form> 
-        <div id="socials">  
-            <a href="https://www.facebook.com/www.advicebot.co.za"><img class="social" src="Images/facebook.png" alt="Facebook Logo Black" ></a>
-            <a href="https://www.instagram.com/advicebots"><img class="social" src="Images/insta.png" alt="Instagram Logo Black" ></a>
-            <a href="https://www.linkedin.com/company/advicebot"><img class="social" src="Images/linkedIn.png" alt="LinkedIn Logo Black" ></a>
+                <!-- Life Cover -->
+                <input type="submit" id="lifeCover" class="singleButton" value="Life Cover" name="lifeCover"> <br>
+                <br>
+                <!-- Disability And Trauma -->
+                <input type="submit" id="disability" class="singleButton" value="Disability and Trauma" name="disability"><br>
+                <br>
+                <!-- Savings & Emergency -->
+                <input type="submit" id="savings" class="singleButton" value="Savings and Emergency Fund" name="savings"><br />
+                <br>
+                <!-- Retirement Planning -->
+                <input type="submit" id="retirement" class="singleButton" value="Retirement Planning" name="retirement"><br />
+                <br>
+                <!-- Short Term Insurance -->
+                <input type="submit" id="shortTerm" class="singleButton" value="Short Term Insurance" name="shortTerm" ><br />
+                <br>
+                <!-- Will And Testament -->
+                <input type="submit" id="will" class="singleButton" value="Will and Testament" name="will"><br />
+                <br>
+                <!-- Other ( Email ) -->
+                <input type="submit" id="other" class="singleButton" value="I have a special need" name="other" >
+            </form>
+
         </div>
+
             
     </div>
     <footer id="footer" style="text-align: center;">
-        <button onclick="window.location.href='Docs/disclosure.php'">Disclosure Agreement</button>
-        <button onclick="window.location.href='Docs/complaints.php'">Complaints Procedure</button>
-        <button onclick="window.location.href='Docs/privacy.php'">Privacy Policy</button>
-        <button onclick="window.location.href='Docs/use.php'">Website Use</button>
-        <button onclick="window.location.href='feedback.php'">Feedback</button>
+        <div class="part1">
+            <div id="socials">  
+                <a href="https://www.facebook.com/www.advicebot.co.za"><img class="social" src="Images/facebook.png" alt="Facebook Logo Black" ></a>
+                <a href="https://www.instagram.com/advicebots"><img class="social" src="Images/insta.png" alt="Instagram Logo Black" ></a>
+                <a href="https://www.linkedin.com/company/advicebot"><img class="social" src="Images/linkedIn.png" alt="LinkedIn Logo Black" ></a>
+            </div>
+        </div>
+        <hr>
+
+
+        <div class="part2">
+            <div id="aboutAdviceBot">
+                <h3>About AdviceBot</h3>
+                <p>AdviceBot is an online platform that anyone can access free of charge. The free advice tool will guide you through an automated process with targeted questions to establish a financial priority list for your unique circumstances. From there you can access a more detailed report and interact on a more personal level with a dedicated and experienced back office.</p>
+            </div>
+        </div>
+        <hr>
+
+
+        <div class="part3">
+            <div id="legal">
+                <button onclick="window.location.href='Docs/disclosure.php'">Disclosure Agreement</button>
+                <button onclick="window.location.href='Docs/complaints.php'">Complaints Procedure</button>
+                <button onclick="window.location.href='Docs/privacy.php'">Privacy Policy</button>
+                <button onclick="window.location.href='Docs/use.php'">Website Use</button>
+                <button onclick="window.location.href='feedback.php'">Feedback</button>
+            </div>
+        </div>
     </footer>
         
 </body>

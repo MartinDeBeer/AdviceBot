@@ -46,7 +46,7 @@
         <button onclick="showSupposed('disability')">See how much you're supposed to be covered for</button>
         <div id="supposed" style="visibility: hidden;">
             <label for="supposedAmount">You should have</label>
-            <input id="supposedAmount" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
+            <input id="supposedAmount" name="disabilityNeeded" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
             <p id="diff"></p>
         </div>
         <button onclick="window.location.href='permission.php'">I don't know how much cover I have</button>

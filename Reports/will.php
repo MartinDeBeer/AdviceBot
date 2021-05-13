@@ -25,11 +25,10 @@
     <h3><u>IFAA TIP:</u></h3>
     <p>When you pass away, your estate does not pay estate duty on assets that your spouse will inherit. (Section 4Q deduction) Any benefit from a life insurance policy that pays directly to a beneficiary will not incur any executor fees. It is therefore important to do proper planning when you draw up your Will. </p>
   
-    <form action="../upload/upload.php" method="post">
-        <p>A Will must be valid. The Master of the High Court will only except the original document. It must be signed and dated in front of two witnesses. The witnesses must each also sign the document.</p>
+    <p>A Will must be valid. The Master of the High Court will only except the original document. It must be signed and dated in front of two witnesses. The witnesses must each also sign the document.</p>
 
-        <input type="submit" value="I need a will">
-        <input type="submit" value="My will is in order">
-    </form>
+    <input type="button" value="I need a will" onclick="yesOrNo('needWill')">
+    <input type="button" value="My will is in order" onclick="yesOrNo('haveWill')">
+    
 </body>
 </html>

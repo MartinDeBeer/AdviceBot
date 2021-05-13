@@ -40,6 +40,9 @@
             }
             ?>
         </nav>
+        <div class="quote">
+                <p>"To become financially free you must be disciplined. The financial instrument is secondary" - IFAA</p>
+            </div>
     </header>
     <h1 style="text-align: center">Save a million goal calculator</h1>
 

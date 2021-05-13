@@ -1,0 +1,32 @@
+body {
+    margin-top: 0;
+    overflow: hidden;
+}
+
+h3 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+#productProviders {
+    background-color: whitesmoke;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+figcaption {
+    background-color: gray;
+}
+
+table {
+    margin: 0;
+    width: 100%;
+    height: 94vh;
+}
+
+.provider {
+    width: 100px;
+    margin: 0 30px;
+}

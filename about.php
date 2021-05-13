@@ -17,7 +17,6 @@
             <!-- Menu -->
             <nav class="menu">
                 <button id="home" class="menuBtn" onclick="window.location.href='index.php'" >Home</button> 
-                <button id="ifaa" class="menuBtn" onclick="questions()" >Get Advice</button>
                 <div class="dropdown">
                     <button class="dropbtn menuBtn">Tools</button>
                     <div class="dropdown-content">
@@ -26,7 +25,6 @@
                         <a href="Tools/retirement.php" >Retirement Tool</a>
                     </div>
                 </div>
-                <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
                 <button id="contact" class="menuBtn" onclick="window.location.href='contact.php'">Contact Us</button>
                 <?php
                 if(isset($_SESSION['emailAddress'])){
@@ -38,6 +36,9 @@
                 }
                 ?>
             </nav>
+            <div class="quote">
+                <p>"To become financially free you must be disciplined. The financial instrument is secondary" - IFAA</p>
+            </div>
         </header>
         <h1>About AdviceBot</h1>
 
@@ -72,11 +73,24 @@
     </div>
 
     <footer id="footer" style="text-align: center;">
-        <button onclick="window.location.href='Docs/disclosure.php'">Disclosure Agreement</button>
-        <button onclick="window.location.href='Docs/complaints.php'">Complaints Procedure</button>
-        <button onclick="window.location.href='Docs/privacy.php'">Privacy Policy</button>
-        <button onclick="window.location.href='Docs/use.php'">Website Use</button>
-        <button onclick="window.location.href='feedback.php'">Feedback</button>
+        <div class="part1">
+            <div id="socials">  
+                <a href="https://www.facebook.com/www.advicebot.co.za"><img class="social" src="Images/facebook.png" alt="Facebook Logo Black" ></a>
+                <a href="https://www.instagram.com/advicebots"><img class="social" src="Images/insta.png" alt="Instagram Logo Black" ></a>
+                <a href="https://www.linkedin.com/company/advicebot"><img class="social" src="Images/linkedIn.png" alt="LinkedIn Logo Black" ></a>
+            </div>
+        </div>
+        <hr>
+
+        <div class="part3">
+            <div id="legal">
+                <button onclick="window.location.href='Docs/disclosure.php'">Disclosure Agreement</button>
+                <button onclick="window.location.href='Docs/complaints.php'">Complaints Procedure</button>
+                <button onclick="window.location.href='Docs/privacy.php'">Privacy Policy</button>
+                <button onclick="window.location.href='Docs/use.php'">Website Use</button>
+                <button onclick="window.location.href='feedback.php'">Feedback</button>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

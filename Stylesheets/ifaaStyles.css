@@ -19,11 +19,12 @@
 
 #questions {
     position: static;
-    top: 10vh;
-    width: 30%;
+    width: 40%;
+    margin-top: 10%;
+    margin-left: 5%;
     margin-bottom: 10px;
-    color: #006699;
-    font-size: 20px;
+    color: #00004d;
+    font-size: 25px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -63,16 +64,18 @@ progress[value]::-moz-progress-bar {
 #roboAdvice {
     position: absolute;
     left: 50vw;
-    width: 30vw;
+    width: 40vw;
 }
 
 #Budget {
     position: absolute;
     font-size: 15px;
-    top: 20%;
+    top: 40%;
+    left: 15%;
 }
 
-#Budget h1 {
+#Budget h2,
+#Budget header {
     visibility: hidden;
 }
 
@@ -82,7 +85,20 @@ progress[value]::-moz-progress-bar {
 }
 
 #vid {
-    width: 30vw;
+    width: 40vw;
+}
+
+#start {
+    font-size: 1.25em;
+    margin-left: 5%
+}
+
+select {
+    font-size: .75em;
+}
+
+.question {
+    font-size: .75em;
 }
 
 #submitAnswers {
@@ -100,10 +116,13 @@ progress[value]::-moz-progress-bar {
         position: relative;
         top: 1vh;
     }
+    form {
+        position: static;
+        top: 50vh;
+    }
     #reg {
-        position: absolute;
+        position: static;
         width: 30%;
-        top: 25%;
     }
     #start {
         position: absolute;

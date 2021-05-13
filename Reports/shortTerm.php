@@ -19,7 +19,7 @@
     <p>I’m independent. I represent you as client. I do not represent any insurance company. This is especially important at claim stage. </p>
     <p>Every insurance company has its own unique products and value-added service. <br>
     Luckily for you we can offer you a wide verity of products from most of the insurance companies. <br>
-     </p>
+    </p>
      We can compare your current insurance schedule to other offers in the market and see if your premium is still market related or if you can perhaps save on your monthly expenses. <br>
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <h2>Upload your schedule here:</h2>

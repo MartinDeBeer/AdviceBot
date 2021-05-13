@@ -30,7 +30,7 @@
             include('dataPages/connectDB.php');
 
             if(!(isset($_SESSION['emailAddress']))){
-                echo "You need to have an account to use this functionality. Please go <a href='UserControl/register.php'>here</a> to create an account.";
+                echo "Start by clicking <a href='UserControl/register.php'>here</a> to create a free account.";
             }
             else{
                 echo '<input type="button" id="loggedIn" value="CLICK HERE TO GET STARTED" onclick="registered()">';

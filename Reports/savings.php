@@ -16,34 +16,41 @@
     For me to help you reach your goals I must first do a risk profiling. I have to consider the risk required for the specific return you need, your risk capacity (the risk you can afford to take) and your risk tolerance (how you feel about risk)</p>
     <h3><u>IFAA TIP:</u></h3>
     <p>The savings vehicle is secondary to the savings coal. First determine your goal and the amount you need to save before you start exploring savings or investment products.</p>
-    <p>Which bar defines your outlook on risk the best?</p>
-    <table>
-        <tr>
-            <td><input type="submit" value="Low Risk"
-            id="lowRisk" onclick="tellMore('lowRisk')"></td>
-            <td>Potential loss: 0%</td>
-            <td>Potential gain: 5%</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Medium Low" id="medLow" onclick="tellMore('medLow')"></td>
-            <td>Potential loss: 3%</td>
-            <td>Potential gain: 8%</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Medium" id="medium" onclick="tellMore('medium')"></td>
-            <td>Potential loss: 5%</td>
-            <td>Potential gain: 10%</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Medium High" id="medHigh" onclick="tellMore('medHigh')"></td>
-            <td>Potential loss: 10%</td>
-            <td>Potential gain: 15%</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="High" id="high" onclick="tellMore('high')"></td>
-            <td>Potential loss: 25%</td>
-            <td>Potential gain: 35%</td>
-        </tr>
-    </table>
+
+    <input type="button" id="haveSavings" value="I have a savings plan" onclick="yesOrNo('haveSavings')">
+
+    <input type="button" value="I don't have a savings plan" id="noSavings" onclick="yesOrNo('noSavings')" >
+
+    <div id="riskProfile" class="extra" style="visibility: hidden;">
+        <p>Which bar defines your outlook on risk the best?</p>
+        <table>
+            <tr>
+                <td><input type="button" value="Low Risk"
+                id="lowRisk" onclick="tellMore('lowRisk')"></td>
+                <td>Potential loss: 0%</td>
+                <td>Potential gain: 5%</td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Medium Low" id="medLow" onclick="tellMore('medLow')"></td>
+                <td>Potential loss: 3%</td>
+                <td>Potential gain: 8%</td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Medium" id="medium" onclick="tellMore('medium')"></td>
+                <td>Potential loss: 5%</td>
+                <td>Potential gain: 10%</td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Medium High" id="medHigh" onclick="tellMore('medHigh')"></td>
+                <td>Potential loss: 10%</td>
+                <td>Potential gain: 15%</td>
+            </tr>
+            <tr>
+                <td><input type="button" value="High" id="high" onclick="tellMore('high')"></td>
+                <td>Potential loss: 25%</td>
+                <td>Potential gain: 35%</td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

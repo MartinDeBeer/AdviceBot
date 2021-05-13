@@ -14,3 +14,9 @@ p {
 h1 {
     text-align: center;
 }
+
+footer {
+    height: fit-content;
+    position: absolute;
+    bottom: 0;
+}

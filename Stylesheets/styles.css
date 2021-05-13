@@ -1,32 +1,36 @@
-html {
-    background: url("../Images/side.jpg") no-repeat top;
-    background-size: 90%;
-    z-index: -100;
-    padding-left: 5%;
-    padding-right: 5%;
-    background-color: gray;
-    overflow: hidden;
+@font-face {
+    font-family: Quote;
+    src: url('Schoolbell-Regular.ttf');
 }
 
-.wrapper {
-    height: 95vh;
+body {
+    background: url("../Images/side.jpg") no-repeat top;
+    background-size: cover;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 header {
-    height: 20vh;
+    position: static;
+    height: 10vh;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .logo {
-    position: relative;
-    width: 10vw;
-    top: 15px;
+    width: 5%;
+    float: left;
+    margin-right: 3em;
+    margin-top: .5em;
 }
 
 .menu {
-    position: relative;
     display: flex;
-    float: right;
-    padding: 2em;
+    width: 40%;
+    float: left;
+    /* margin-top: 5px; */
 }
 
 .menuBtn,
@@ -39,6 +43,7 @@ header {
     height: 2em;
     border: 2px solid;
     border-radius: 8px;
+    margin: 10px 5px;
 }
 
 
@@ -55,10 +60,12 @@ header {
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
-    font-size: 20px;
+    top: 3em;
+    bottom: 2px;
+    height: fit-content;
+    font-size: 1em;
     background-color: #f1f1f1;
-    min-width: 160px;
+    width: 4000px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -68,11 +75,10 @@ header {
 
 .dropdown-content a {
     color: #006699;
-    width: 100%;
+    width: 10em;
     background-color: lightgrey;
-    padding: 12px 16px;
+    padding: 12px;
     text-decoration: none;
-    display: block;
 }
 
 
@@ -86,30 +92,74 @@ header {
 /* Show the dropdown menu on hover */
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: flex;
+    width: fit-content;
     color: #006699;
 }
 
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 
-.dropdown:hover .dropbtn {
+.dropbtn:hover,
+.menuBtn:hover {
     background-color: gray;
 }
 
-#welcome {
+.quote {
+    float: right;
+    width: 50%;
+    margin-right: -5%;
+    font-style: italic;
+    margin-top: 1%;
+}
+
+#page1::before {
+    content: '';
+    height: 10vh;
+}
+
+#page1 {
+    position: static;
+    height: 90vh;
+    margin-top: 0;
+}
+
+#RoboHelp {
     position: relative;
-    left: 30vw;
-    width: fit-content;
+    left: 45vw;
+    top: 3vh
+}
+
+.videoPlayer {
+    width: 40%;
+}
+
+#registration {
+    position: relative;
+    bottom: 60vh;
+    left: 10vw;
+    font-size: 2vw;
+    width: 40%;
+}
+
+#page2::after {
+    content: '';
+    height: 20vh;
+}
+
+#page2 {
+    position: relative;
+    height: 70vh;
+    text-align: center;
 }
 
 #singleNeed {
     text-align: center;
-    position: absolute;
-    top: 30vh;
-    left: 10%;
+    position: relative;
+    margin: auto;
     height: fit-content;
     width: fit-content;
+    margin-bottom: 10vh;
 }
 
 .singleButton {
@@ -121,92 +171,45 @@ header {
     color: #006699;
 }
 
-.videoPlayer,
-figcaption {
-    position: relative;
-    left: 50vw;
-    top: 3vh;
-    width: 30%;
-    height: auto;
-}
-
-figcaption {
-    background-color: lightgray;
-    color: #006699;
-    text-align: center;
-}
-
-#homePage::after {
-    display: block;
-    height: 30px;
-}
-
-footer {
-    background-color: lightgray;
-    display: flex;
-    position: relative;
-    height: 30px;
-    width: 100%;
-    color: grey;
-}
-
-footer button {
-    width: 100%;
-}
-
-#footerTable {
-    width: 100%;
-    font-size: 20px;
-}
-
-#footerTable a {
-    color: black;
-}
-
 #socials {
     text-align: center;
-    position: absolute;
-    top: 90vh;
-    left: 10vw;
     height: 30%;
-    font-size: 2vw;
 }
 
 .social {
     width: 2.5vw;
 }
 
-@media screen and (max-width: 1550px) {
-    #singleNeed {
-        text-align: center;
-        position: absolute;
-        left: 10%;
-        height: fit-content;
-        width: fit-content;
-    }
-    /* #welcome {
-        top: 10%;
-    } */
-    .singleButton {
-        background-color: lightgrey;
-        width: 100%;
-        font-size: 1.5vw;
-        padding: 2px;
-        border: 1px groove;
-        color: #006699;
-    }
-    #wrapper {
-        height: 92vh;
-    }
-    #socials {
-        text-align: center;
-        position: absolute;
-        top: 85vh;
-        left: 10vw;
-        height: 30%;
-        font-size: 2vw;
-    }
-    html {
-        overflow: hidden;
-    }
+footer {
+    position: relative;
+    padding: 10px 5px;
+    bottom: 0;
+    width: 100%;
+    height: 25vh;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#legal {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.part2 {
+    text-align: left;
+}
+
+footer button {
+    width: 100%;
+    height: fit-content;
+    margin: 3px 0;
+}
+
+footer div {
+    width: 100%;
+}
+
+hr {
+    width: 90%;
 }

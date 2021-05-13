@@ -41,6 +41,9 @@
             }
             ?>
         </nav>
+        <div class="quote">
+                <p>"To become financially free you must be disciplined. The financial instrument is secondary" - IFAA</p>
+            </div>
     </header>
     <!-- income -->
     <h2 style="text-align: center;">Free Budget Tool</h2>

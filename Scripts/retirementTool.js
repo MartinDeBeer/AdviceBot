@@ -48,4 +48,5 @@ function calculateTime() {
         }
     }
     document.getElementById('earlyRetirementAge').value = count;
+    alert(`You can retire at ${count} years old. `);
 }

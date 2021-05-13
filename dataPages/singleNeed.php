@@ -22,20 +22,19 @@
             $buttonClickedSubject = $_POST['disability'];
         }
         elseif(isset($_POST['savings'])){
-            $buttonClicked = $_POST['savings'];
-            $buttonClickedSubject = $_POST['savings'];
+            include('../Reports/savings.php');
         }
         elseif(isset($_POST['retirement'])){
-            $buttonClicked = $_POST['retirement'];
-            $buttonClickedSubject = $_POST['retirement'];
+            include('../Reports/retirement.php');
+
         }
         elseif(isset($_POST['shortTerm'])){
-            $buttonClicked = $_POST['shortTerm'];
-            $buttonClickedSubject = $_POST['shortTerm'];
+            include('../Reports/shortTerm.php');
+
         }
         elseif(isset($_POST['will'])){
-            $buttonClicked = 'a ' . $_POST['will'];
-            $buttonClickedSubject =  $_POST['will'];
+            include('../Reports/will.php');
+
         }
         elseif(isset($_POST['other'])){
             $buttonClicked = 'a Special Need';
@@ -46,7 +45,6 @@
             $buttonClickedSubject = "";
         }
     ?>
-    <h1>I need help with <?php echo $buttonClicked ?></h1>
     <h3>Please fill in the form and we will get back to you with an answer on your query as soon as possible.</h3>
     <form action="singleNeed.php" method="post">
         <table>
@@ -82,7 +80,7 @@
             </tr>
             <tr>
                 <td>
-                <input type="text" name="subject" value="<?php echo $buttonClicked ?>">
+                <!-- <input type="text" name="subject" value="<?php echo $buttonClicked ?>"> -->
                 </td>
             </tr>
             <tr>

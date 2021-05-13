@@ -54,6 +54,25 @@
             $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
             mail($to, $subject, $msg, $headers);
             echo "Mail sent successfully to Advicebot admins.";
+
+            $to = $email;
+            $subject = $_POST['subject'];
+            $msg = "
+            <html>
+            <head>
+            <title>HTML email</title>
+            </head>
+            <body>
+            <p>Thank you for using our service. We will get back to you.</p>
+            <p>Have you tried our free auto advice?</p>
+            </body>
+            </html>
+            ";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+            $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
+            mail($to, $subject, $msg, $headers);
+            echo "Mail sent successfully to Advicebot admins.";
             header('location: ../index.php');
         }
         else {
@@ -247,6 +266,27 @@
 
         }
     }
+ini_set("SMTP", "smtp.afrihost.co.za");
+ini_set("smtp_port", 25);
+ini_set("sendmail_from", "no-reply@advicebot.co.za");
+$to = 'admin@advicebot.co.za';
+$subject = $_POST['subject'];
+$msg = "
+<html>
+<head>
+<title>HTML email</title>
+</head>
+<body>
+<p>Thank you for using our service. A representative will be in contact with you soon to get more information</p>            
+</body>
+</html>
+";
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+$headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
+mail($to, $subject, $msg, $headers);
+echo "Mail sent successfully to Advicebot admins.";
+header('location: ../index.php');
 
 
 

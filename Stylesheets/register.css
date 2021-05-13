@@ -9,8 +9,27 @@
     box-shadow: 0 0 20px 20px #006699;
 }
 
+#passReset {
+    position: relative;
+    top: 10vh;
+    width: 25%;
+    padding: 10px;
+}
+
+#login {
+    width: 20%;
+    position: relative;
+    top: 10vh;
+    padding: 10px;
+}
+
 a {
     color: black;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
 }
 
 @media screen and (max-width: 1550px) {
@@ -22,6 +41,5 @@ a {
         top: 25%;
         color: #006699;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        ;
     }
 }

@@ -1,12 +1,51 @@
-function tellMore(id) {
-    let subject = document.getElementById(id).value;
-    let address = 'adriaan@advicebot.co.za';
-    let body = 'Name: ' + '%0a' + 'Surname: ' + '%0a' + 'ID Number: ' + '%0a' + 'Cellphone Number: ' + '%0a' + 'Ask a question: ';
-    window.location.href = "mailto:" + address + "?subject=" + subject + "&body=" + body;
+function changeStyle(id) {
+    document.getElementById(id).style.borderLeft = '1px solid black';
 }
 
-function haveCover(id) {
-    document.getElementById('amounts').style.visibility = "visible";
+function yesOrNo(id) {
+    let element = document.getElementById(id).value;
+    switch (id) {
+        case 'needLife':
+            document.querySelector('#lifeYesNo').innerHTML = element;
+            changeStyle(id);
+            break;
+        case 'haveLife':
+            document.querySelector('#lifeYesNo').innerHTML = element;
+            changeStyle(id);
+            haveCover();
+            break;
+        case 'needTrauma':
+            document.querySelector('#disabilityYesNo').innerText = element;
+            changeStyle(id);
+            break;
+        case 'haveTrauma':
+            document.querySelector('#disabilityYesNo').innerText = element;
+            changeStyle(id);
+            haveCover();
+            break;
+        case 'noSavings':
+            document.querySelector('#savingsYesNo').innerText = element;
+            changeStyle(id);
+            break;
+        case 'haveSavings':
+            document.querySelector('#savingsYesNo').innerText = element;
+            changeStyle(id);
+            haveCover();
+            break;
+        case 'noRetirement':
+            document.querySelector('#retirementYesNo').innerText = element;
+            changeStyle(id);
+            break;
+        case 'haveRetirement':
+            document.querySelector('#retirementYesNo').innerText = element;
+            changeStyle(id);
+            break;
+    }
+}
+
+function haveCover() {
+    document.querySelector('.extra').style.visibility = "visible";
+
 }
 
 function showSupposed(id) {
@@ -14,6 +53,7 @@ function showSupposed(id) {
     let coverAmount;
     if (id == "life") {
         coverAmount = document.getElementById('lifeCoverAmount').value;
+
     } else {
         coverAmount = document.getElementById('disabilityAmount').value;
     }
@@ -21,6 +61,7 @@ function showSupposed(id) {
     let diff = Number(supposedAmount) - Number(coverAmount);
     if (Number(document.getElementById('supposedAmount').value) - Number(coverAmount) > 0) {
         document.getElementById('diff').innerText = `Cover needed: R${diff} `;
+        document.querySelector('.answer').innerText = diff;
     } else {
         document.getElementById('diff').innerText = `Cover needed: R0`
     }

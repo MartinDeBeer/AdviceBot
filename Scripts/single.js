@@ -128,3 +128,20 @@ function checkInput(id) {
     }
 
 }
+
+
+function yesOrNo(id) {
+    let element = document.getElementById(id).value;
+    switch (id) {
+
+        case 'noSavings':
+            haveCover();
+            break;
+
+    }
+}
+
+function haveCover() {
+    document.querySelector('.extra').style.visibility = "visible";
+
+}

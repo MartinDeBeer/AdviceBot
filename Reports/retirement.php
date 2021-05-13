@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Stylesheets/report.css">
     <link href="Stylesheets/styles.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="Stylesheets/report.css">
+
 
     <title>Retirement Plan</title>
 </head>
@@ -21,8 +22,10 @@
             <p>I will help you choose the best Regulation 28 compliant portfolio blend for your specific goals and risk tolerance.</p>
             <p>We can also "rebalance" your portfolio regularly so you can receive the maximum benefit from your portfolio choice.</p>
             <p>Do you contribute to a retirement plan at the moment?</p>
-            <input type="button" value="I do have a retirement plan" id="haveRetirement" onclick="tellMore('haveRetirement')" >
-            <input type="button" value="I don't have a retirement plan" id="noRetirement" onclick="tellMore('noRetirement')">
+
+
+            <input type="button" value="I do have a retirement plan" id="haveRetirement" onclick="yesOrNo('haveRetirement')" >
+            <input type="button" value="I don't have a retirement plan" id="noRetirement" onclick="yesOrNo('noRetirement')">
             <button onclick="window.location.href='Reports/permission.php'">I'm not sure if I have a retirement plan</button>
 </body>
 </html>
