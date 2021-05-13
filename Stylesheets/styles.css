@@ -1,8 +1,3 @@
-@font-face {
-    font-family: Quote;
-    src: url('Schoolbell-Regular.ttf');
-}
-
 body {
     background: url("../Images/side.jpg") no-repeat top;
     background-size: cover;
