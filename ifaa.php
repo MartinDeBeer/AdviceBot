@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="Scripts/botScripts.js" type="text/javascript"></script>
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" /> 
     <link rel="stylesheet" href="Stylesheets/ifaaStyles.css">
     <link rel="stylesheet" href="Stylesheets/styles.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-35ET7DRG06"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-35ET7DRG06');
+    </script>
 
 </head>
 

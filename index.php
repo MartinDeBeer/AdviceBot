@@ -17,7 +17,30 @@
         if(screen.width <= 699){
                 window.location = 'mobile/index.php';
             }
+            // Start of Tawk.to Script
+            var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+            (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5f651619f0e7167d0011b389/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
     </script>
+    <!--End of Tawk.to Script-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4R3S1484XX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4R3S1484XX');
+    </script>
+
 </head>
 <body>
     <?php session_start(); ?>
@@ -104,6 +127,7 @@
             </form>
 
         </div>
+        
 
             
     </div>
