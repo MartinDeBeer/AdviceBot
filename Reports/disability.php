@@ -42,18 +42,26 @@
 
     <!-- I don't have disability cover -->
 
-    <input id="needTrauma" type="button" value="I need Disability and Trauma cover" onclick="yesOrNo('needTrauma')">
+    <input id="needTrauma" type="button" value="I need Disability and Trauma cover" onclick="yesOrNo('needTrauma')"><br>
 
-    <div id="amounts" class="extra" style="visibility: hidden;">
-        Amount of Disability Cover
-        <input type="text" id="disabilityAmount"><br>
-        <input type="button" onclick="showSupposed('disability')" value="See how much you're supposed to be covered for" >
-        <div id="supposed" style="visibility: hidden;">
-            <label for="supposedAmount">You should have</label>
-            <input id="supposedAmount" name="disabilityNeeded" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
-            <p id="diff"></p>
-        </div>
-        <input type="button" value="I don't know how much cover I have" onclick="window.location.href='permission.php'">
+    <table id="amounts" class="extra" style="visibility: hidden;">
+        <tr>
+            <td><input type="button" value="I don't know how much cover I have" onclick="window.open('Reports/permission.php', '_blank')"></td>
+        </tr>
+        <tr>
+            <td>Amount of Disability Cover</td>
+            <td><input type="text" id="disabilityAmount"></td>
+        </tr>
+        <tr>
+            <td><input type="button" onclick="showSupposed('disability')" value="See your ideal amount of cover" ></td>
+        </tr>
+    </table>
+    
+    <div id="supposed" style="visibility: hidden;">
+        
+        <label for="supposedAmount">You should have</label>
+        <input id="supposedAmount" name="disabilityNeeded" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
+        <p id="diff"></p>
     </div>
 
 </body>

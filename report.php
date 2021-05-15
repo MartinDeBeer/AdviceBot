@@ -43,13 +43,23 @@
                     $row = mysqli_fetch_assoc($result);
                     echo '<h3>The Priority Indicator shows which financial aspect is most important at your stage of life</h3>';
                     echo '<table>';
+                    echo '
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Covered or Not</th>
+                    <th>Existing Cover</th>
+                    <th>Ideal Amount</th>
+                    <th>Difference</th>';
                     // Death
                     echo '<tr>
                             <td>Death: </td>
                             <td><progress id="death" value="' . $row['deathCover'] .'" max="65"></progress></td>
                             <td><a href="#" onclick="spec(\'lifeCover\')">Click <u>here</u> for full report</a></td>
-                            <td class="answer" id="lifeYesNo"></td>
-                            <td class="answer" id="lifeAmountNeeded"></td>
+                            <td class="reportAnswer" id="lifeYesNo"></td>
+                            <td class="reportAnswer" id="lifeAmount"></td>
+                            <td class="reportAnswer" id="lifeAmountNeeded"></td>
+                            <td class="reportAnswer" id="lifeAmountDiff"></td>
                         </tr>';
 
                     // Disability
@@ -57,8 +67,10 @@
                             <td>Disability: </td>
                             <td><progress id="disability" value="' . $row['disability'] .'" max="65"></progress></td>
                             <td><a href="#" onclick="spec(\'disability\')">Click <u>here</u> for full report</a></td>
-                            <td class="answer" id="disabilityYesNo"></td>
-                            <td class="answer" id="disabilityAmountNeeded"></td>
+                            <td class="reportAnswer" id="disabilityYesNo"></td>
+                            <td class="reportAnswer" id="traumaAmount"></td>
+                            <td class="reportAnswer" id="traumaAmountNeeded"></td>
+                            <td class="reportAnswer" id="traumaAmountDiff"></td>
                         </tr>';
 
                     // Savings
@@ -66,8 +78,8 @@
                             <td>Savings: </td>
                             <td><progress id="savings" value="' . $row['savings'] .'" max="65"></progress></td>
                             <td><a href="#" onclick="spec(\'savings\')">Click <u>here</u> for full report</a></td>
-                            <td class="answer" id="savingsYesNo"></td>
-                            <td class="answer" id="riskProfile"></td>
+                            <td class="reportAnswer" id="savingsYesNo"></td>
+                            <td class="reportAnswer" id="riskProfile"></td>
                         </tr>';
 
                     // Retirement
@@ -75,7 +87,7 @@
                             <td>Retirement: </td>
                             <td><progress id="retirement" value="' . $row['retirement'] .'" max="65"></progress></td>
                             <td><a href="#" onclick="spec(\'retirement\')">Click <u>here</u> for full report</a></td>
-                            <td class="answer" id="retirementYesNo"></td>
+                            <td class="reportAnswer" id="retirementYesNo"></td>
                     </tr>';
 
                     // Will
@@ -84,7 +96,7 @@
                                 <td>Will:</td>
                                 <td> Yes </td>
                                 <td><a href="#" onclick="spec(\'will\')">Click <u>here</u> for full report</a></td>
-                                <td class="answer" id="willYesNo" >I don\'t have a will</td>
+                                <td class="reportAnswer" id="willYesNo" >I don\'t have a will</td>
                         </tr>';
                     }
                     else{
@@ -92,7 +104,7 @@
                                 <td>Will:</td>
                                 <td> No </td>
                                 <td><a href="#" onclick="spec(\'will\')">Click <u>here</u> for full report</a></td>
-                                <td class="answer" id="willYesNo">I have a will</td>
+                                <td class="reportAnswer" id="willYesNo">I have a will</td>
                         </tr>';
                     }
 
@@ -102,7 +114,7 @@
                                 <td>Short Term: </td>
                                 <td> Yes </td>
                                 <td><a href="#" onclick="spec(\'shortTerm\')">Click <u>here</u> for full report</a></td>
-                                <td class="answer" id="shortTermYesNo"></td>
+                                <td class="reportAnswer" id="shortTermYesNo"></td>
                         </tr>';
                         echo '</table>';
                     }
@@ -111,7 +123,9 @@
                             <td>Short Term: </td>
                             <td> No </td>
                             <td><a href="#" onclick="spec(\'shortTerm\')">Click <u>here</u> for full report</a></td>
-                            <td class="answer" id="shortTermYesNo"></td>
+                            <td class="reportAnswer" id="shortTermYesNo"></td>
+                            <td class="reportAnswer" style="visibility: hidden" id="scheduleUpload"><a href="Reports/scheduleUpload.php" target="_blank">Click here to upload your schedule</a></td>
+                            <td></td>
                         </tr>';
                         echo '</table>';
                     }

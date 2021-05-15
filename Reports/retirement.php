@@ -26,6 +26,6 @@
 
             <input type="button" value="I do have a retirement plan" id="haveRetirement" onclick="yesOrNo('haveRetirement')" >
             <input type="button" value="I don't have a retirement plan" id="noRetirement" onclick="yesOrNo('noRetirement')">
-            <button onclick="window.location.href='Reports/permission.php'">I'm not sure if I have a retirement plan</button>
+            <button onclick="window.open('Reports/permission.php', '_blank')">I'm not sure if I have a retirement plan</button>
 </body>
 </html>

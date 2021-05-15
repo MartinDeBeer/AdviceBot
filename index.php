@@ -80,7 +80,7 @@
         <div id="page2">
             <h1>Single Need</h1>
             <!-- Single Need Menu -->
-            <form action="dataPages/singleNeed.php" id="singleNeed" method="post">
+            <form action="singleNeed.php" id="singleNeed" method="post">
                 <!-- Life Cover -->
                 <input type="submit" id="lifeCover" class="singleButton" value="Life Cover" name="lifeCover"> <br>
                 <br>

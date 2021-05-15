@@ -53,10 +53,9 @@
     <input id="needLife" type="button" value="I need life cover" onclick="yesOrNo('needLife')"><br>
 
     <div id="amounts" class="extra" style="visibility: hidden;">
-        
+        <input type="button" value="I don't know how much life cover I have" onclick="window.open('Reports/permission.php', '_blank')"><br>
         <label for="lifeCoverAmount">Amount of life cover</label>
         <input type="text" id="lifeCoverAmount"><br>        
-        <button onclick="window.location.href='permission.php'">I don't know how much life cover I have</button><br>
         <input type="button" id="suppBtnLife" value="See how much you're supposed to be covered for" onclick="showSupposed('life')">
 
         <div id="supposed"  style="visibility: hidden;">

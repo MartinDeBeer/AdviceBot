@@ -1,3 +1,7 @@
+body {
+    padding: 20px;
+}
+
 #priorityIndicator {
     margin: auto;
     width: 100%;
@@ -7,6 +11,15 @@
 
 .answer {
     text-align: left;
+}
+
+#priorityIndicator table {
+    width: 100%;
+}
+
+.reportAnswer {
+    width: 17%;
+    text-align: center;
 }
 
 html,
@@ -21,8 +34,4 @@ body::after {
 
 a:visited {
     color: #006699;
-}
-
-table td {
-    height: 1em;
 }

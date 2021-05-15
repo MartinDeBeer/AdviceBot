@@ -20,13 +20,12 @@
     <p>Every insurance company has its own unique products and value-added service. <br>
     Luckily for you we can offer you a wide verity of products from most of the insurance companies. <br>
     </p>
-     We can compare your current insurance schedule to other offers in the market and see if your premium is still market related or if you can perhaps save on your monthly expenses. <br>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <h2>Upload your schedule here:</h2>
-        <input type="file" name="schedule" id="schedule">
-        <input type="submit" value="Upload Your Schedule" name="submitSchedule">
-    </form>
-    <input type="button" id="noSchedule" value="I don't have a schedule" onclick="tellMore('noSchedule')">
-    <input type="button" id="help" value="I need help" onclick="tellMore('help')" >
+    We can compare your current insurance schedule to other offers in the market and see if your premium is still market related or if you can perhaps save on your monthly expenses. <br>
+    
+    <input type="button" id="noShortTerm" value="I don't have short term insurance" onclick="yesOrNo('noShortTerm')">
+    <input type="button" id="haveShortTerm" value="I have short term insurance" onclick="yesOrNo('haveShortTerm')">
+
+    
+
 </body>
 </html>

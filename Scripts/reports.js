@@ -26,11 +26,11 @@ function yesOrNo(id) {
         case 'noSavings':
             document.querySelector('#savingsYesNo').innerText = element;
             changeStyle(id);
+            haveCover();
             break;
         case 'haveSavings':
             document.querySelector('#savingsYesNo').innerText = element;
             changeStyle(id);
-            haveCover();
             break;
         case 'noRetirement':
             document.querySelector('#retirementYesNo').innerText = element;
@@ -38,6 +38,15 @@ function yesOrNo(id) {
             break;
         case 'haveRetirement':
             document.querySelector('#retirementYesNo').innerText = element;
+            changeStyle(id);
+            break;
+        case 'haveShortTerm':
+            document.querySelector('#shortTermYesNo').innerText = element;
+            changeStyle(id);
+            document.getElementById("scheduleUpload").style.visibility = "visible";
+            break;
+        case 'noShortTerm':
+            document.querySelector('#shortTermYesNo').innerText = element;
             changeStyle(id);
             break;
     }
@@ -51,29 +60,34 @@ function haveCover() {
 function showSupposed(id) {
     document.getElementById('supposed').style.visibility = "visible";
     let coverAmount;
+    let supposedAmount = document.getElementById('supposedAmount').value;
     if (id == "life") {
         coverAmount = document.getElementById('lifeCoverAmount').value;
+        document.querySelector('#lifeAmount').innerText = `R${coverAmount}`;
+        document.querySelector("#lifeAmountNeeded").innerText = `R${supposedAmount}`;
+
+        let diff = Number(supposedAmount) - Number(coverAmount);
+        if (Number(document.getElementById('supposedAmount').value) - Number(coverAmount) > 0) {
+            document.querySelector('#lifeAmountDiff').innerText = `Cover needed: R${diff}`;
+            document.getElementById('diff').innerText = `Cover needed: R${diff} `;
+        } else {
+            document.getElementById('diff').innerText = `Cover needed: R0`;
+            document.querySelector('#lifeAmountDiff').innerText = `Cover needed: R0`;
+        }
+
 
     } else {
         coverAmount = document.getElementById('disabilityAmount').value;
+        document.querySelector('#traumaAmount').innerText = `R${coverAmount}`;
+        document.querySelector('#traumaAmountNeeded').innerText = `R${supposedAmount}`;
+
+        let diff = Number(supposedAmount) - Number(coverAmount);
+        if (Number(document.getElementById('supposedAmount').value) - Number(coverAmount) > 0) {
+            document.getElementById('diff').innerText = `Cover needed: R${diff} `;
+            document.querySelector('#traumaAmountDiff').innerText = `Cover needed: R${diff} `;
+        } else {
+            document.getElementById('diff').innerText = `Cover needed: R0`;
+            document.querySelector('#traumaAmountDiff').innerText = `Cover needed: R0`;
+        }
     }
-    let supposedAmount = document.getElementById('supposedAmount').value;
-    let diff = Number(supposedAmount) - Number(coverAmount);
-    if (Number(document.getElementById('supposedAmount').value) - Number(coverAmount) > 0) {
-        document.getElementById('diff').innerText = `Cover needed: R${diff} `;
-        document.querySelector('.answer').innerText = diff;
-    } else {
-        document.getElementById('diff').innerText = `Cover needed: R0`
-    }
-}
-
-
-function checkBoxes() {
-    let checks = document.getElementsByClassName('check');
-    console.log(checks);
-    let checksList = Array.from(checks);
-    checksList.forEach(function(check) {
-        document.getElementById(check.id).click();
-    });
-
 }
