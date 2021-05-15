@@ -12,3 +12,5 @@ User-agent: Googlebot-Image
 Disallow: /Images/
 Disallow: mobile/Images/
 
+Sitemap: https://www.advicebot.co.za/sitemap.xml
+
