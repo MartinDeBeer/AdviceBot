@@ -85,7 +85,8 @@
         <div class="part2">
             <div id="aboutAdviceBot">
                 <h3>About AdviceBot</h3>
-                <p>AdviceBot is an online platform that anyone can access free of charge. The free advice tool will guide you through an automated process with targeted questions to establish a financial priority list for your unique circumstances. From there you can access a more detailed report and interact on a more personal level with a dedicated and experienced back office.</p>
+                <p>Advicebot will transform your insurance and investment world with free, practical and automated solutions.
+                We will take Roboadvice and Fintech to a whole new level. Experience the knowledge and guidance of a financial advisor from the comfort of your own home. Advicebot will guide you through important financial decisions to better understand your needs and goals. Advicebot will be as if you visit your financial advisor in person with real live chat with an experience advisor if you choose to. Use the mini chatbot to ask any question regarding your Will and Testament, Life insurance, Investments, Retirement, House or Motor insurance or any other financial topic.</p>
             </div>
         </div>
         <hr>

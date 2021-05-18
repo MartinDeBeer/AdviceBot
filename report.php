@@ -54,78 +54,78 @@
                     // Death
                     echo '<tr>
                             <td>Death: </td>
-                            <td><progress id="death" value="' . $row['deathCover'] .'" max="65"></progress></td>
+                            <td><progress id="death" name="deathCover" value="' . $row['deathCover'] .'" max="65"></progress></td>
                             <td><a href="#" onclick="spec(\'lifeCover\')">Click <u>here</u> for full report</a></td>
-                            <td class="reportAnswer" id="lifeYesNo"></td>
-                            <td class="reportAnswer" id="lifeAmount"></td>
-                            <td class="reportAnswer" id="lifeAmountNeeded"></td>
-                            <td class="reportAnswer" id="lifeAmountDiff"></td>
+                            <td class="reportAnswer" ><input name="lifeYesNo" id="lifeYesNo" value="" /></td>
+                            <td class="reportAnswer" ><input name="lifeAmount" id="lifeAmount" value=""/></td>
+                            <td class="reportAnswer" ><input name="lifeAmountNeeded" id="lifeAmountNeeded" value=""/></td>
+                            <td class="reportAnswer" ><input name="lifeAmountDiff" id="lifeAmountDiff" value=""/></td>
                         </tr>';
 
                     // Disability
                     echo '<tr>
                             <td>Disability: </td>
-                            <td><progress id="disability" value="' . $row['disability'] .'" max="65"></progress></td>
+                            <td><progress name="disability" id="disability" value="' . $row['disability'] .'" max="65"></progress></td>
                             <td><a href="#" onclick="spec(\'disability\')">Click <u>here</u> for full report</a></td>
-                            <td class="reportAnswer" id="disabilityYesNo"></td>
-                            <td class="reportAnswer" id="traumaAmount"></td>
-                            <td class="reportAnswer" id="traumaAmountNeeded"></td>
-                            <td class="reportAnswer" id="traumaAmountDiff"></td>
+                            <td class="reportAnswer" ><input name="disabilityYesNo" id="disabilityYesNo" value=""/></td>
+                            <td class="reportAnswer" ><input name="traumaAmount" id="traumaAmount" value=""/></td>
+                            <td class="reportAnswer" ><input name="traumaAmountNeeded" id="traumaAmountNeeded" value=""/></td>
+                            <td class="reportAnswer" ><input name="traumaAmountDiff" id="traumaAmountDiff" value=""/></td>
                         </tr>';
 
                     // Savings
                     echo '<tr>
                             <td>Savings: </td>
-                            <td><progress id="savings" value="' . $row['savings'] .'" max="65"></progress></td>
+                            <td><progress id="savings" name="savings" value="' . $row['savings'] .'" max="65"></progress></td>
                             <td><a href="#" onclick="spec(\'savings\')">Click <u>here</u> for full report</a></td>
-                            <td class="reportAnswer" id="savingsYesNo"></td>
-                            <td class="reportAnswer" id="riskProfile"></td>
+                            <td class="reportAnswer" ><input name="savingsYesNo" id="savingsYesNo" value=""/></td>
+                            <td class="reportAnswer" ><input name="riskProfile" id="riskProfile" value=""/></td>
                         </tr>';
 
                     // Retirement
                     echo '<tr>
                             <td>Retirement: </td>
-                            <td><progress id="retirement" value="' . $row['retirement'] .'" max="65"></progress></td>
+                            <td><progress name="retirement" id="retirement" value="' . $row['retirement'] .'" max="65"></progress></td>
                             <td><a href="#" onclick="spec(\'retirement\')">Click <u>here</u> for full report</a></td>
-                            <td class="reportAnswer" id="retirementYesNo"></td>
+                            <td class="reportAnswer" ><input name="retirementYesNo" id="retirementYesNo" value=""/></td>
                     </tr>';
 
                     // Will
                     if($row['will'] != 0){
                         echo '<tr>
-                                <td>Will:</td>
-                                <td> Yes </td>
-                                <td><a href="#" onclick="spec(\'will\')">Click <u>here</u> for full report</a></td>
-                                <td class="reportAnswer" id="willYesNo" >I don\'t have a will</td>
+                            <td>Will:</td>
+                            <td name="will"> I need a will </td>
+                            <td><a href="#" onclick="spec(\'will\')">Click <u>here</u> for full report</a></td>
+                            <td class="reportAnswer" ><input name="willYesNo" id="willYesNo" value="I don\'t have a will" /></td>
                         </tr>';
                     }
                     else{
                         echo '<tr>
-                                <td>Will:</td>
-                                <td> No </td>
-                                <td><a href="#" onclick="spec(\'will\')">Click <u>here</u> for full report</a></td>
-                                <td class="reportAnswer" id="willYesNo">I have a will</td>
+                            <td>Will:</td>
+                            <td> I don\'t need a will </td>
+                            <td><a href="#" onclick="spec(\'will\')">Click <u>here</u> for full report</a></td>
+                            <td class="reportAnswer" ><input name="willYesNo" id="willYesNo" value="I have a will
+                            I have a will" /></td>
                         </tr>';
                     }
 
                     // Short term
                     if($row['shortTerm'] != 0){
                         echo '<tr>
-                                <td>Short Term: </td>
-                                <td> Yes </td>
-                                <td><a href="#" onclick="spec(\'shortTerm\')">Click <u>here</u> for full report</a></td>
-                                <td class="reportAnswer" id="shortTermYesNo"></td>
+                            <td name="shortTerm">Short Term: </td>
+                            <td> I need short term insurance </td>
+                            <td><a href="#" onclick="spec(\'shortTerm\')">Click <u>here</u> for full report</a></td>
+                            <td class="reportAnswer" ><input name="shortTermYesNo" id="shortTermYesNo" value=""/></td>
                         </tr>';
                         echo '</table>';
                     }
                     else{
                         echo '<tr>
-                            <td>Short Term: </td>
-                            <td> No </td>
+                            <td name="shortTerm">Short Term: </td>
+                            <td> I don\'t need short term insurance </td>
                             <td><a href="#" onclick="spec(\'shortTerm\')">Click <u>here</u> for full report</a></td>
-                            <td class="reportAnswer" id="shortTermYesNo"></td>
-                            <td class="reportAnswer" style="visibility: hidden" id="scheduleUpload"><a href="Reports/scheduleUpload.php" target="_blank">Click here to upload your schedule</a></td>
-                            <td></td>
+                            <td class="reportAnswer" ><input name="shortTermYesNo" id="shortTermYesNo" value=""/></td>
+                            <td class="reportAnswer" ><input name="schedule" id="uploadedSchedule" value=""/></td>
                         </tr>';
                         echo '</table>';
                     }
@@ -136,8 +136,9 @@
             ?>
         </div>        
         <h4>Please tick the boxes of the type of insurance you have queries about and click submit.<br> An email will be sent to us so we can get in touch with you</h4>
-        <button type="submit" name="coverChosen">Submit</button>
-        <div id="specReport"></div>
+        <button type="submit" name="fullReport">Submit</button>
     </form>
+    <div id="specReport"></div>
+
 </body>
 </html>

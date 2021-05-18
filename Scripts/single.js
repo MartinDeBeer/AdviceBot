@@ -149,25 +149,37 @@ function getAge() {
         let gender = idNumber.substring(6, 10);
         if (gender >= 0000 && gender <= 4999) {
             document.getElementById('gender').value = 'female';
+            document.getElementById('genderAnswer').value = 'female';
         } else if (gender >= 5000 && gender <= 9999) {
             document.getElementById('gender').value = 'male';
+            document.getElementById('genderAnswer').value = 'male';
         }
 
 
         document.getElementById('age').value = age;
+        document.getElementById('ageAnswer').value = age;
+        document.getElementById('idNumberAnswer').value = idNumber;
     }
 }
 let counter = 1;
 let score = 0;
-if (document.getElementById('score')) {
-    document.getElementById('score').innerHTML = "hi";
-}
+
 
 
 
 function addScore() {
+    document.getElementById('next').value = 'Next Question';
     switch (counter) {
+        case 2:
+            document.getElementById('firstNameAnswer').value = document.getElementById('firstName').value;
+            break;
+        case 3:
+            document.getElementById('surnameAnswer').value = document.getElementById('lastName').value;
+            break;
         case 4:
+            document.getElementById('emailAddressAnswer').value = document.getElementById('emailAddress').value;
+            break;
+        case 5:
             if (document.getElementById('age').value == 20 || document.getElementById('age').value <= 25) {
                 score = 1;
             } else if (document.getElementById('age').value == 25 || document.getElementById('age').value <= 35) {
@@ -184,9 +196,10 @@ function addScore() {
             } else {
                 score += 1;
             }
+            document.getElementById('id')
             console.log(`Your score is: ${score}`);
             break;
-        case 5:
+        case 6:
             if (document.getElementById('employment').value == 'self employed') {
                 score += 1;
             } else if (document.getElementById('employment').value == 'salary') {
@@ -194,41 +207,46 @@ function addScore() {
             } else if (document.getElementById('employment').value == 'pension') {
                 score += 3;
             }
+            document.getElementById('employmentAnswer').value = document.getElementById('employment').value;
             console.log(`Your score is: ${score}`);
             break;
-        case 6:
+        case 7:
             if (document.getElementById('maritalStatus').value == 'married') {
                 score += 3;
             } else if (document.getElementById('maritalStatus').value == 'single') {
                 score += 1;
             }
+            document.getElementById('maritalStatusAnswer').value = document.getElementById('maritalStatus').value;
             console.log(`Your score is: ${score}`);
             break;
-        case 7:
+        case 8:
             if (document.getElementById('lumpSum').value == 'yes') {
                 score += 0;
             } else if (document.getElementById('lumpSum').value == 'no') {
                 score += 2;
             }
+            document.getElementById('lumpSumAnswer').value = document.getElementById('lumpSum').value;
             console.log(`Your score is: ${score}`);
             break;
-        case 8:
+        case 9:
             if (document.getElementById('saving').value == 'yes') {
                 score += 0;
             } else if (document.getElementById('saving').value == 'no') {
                 score += 5;
             }
+            document.getElementById('savingAnswer').value = document.getElementById('saving').value
             console.log(`Your score is: ${score}`);
             break;
-        case 9:
+        case 10:
             if (document.getElementById('future').value == 'confident') {
                 score += 0;
             } else if (document.getElementById('future').value == 'anxious') {
                 score += 2;
             }
+            document.getElementById('futureAnswer').value = document.getElementById('future').value;
             console.log(`Your score is: ${score}`);
             break;
-        case 10:
+        case 11:
             if (document.getElementById('marketDrop').value == 'stay invested') {
                 score += 0;
             } else if (document.getElementById('marketDrop').value == 'switch') {
@@ -236,22 +254,25 @@ function addScore() {
             } else if (document.getElementById('marketDrop').value == 'withdraw') {
                 score += 5;
             }
+            document.getElementById('marketDropAnswer').value = document.getElementById('marketDrop').value;
             console.log(`Your score is: ${score}`);
             break;
-        case 11:
+        case 12:
             if (document.getElementById('guaranteedOrPotential').value == 'guaranteed') {
                 score += 5;
             } else if (document.getElementById('guaranteedOrPotential').value == 'potential') {
                 score += 1;
             }
+            document.getElementById('guaranteedOrPotentialAnswer').value = document.getElementById('guaranteedOrPotential').value;
             console.log(`Your score is: ${score}`);
             break;
-        case 12:
+        case 13:
             if (document.getElementById('settle').value == '5-10') {
                 score += 3;
-            } else if (document.getElementById('future').value == '-10-25') {
+            } else if (document.getElementById('settle').value == '-10-25') {
                 score += 0;
             }
+            document.getElementById('settleAnswer').value = document.getElementById('settle').value;
             if (score >= 7 && score <= 15) {
                 document.getElementById('score').innerHTML = 'You are considered an adventurous investor';
             } else if (score >= 15 && score <= 25) {
@@ -259,6 +280,9 @@ function addScore() {
             } else if (score >= 25 && score <= 35) {
                 document.getElementById('score').innerHTML = 'You are considered a conservative investor';
             }
+            document.getElementById('scoreAnswer').value = document.getElementById('score').innerHTML;
+            document.getElementById('next').style.visibility = 'hidden';
+            document.getElementById('submit').style.visibility = 'visible';
             break;
 
     }
@@ -279,4 +303,55 @@ function showQuestion() {
 
     xmlhttp.open("GET", 'dataPages/savingsAndRetirement.php?q=' + str, true);
     xmlhttp.send();
+}
+
+function yesOrNo(id) {
+    switch (id) {
+        case 'haveShortTerm':
+            scheduleUpload();
+            break;
+        case 'needWill':
+            noCover();
+            break;
+
+    }
+}
+
+function noCover() {
+    document.querySelector('.extra').style.visibility = "visible";
+
+}
+
+function scheduleUpload() {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("scheduleUpload").innerHTML = this.responseText;
+        }
+    };
+
+    xmlhttp.open("GET", 'Reports/scheduleUpload.php', true);
+    xmlhttp.send();
+}
+
+function uploadSchedule(event) {
+    document.getElementById('status').innerHTML = 'Uploading...';
+    let schedule = document.getElementById('schedule');
+    let files = schedule.files;
+    let formData = new FormData();
+    let file = files[0];
+
+    formData.append('schedule', file, file.name);
+
+    let xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open('POST', 'dataPages/upload.php', true);
+
+    xmlhttp.onload = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('status').innerHTML = 'File Uploaded and sent';
+        }
+    };
+
+    xmlhttp.send(formData);
 }

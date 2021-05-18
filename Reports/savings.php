@@ -26,27 +26,27 @@
         
         <table>
             <tr>
-                <td><input type="radio" name="riskProfile" id="lowRisk" value="Low Risk" onclick="document.querySelector('#riskProfile').innerHTML = this.value"><label for="lowRisk">Low Risk</label></td>
+                <td><input type="radio" name="riskProfile" id="lowRisk" value="Low Risk" onclick="document.querySelector('#riskProfile').value = this.value"><label for="lowRisk">Low Risk</label></td>
                 <td>Potential loss: 0%</td>
                 <td>Potential gain: 5%</td>
             </tr>
             <tr>
-                <td><input type="radio" name="riskProfile" id="medLowRisk" value="Medium Low Risk" onclick="document.querySelector('#riskProfile').innerHTML = this.value"><label for="medLowRisk">Medium Low Risk</label></td>
+                <td><input type="radio" name="riskProfile" id="medLowRisk" value="Medium Low Risk" onclick="document.querySelector('#riskProfile').value = this.value"><label for="medLowRisk">Medium Low Risk</label></td>
                 <td>Potential loss: 3%</td>
                 <td>Potential gain: 8%</td>
             </tr>
             <tr>
-                <td><input type="radio" name="riskProfile" id="medRisk" value="Medium Risk" onclick="document.querySelector('#riskProfile').innerHTML = this.value"><label for="medRisk">Medium Risk</label></td>
+                <td><input type="radio" name="riskProfile" id="medRisk" value="Medium Risk" onclick="document.querySelector('#riskProfile').value = this.value"><label for="medRisk">Medium Risk</label></td>
                 <td>Potential loss: 5%</td>
                 <td>Potential gain: 10%</td>
             </tr>
             <tr>
-                <td><input type="radio" name="riskProfile" id="medHighRisk" value="Medium High Risk" onclick="document.querySelector('#riskProfile').innerHTML = this.value"><label for="medHighRisk">Medium High Risk</label></td>
+                <td><input type="radio" name="riskProfile" id="medHighRisk" value="Medium High Risk" onclick="document.querySelector('#riskProfile').value = this.value"><label for="medHighRisk">Medium High Risk</label></td>
                 <td>Potential loss: 10%</td>
                 <td>Potential gain: 15%</td>
             </tr>
             <tr>
-                <td><input type="radio" name="riskProfile" id="highRisk" value="High Risk" onclick="document.querySelector('#riskProfile').innerHTML = this.value"><label for="highRisk">High Risk</label></td>
+                <td><input type="radio" name="riskProfile" id="highRisk" value="High Risk" onclick="document.querySelector('#riskProfile').value = this.value"><label for="highRisk">High Risk</label></td>
                 <td>Potential loss: 25%</td>
                 <td>Potential gain: 35%</td>
             </tr>

@@ -3,6 +3,25 @@
     session_start();
     include('connectDB.php');
 
+    function mailToCustomer($emailAddress){
+        $subject = 'Thank you for using AdviceBot';
+        $customerMsg = "
+        <html>
+        <head>
+        <title>HTML email</title>
+        </head>
+        <body>
+        <p>Thank you for using AdviceBot. Someone will be in contact with you soon to answer your query.</p>
+        </body>
+        </html>
+        ";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+        $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
+        mail($emailAddress, $subject, $customerMsg, $headers);
+
+    }
+
     // Single Need Email - Only goes to us
     if(isset($_POST['submit'])){
         $errors = [];
@@ -55,24 +74,7 @@
             mail($to, $subject, $msg, $headers);
             echo "Mail sent successfully to Advicebot admins.";
 
-            $to = $email;
-            $subject = $_POST['subject'];
-            $msg = "
-            <html>
-            <head>
-            <title>HTML email</title>
-            </head>
-            <body>
-            <p>Thank you for using our service. We will get back to you.</p>
-            <p>Have you tried our free auto advice?</p>
-            </body>
-            </html>
-            ";
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-            $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
-            mail($to, $subject, $msg, $headers);
-            echo "Mail sent successfully to Advicebot admins.";
+            mailToCustomer($email);
             header('location: ../index.php');
         }
         else {
@@ -158,6 +160,7 @@
 
         // Send email
         $mail = @mail($to, $subject, $message, $headers, $returnpath);
+        mailToCustomer($email);
 
         // Email sending status
         if($mail){
@@ -200,8 +203,8 @@
             $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
             $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
             $mail = @mail($to, $subject, $msg, $headers);
+            mailToCustomer($email);
             if($mail){
-                echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
                 header('location: ../index.php');
             }else{
                 echo "Mail not sent.";
@@ -257,6 +260,7 @@
             $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
             $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
             $mail = @mail($to, $sub, $msg, $headers);
+            mailToCustomer($email);
             if($mail){
                 echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
                 header('location: ../index.php');
@@ -266,28 +270,5 @@
 
         }
     }
-ini_set("SMTP", "smtp.afrihost.co.za");
-ini_set("smtp_port", 25);
-ini_set("sendmail_from", "no-reply@advicebot.co.za");
-$to = 'admin@advicebot.co.za';
-$subject = $_POST['subject'];
-$msg = "
-<html>
-<head>
-<title>HTML email</title>
-</head>
-<body>
-<p>Thank you for using our service. A representative will be in contact with you soon to get more information</p>            
-</body>
-</html>
-";
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-$headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
-mail($to, $subject, $msg, $headers);
-echo "Mail sent successfully to Advicebot admins.";
-header('location: ../index.php');
-
-
 
 ?>

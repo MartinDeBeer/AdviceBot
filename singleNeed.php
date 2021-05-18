@@ -21,8 +21,10 @@
 </head>
 <body>
     <?php
+        session_start();
         $buttonClicked;
         if(isset($_POST['lifeCover'])){
+            $_SESSION['lifeCover'] = true;
             echo '
                 <h1 style="text-align: center;">Life Cover</h1>
                 <p>Life cover provides financial support to your family or beneficiaries in the form of a lump sum after your death. It is also a big contributor to generational wealth.</p>
@@ -42,12 +44,82 @@
                     <li>Businesses with key employees (Keyman insurance)</li>
                 </ul>
             ';
-            $buttonClicked = $_POST['lifeCover'];
-            $buttonClickedSubject = $_POST['lifeCover'];
+            echo '
+            <input type="button" id="noLife" onclick="noCover()" value="I don\'t have life cover">
+            <input type="button" id="haveLife" value="I have life cover">
+            
+            <form action="dataPages/autoMail.php" method="POST" class="extra" style="visibility: hidden">
+            <span name="lifeSpan" style="visibility: none">Life</span>
+
+            <h3>Please enter your info and someone will get in contact with you</h3>
+                <table id="lifeCoverInfo">
+                    <tr>
+                        <td>Please enter your first name</td>
+                        <td><input type="text" name="firstName" id="firstName"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your surname</td>
+                        <td><input type="text" name="lastName" id="lastName"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your ID number</td>
+                        <td><input type="text" name="idNumber" id="idNumber"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your cellphone number</td>
+                        <td><input type="text" name="cellNumber" id="cellNumber"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your email address</td>
+                        <td><input type="text" name="emailAddress" id="emailAddress"></td>
+                    </tr>
+                </table>
+                <input type="submit" name="submitInfo" id="submitLifeCoverInfo">
+            </form>
+            ';
         }
         elseif(isset($_POST['disability'])){
-            $buttonClicked = $_POST['disability'];
-            $buttonClickedSubject = $_POST['disability'];
+            $_SESSION['disability'] = true;
+            echo '<h1 style="text-align: center;">Disability / Trauma cover</h1>
+            <p>Disability insurance is intended to replace some of a working person\'s income when a disability prevents them from working. Trauma pays a lump sum amount if you suffer a critical illness or serious injury. This can include cancer, a heart condition, major head injury, stroke etc.</p>
+        
+            <p>In other words, Trauma covers an event, but Disability covers the disability as a result of that event.</p>
+        
+            <h3><u>Ifaa tip:</u></h3>
+            <p>Trauma or Disability cover can be added as a rider benefit to your life cover instead of an alone standing benefit for a lower overall premium.</p>';
+            echo '
+            <input type="button" id="haveDisability" value="I have disability and trauma cover">
+            <input type="button" id="noDisability" onclick="noCover()" value="I don\'t have disability and trauma cover">
+            
+            <form action="dataPages/autoMail.php" method="POST" class="extra" style="visibility: hidden">
+                <h3>Please enter your info and someone will get in contact with you</h3>
+                <span name="disabilitySpan">Disability</span>
+
+                <table id="disabilityInfo">
+                    <tr>
+                        <td>Please enter your first name</td>
+                        <td><input type="text" name="firstName" id="firstName"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your surname</td>
+                        <td><input type="text" name="lastName" id="lastName"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your ID number</td>
+                        <td><input type="text" name="idNumber" id="idNumber"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your cellphone number</td>
+                        <td><input type="text" name="cellNumber" id="cellNumber"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your email address</td>
+                        <td><input type="text" name="emailAddress" id="emailAddress"></td>
+                    </tr>
+                </table>
+                <input type="submit" name="submitInfo" id="submitDisabilityInfo">
+            </form>
+            ';
         }
         elseif(isset($_POST['savings'])){
             echo '
@@ -60,12 +132,31 @@
             ';
             include('dataPages/savingsAndRetirement.php');
             echo '
-                <input type="button" value="Show the first question" onclick="showQuestion()">
+                
+                <form action="dataPages/autoMail.php" method="POST">
+                    <div id="questions"></div>
+                    <div id="answers" style="visibility: hidden">
+                        <input id="firstNameAnswer" name="firstName" type="text">
+                        <input id="surnameAnswer" name="lastName" type="text">
+                        <input id="idNumberAnswer" name="idNumber" type="text">
+                        <input id="emailAddressAnswer" name="emailAddress" type="text">
+                        <input id="ageAnswer" name="age" type="text">
+                        <input id="genderAnswer" name="gender" type="text">
+                        <input id="employmentAnswer" name="employment" type="text">
+                        <input id="maritalStatusAnswer" name="maritalStatus" type="text">
+                        <input id="lumpSumAnswer" name="lumpSum" type="text">
+                        <input id="savingAnswer" name="saving" type="text">
+                        <input id="futureAnswer" name="future" type="text">
+                        <input id="marketDropAnswer" name="marketDrop" type="text">
+                        <input id="guaranteedOrPotentialAnswer" name="guaranteedOrPotential" type="text">
+                        <input id="settleAnswer" name="settle" type="text">
+                        <input id="scoreAnswer" name="score" type="text">
 
-                <div id="questions"></div>
-                <div>
-                    <p id="score" name="score"></p>
-                </div>
+                    </div>
+                    <input type="button"id="next" value="Click here to start automated advice" onclick="showQuestion()">
+                    <input type="submit" name="submitReport" value="Submit" id="submit" style="visibility: hidden">
+                    <p id="score"></p>
+                </form>
             ';
         }
         elseif(isset($_POST['retirement'])){
@@ -84,22 +175,71 @@
             ';
             include('dataPages/savingsAndRetirement.php');
             echo '
-                <input type="button" value="Show the first question" onclick="showQuestion()">
 
-                <div id="questions"></div>
-                <div>
-                    <p id="score" name="score"></p>
-                </div>
+                <form action="dataPages/autoMail.php" method="POST">
+                    <div id="questions"></div>
+                    <div id="answers" >
+                        <input id="firstNameAnswer" name="firstName" type="text">
+                        <input id="surnameAnswer" name="lastName" type="text">
+                        <input id="idNumberAnswer" name="idNumber" type="text">
+                        <input id="emailAddressAnswer" name="emailAddress" type="text">
+                        <input id="ageAnswer" name="age" type="text">
+                        <input id="genderAnswer" name="gender" type="text">
+                        <input id="employmentAnswer" name="employment" type="text">
+                        <input id="maritalStatusAnswer" name="maritalStatus" type="text">
+                        <input id="lumpSumAnswer" name="lumpSum" type="text">
+                        <input id="savingAnswer" name="saving" type="text">
+                        <input id="futureAnswer" name="future" type="text">
+                        <input id="marketDropAnswer" name="marketDrop" type="text">
+                        <input id="guaranteedOrPotentialAnswer" name="guaranteedOrPotential" type="text">
+                        <input id="settleAnswer" name="settle" type="text">
+                        <input id="scoreAnswer" name="score" type="text">
+
+                    </div>
+                    <input type="button"id="next" value="Click here to start automated advice" onclick="showQuestion()">
+                    <input type="submit" name="submitReport" value="Submit" id="submit" style="visibility: hidden">
+                    <p id="score"></p>
+                </form>
             ';
 
 
         }
         elseif(isset($_POST['shortTerm'])){
-            include('../Reports/shortTerm.php');
+            include('Reports/shortTerm.php');
+            echo '<p id="status"></p>';
 
         }
         elseif(isset($_POST['will'])){
-            include('../Reports/will.php');
+            include('Reports/will.php');
+            $_SESSION['will'] = true;
+            echo '
+                <form action="dataPages/autoMail.php" method="POST" class="extra" style="visibility: hidden">
+                    <h3>Please enter your info and someone will get in contact with you</h3>
+                    <table id="willInfo">
+                        <tr>
+                            <td>Please enter your first name</td>
+                            <td><input type="text" name="firstName" id="firstName"></td>
+                        </tr>
+                        <tr>
+                            <td>Please enter your surname</td>
+                            <td><input type="text" name="lastName" id="lastName"></td>
+                        </tr>
+                        <tr>
+                            <td>Please enter your ID number</td>
+                            <td><input type="text" name="idNumber" id="idNumber"></td>
+                        </tr>
+                        <tr>
+                            <td>Please enter your cellphone number</td>
+                            <td><input type="text" name="cellNumber" id="cellNumber"></td>
+                        </tr>
+                        <tr>
+                            <td>Please enter your email address</td>
+                            <td><input type="text" name="emailAddress" id="emailAddress"></td>
+                        </tr>
+                    </table>
+                    <input type="submit" name="submitInfo" id="submitWillInfo">
+                </form>
+            ';
 
         }
         elseif(isset($_POST['other'])){

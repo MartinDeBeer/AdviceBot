@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <form action="autoMail.php" method="post">
+    <form action="../dataPages/autoMail.php" method="post">
         <div class="logo">
             <a href="index.php"><img src="../Images/Logo.png"/></a>
         </div>
