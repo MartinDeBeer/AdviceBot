@@ -105,23 +105,17 @@
             <!-- Single Need Menu -->
             <form action="singleNeed.php" id="singleNeed" method="post">
                 <!-- Life Cover -->
-                <input type="submit" id="lifeCover" class="singleButton" value="Life Cover" name="lifeCover"> <br>
-                <br>
+                <input type="submit" id="lifeCover" class="singleButton" value="Life Cover" name="lifeCover">
                 <!-- Disability And Trauma -->
-                <input type="submit" id="disability" class="singleButton" value="Disability and Trauma" name="disability"><br>
-                <br>
+                <input type="submit" id="disability" class="singleButton" value="Disability and Trauma" name="disability">
                 <!-- Savings & Emergency -->
-                <input type="submit" id="savings" class="singleButton" value="Savings and Emergency Fund" name="savings"><br />
-                <br>
+                <input type="submit" id="savings" class="singleButton" value="Savings and Emergency Fund" name="savings">
                 <!-- Retirement Planning -->
-                <input type="submit" id="retirement" class="singleButton" value="Retirement Planning" name="retirement"><br />
-                <br>
+                <input type="submit" id="retirement" class="singleButton" value="Retirement Planning" name="retirement">
                 <!-- Short Term Insurance -->
-                <input type="submit" id="shortTerm" class="singleButton" value="Short Term Insurance" name="shortTerm" ><br />
-                <br>
+                <input type="submit" id="shortTerm" class="singleButton" value="Short Term Insurance" name="shortTerm" >
                 <!-- Will And Testament -->
-                <input type="submit" id="will" class="singleButton" value="Will and Testament" name="will"><br />
-                <br>
+                <input type="submit" id="will" class="singleButton" value="Will and Testament" name="will">
                 <!-- Other ( Email ) -->
                 <input type="submit" id="other" class="singleButton" value="I have a special need" name="other" >
             </form>
@@ -136,7 +130,7 @@
             <div id="socials">  
                 <a href="https://www.facebook.com/www.advicebot.co.za"><img class="social" src="Images/facebook.png" alt="Facebook Logo Black" ></a>
                 <a href="https://www.instagram.com/advicebots"><img class="social" src="Images/insta.png" alt="Instagram Logo Black" ></a>
-                <a href="https://www.linkedin.com/company/advicebot"><img class="social" src="Images/linkedIn.png" alt="LinkedIn Logo Black" ></a>
+                <a href="https://www.twitter.com/advicebot10"><img class="social" src="Images/twitter.png" alt="Twitter Logo Black" ></a>
             </div>
         </div>
         <hr>

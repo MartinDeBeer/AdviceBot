@@ -38,8 +38,21 @@ footer {
         width: 70%;
         position: absolute;
         left: 15%;
-        top: 25%;
+        top: 10%;
         color: #006699;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .part2 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .part3 {
+        margin-top: 20px;
+    }
+    footer hr {
+        visibility: hidden;
+    }
+    #login {
+        top: 0vh
     }
 }

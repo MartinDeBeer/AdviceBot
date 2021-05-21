@@ -76,10 +76,11 @@ progress[value]::-webkit-progress-value {
 
 #Budget {
     position: relative;
+    bottom: 15vh;
     /* font-size: 3vw; */
 }
 
-#Budget h1 {
+#Budget h2 {
     visibility: hidden;
 }
 
@@ -94,6 +95,7 @@ progress[value]::-webkit-progress-value {
 #Budget #budgetContent {
     font-size: 3vw;
     width: 100vw;
+    box-shadow: none;
 }
 
 #Budget table {

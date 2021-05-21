@@ -337,12 +337,21 @@ function scheduleUpload() {
 function uploadSchedule(event) {
     document.getElementById('status').innerHTML = 'Uploading...';
     let schedule = document.getElementById('schedule');
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    let idNumber = document.getElementById('idNumber').value;
+    let cellNumber = document.getElementById('cellNumber').value;
+    let emailAddress = document.getElementById('emailAddress').value;
     let files = schedule.files;
     let formData = new FormData();
     let file = files[0];
 
     formData.append('schedule', file, file.name);
-
+    formData.append('firstName', firstName);
+    formData.append('lastName', lastName);
+    formData.append('idNumber', idNumber);
+    formData.append('cellNumber', cellNumber);
+    formData.append('emailAddress', emailAddress);
     let xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open('POST', 'dataPages/upload.php', true);

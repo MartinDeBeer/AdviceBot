@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" /> 
     <link href="Stylesheets/styles.css" type="text/css" rel="stylesheet" />
     <link href="Stylesheets/about.css" type="text/css" rel="stylesheet" />
-    <link href="Stylesheets/bg.css" type="text/css" rel="stylesheet" />
     <title>About Us</title>
 </head>
 <body>
     <div class="wrapper">
         <header>            
+            <!-- Logo -->
+            <img class="logo" src="Images/Logo.png" alt="Advicebot Logo" onclick="window.location.href='index.php'"/>
 
             <!-- Menu -->
             <nav class="menu">
                 <button id="home" class="menuBtn" onclick="window.location.href='index.php'" >Home</button> 
-                <button id="ifaa" class="menuBtn" onclick="questions()" >Get Advice</button>
                 <div class="dropdown">
                     <button class="dropbtn menuBtn">Tools</button>
                     <div class="dropdown-content">
@@ -25,7 +26,6 @@
                         <a href="Tools/retirement.php" >Retirement Tool</a>
                     </div>
                 </div>
-                <button id="about" class="menuBtn" onclick="window.location.href='about.php'">About Us</button>
                 <button id="contact" class="menuBtn" onclick="window.location.href='contact.php'">Contact Us</button>
                 <?php
                 if(isset($_SESSION['emailAddress'])){
@@ -37,8 +37,9 @@
                 }
                 ?>
             </nav>
-            <!-- Logo -->
-            <img class="logo" src="Images/Logo.png" alt="Advicebot Logo" onclick="window.location.href='index.php'"/>
+            <div class="quote">
+                <p>"To become financially free you must be disciplined. The financial instrument is secondary" - IFAA</p>
+            </div>
         </header>
         <h1>About AdviceBot</h1>
 
@@ -73,14 +74,23 @@
     </div>
 
     <footer id="footer" style="text-align: center;">
-    <div id="div1">
-            <button class="footerBtn" onclick="window.location.href='Docs/disclosure.php'">Disclosure Agreement</button>
-            <button class="footerBtn" onclick="window.location.href='Docs/complaints.php'">Complaints Procedure</button>
+        <div class="part1">
+            <div id="socials">  
+                <a href="https://www.facebook.com/www.advicebot.co.za"><img class="social" src="Images/facebook.png" alt="Facebook Logo Black" ></a>
+                <a href="https://www.instagram.com/advicebots"><img class="social" src="Images/insta.png" alt="Instagram Logo Black" ></a>
+                <a href="https://www.linkedin.com/company/advicebot"><img class="social" src="Images/linkedIn.png" alt="LinkedIn Logo Black" ></a>
+            </div>
         </div>
-        <div id="div2">
-            <button class="footerBtn" onclick="window.location.href='Docs/privacy.php'">Privacy Policy</button>
-            <button class="footerBtn" onclick="window.location.href='Docs/use.php'">Website Use</button>
-            <button class="footerBtn" onclick="window.location.href='feedback.php'">Feedback</button>
+        <hr>
+
+        <div class="part3">
+            <div id="legal">
+                <button onclick="window.location.href='Docs/disclosure.php'">Disclosure Agreement</button>
+                <button onclick="window.location.href='Docs/complaints.php'">Complaints Procedure</button>
+                <button onclick="window.location.href='Docs/privacy.php'">Privacy Policy</button>
+                <button onclick="window.location.href='Docs/use.php'">Website Use</button>
+                <button onclick="window.location.href='feedback.php'">Feedback</button>
+            </div>
         </div>
     </footer>
 </body>

@@ -4,11 +4,20 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    font-size: 3vw;
-    overflow-y: scroll;
+    font-size: 2.5vw;
+    overflow-y: visible;
 }
 
 html,
 body {
-    overflow-y: scroll;
+    overflow: visible;
+}
+
+table {
+    width: 250vw;
+}
+
+input {
+    width: 100%;
+    font-size: 2.5vw;
 }

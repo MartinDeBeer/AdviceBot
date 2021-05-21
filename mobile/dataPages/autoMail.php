@@ -1,4 +1,5 @@
 <?php
+
     // Start the session and connect to db
     session_start();
     include('connectDB.php');
@@ -22,253 +23,336 @@
 
     }
 
-    // Single Need Email - Only goes to us
-    if(isset($_POST['submit'])){
-        $errors = [];
-
+    // Single Need
+    if(isset($_POST['submitInfo'])){
         $firstName = $_POST['firstName'];
-        $surname = $_POST['surname'];
-        $email = $_POST['email'];
-        $idNum = $_POST['idNum'];
-        $cell = $_POST['cell'];
-        $question = $_POST['question'];
-        $valid = true;
-
-        $elements = array($firstName, $surname, $email, $idNum, $cell, $question);
-
-        foreach($elements as $element){
-            if(empty($element)){
-                $valid = false;
-                array_push($errors, "$element is empty");
-            }
-            elseif(strlen($idNum) < 13){
-                $valid = false;
-                array_push($errors, "$idNum is too short");
-            }
+        $surname = $_POST['lastName'];
+        $idNum = $_POST['idNumber'];
+        $email = $_POST['emailAddress'];
+        $cell = $_POST['cellNumber'];
+        if(isset($_SESSION['will'])){
+            $tmp = 'Will and Testament';
+        }else if(isset($_SESSION['lifeCover'])){
+            $tmp = 'Life Cover';
+        }else if(isset($_SESSION['disability'])){
+            $tmp = 'Trauma and Disability';
         }
-
-        if($valid){
-            ini_set("SMTP", "smtp.afrihost.co.za");
-            ini_set("smtp_port", 25);
-            ini_set("sendmail_from", "no-reply@advicebot.co.za");
-            $to = 'admin@advicebot.co.za';
-            $subject = $_POST['subject'];
-            $msg = "
-            <html>
-            <head>
-            <title>HTML email</title>
-            </head>
-            <body>
-            <p>First Name: " . $firstName . "</p>
-            <p>Last Name: " . $surname . "</p>
-            <p>Email Address: " . $email . "</p>
-            <p>ID Number: " . $idNum . "</p>
-            <p>Cellphone Number: " . $cell . "</p>
-            <p>Question: " . $question . "</p>
-            </body>
-            </html>
-            ";
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-            $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
-            mail($to, $subject, $msg, $headers);
-            echo "Mail sent successfully to Advicebot admins.";
-
-            mailToCustomer($email);
-            header('location: ../index.php');
-        }
-        else {
-            foreach($errors as $error){
-                echo '<h2>' . $error . '</h2>';
-                break;
-            }
-        }
-    }
-
-    if(isset($_SESSION['fileUpload'])){
-        // Schedule upload
-        $userId = $_SESSION['autoID'];
-        $select = "SELECT * FROM users WHERE autoID = '$userId'";
-        $result = mysqli_query($conn, $select);
-        $row = mysqli_fetch_array($result);
-        $newFile = $row['firstName'] . "schedule.pdf";
-        $emailAddress = $row['emailAddress'];
-        ini_set("SMTP", "smtp.afrihost.co.za");
-        ini_set("smtp_port", 25);
-        ini_set("sendmail_from", "no-reply@advicebot.co.za");
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-
-
-
-        // Recipient
+        // ini_set("SMTP", "smtp.afrihost.co.za");
+        // ini_set("smtp_port", 25);
+        // ini_set("sendmail_from", "no-reply@advicebot.co.za");
+        $subject = $tmp;
         $to = 'admin@advicebot.co.za';
-
-        // Sender
-        $from = 'no-reply@advicebot.co.za';
-        $fromName = 'No-Reply';
-
-        // Email subject
-        $subject = 'Schedule of ' . $row['emailAddress'];
-
-        // Attachment file
-        $file = "../upload/" . $newFile;
-
-
-        // Email body content
-        $htmlContent = '
-        <h3>Short term schedule for ' . $row['firstName'] . ' ' . $row['lastName'] . '</h3>
-        ';
-
-        // Header for sender info
-        $headers = "From: $fromName"." <".$from.">";
-
-        // Boundary
-        $semi_rand = md5(time());
-        $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
-
-        // Headers for attachment
-        $headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";
-
-        // Multipart boundary
-        $message = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=\"UTF-8\"\n" .
-        "Content-Transfer-Encoding: 7bit\n\n" . $htmlContent . "\n\n";
-
-        // Preparing attachment
-        if(!empty($file)){
-            if(is_file($file)){
-                $message .= "--{$mime_boundary}\n";
-                $fp =    fopen($file,"rb");
-                $data =  fread($fp,filesize($file));
-
-                @fclose($fp);
-                $data = chunk_split(base64_encode($data));
-                $message .= "Content-Type: application/octet-stream; name=\"".basename($file)."\"\n" .
-                "Content-Description: ".basename($file)."\n" .
-                "Content-Disposition: attachment;\n" . " filename=\"".basename($file)."\"; size=".filesize($file).";\n" .
-                "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n";
-            }else {
-                echo "failed";
-            }
-        }
-        else {
-            echo "There is no file";
-        }
-        $message .= "--{$mime_boundary}--";
-        $returnpath = "-f" . $from;
-
-        // Send email
-        $mail = @mail($to, $subject, $message, $headers, $returnpath);
-        mailToCustomer($email);
-
-        // Email sending status
+        $msg = "
+        <html>
+        <head>
+        <title>HTML email</title>
+        </head>
+        <body>
+        <p>First Name: " . $firstName . "</p>
+        <p>Last Name: " . $surname . "</p>
+        <p>Email Address: " . $email . "</p>
+        <p>ID Number: " . $idNum . "</p>
+        <p>Cellphone Number: " . $cell . "</p>
+        </body>
+        </html>
+        ";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+        $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
+        $mail = @mail($to, $subject, $msg, $headers);
+        // mailToCustomer($email);
         if($mail){
-        echo "<h1>Email Sent Successfully!</h1>";
-        unlink($file);
-        header('location: ../report.php');
-
+            header('location: ../index.php');
         }else{
-        echo "<h1>Email sending failed.</h1>";
+            echo "Mail not sent.";
         }
     }
+    // Permission
+    if(isset($_POST['permission'])){
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        $idNumber = $_POST['idNumber'];
+        $personal = $_POST['personal'];
+        if($personal == 'no'){
+            $rep = $_POST['rep'];
+        }
+        // ini_set("SMTP", "smtp.afrihost.co.za");
+        // ini_set("smtp_port", 25);
+        // ini_set("sendmail_from", "no-reply@advicebot.co.za"); 
+        $to = 'admin@advicebot.co.za';
+        $subject = "Consent to get information from Astute";
+        $msg = "
+        <html>
+        <head>
+        <title>HTML email</title>
+        </head>
+        <body>
+        <p>First Name: " . $firstName . "</p>
+        <p>Last Name: " . $lastName . "</p>
+        <p>ID Number: " . $idNumber . "</p>
+        <p>Personal Capacity: " . $personal . "</p>
+        <p>Representing: " . $rep . "</p>
+        </body>
+        </html>
+        ";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+        $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
+        mail($to, $subject, $msg, $headers);
+        header('location: ../report.php'); 
+    }
 
-    if(isset($_POST['coverChosen'])){
+    // Single Need - Retirement / Savings
+    if(isset($_POST['submitReport'])){
+        $firstName = $_POST['firstName'];
+        $surname = $_POST['lastName'];
+        $email = $_POST['emailAddress'];
+        $idNumber = $_POST['idNumber'];
+        $age = $_POST['age'];
+        $gender = $_POST['gender'];
+        $employment = $_POST['employment'];
+        $maritalStatus = $_POST['maritalStatus'];
+        $lumpSum = $_POST['lumpSum'];
+        $saving = $_POST['saving'];
+        $future = $_POST['future'];
+        $marketDrop = $_POST['marketDrop'];
+        $guaranteedOrPotential = $_POST['guaranteedOrPotential'];
+        $settle = $_POST['settle'];
+        $score = $_POST['score'];
+        // ini_set("SMTP", "smtp.afrihost.co.za");
+        // ini_set("smtp_port", 25);
+        // ini_set("sendmail_from", "no-reply@advicebot.co.za");
+        $to = 'admin@advicebot.co.za';
+        if(isset($_SESSION['savings'])){
+            $subject = "Single Need Savings Report of " . $firstName . ' ' . $surname;
+        } else if(isset($_SESSION['retirement'])){
+            $subject = "Single Need Retirement Report of " . $firstName . ' ' . $surname;
+        }
+        $msg = "
+        <html>
+        <head>
+        <title>HTML email</title>
+        </head>
+        <body>
+        <table>
+        <th>Question</th>
+        <th>Answer</th>
+        <tr>
+        <td>What is your first name?</td>
+        <td>" . $firstName . "</td>
+        </tr>
+        <tr>
+        <td>What is your last name?</td>
+        <td>" . $surname . "</td>
+        </tr>
+        <tr>
+        <td>What is your email address?</td>
+        <td>" . $email . "</td>
+        </tr>
+        <tr>
+        <td>Please input your ID Number</td>
+        <td>" . $idNumber . "</td>
+        </tr>
+        <tr>
+        <td>Your age is:</td>
+        <td>" . $age . "</td>
+        </tr>
+        <tr>
+        <td>Your gender is:</td>
+        <td>" . $gender . "</td>
+        </tr>
+        <tr>
+        <td>Are you self-employed or a salary worker?</td>
+        <td>"  . $employment . "</td>
+        </tr>
+        <tr>
+        <td>Marital Status:</td>
+        <td>"  . $maritalStatus . "</td>
+        </tr>
+        <tr>
+        <td>Do you have a lump sum to invest?</td>
+        <td>"  . $lumpSum . "</td>
+        </tr>
+        <tr>
+        <td>Do you intend to save a monthly amount?</td>
+        <td>"  . $saving . "</td>
+        </tr>
+        <tr>
+        <td>How do you feel about your financial future?</td>
+        <td>"  . $future . "</td>
+        </tr>
+        <tr>
+        <td>The market dropped quickly and your portfolio value dropped by -20%. What would you do?</td>
+        <td>"  . $marketDrop . "</td>
+        </tr>
+        <tr>
+        <td>Would you settle for a guaranteed return of between 5% or a potential return of 0% and 15%?</td>
+        <td>"  . $guaranteedOrPotential . "</td>
+        </tr>
+        <tr>
+        <td>Would you settle for a potential return of between 5% and 10% or a potential return of between -10% and 25%?</td>
+        <td>"  . $settle . "</td>
+        </tr>
+        <tr>
+        <td>Your score: </td>
+        <td>"  . $score . "</td>
+        </tr>
+        </table>
+        </body>
+        </html>
+        ";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+        $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
+        $mail = @mail($to, $subject, $msg, $headers);
+        // mailToCustomer($email);
+        if($mail){
+            echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
+            header('location: ../index.php');
+        }else{
+            echo "Mail not sent.";
+        }        
+    }
+
+    if(isset($_POST['fullReport'])){
+        $autoID = $_SESSION['autoID'];
+        $select = "select * from report where userID = '$autoID' and reportID=(select max(reportID) from report)";
+        $result = mysqli_query($conn, $select);
+        $row = mysqli_fetch_assoc($result);
+
         $firstName = $_SESSION['firstName'];
         $surname = $_SESSION['lastName'];
-        $idNum = $_SESSION['userID'];
         $email = $_SESSION['emailAddress'];
-        $cell = $_SESSION['cell'];
-        if(isset($_POST['checkAll'])){
-            ini_set("SMTP", "smtp.afrihost.co.za");
-            ini_set("smtp_port", 25);
-            ini_set("sendmail_from", "no-reply@advicebot.co.za");            
-            $to = 'admin@advicebot.co.za';
-            $subject = "I am interested in all of the options offered.";
-            $msg = "
-            <html>
-            <head>
-            <title>HTML email</title>
-            </head>
-            <body>
-            <p>First Name: " . $firstName . "</p>
-            <p>Last Name: " . $surname . "</p>
-            <p>Email Address: " . $email . "</p>
-            <p>ID Number: " . $idNum . "</p>
-            <p>Cellphone Number: " . $cell . "</p>
-            </body>
-            </html>
-            ";
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-            $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
-            $mail = @mail($to, $subject, $msg, $headers);
-            mailToCustomer($email);
-            if($mail){
-                header('location: ../index.php');
-            }else{
-                echo "Mail not sent.";
-            }
-        }
-        else{
-            $tmp = '';
-            foreach($_POST as $post => $value){    
-                if($post == 'coverChosen'){
-                    break;
-                }
-                // echo $post . ' ';
-                $subject = [];
-                array_push($subject, $post);
-                for($i = 0; $i < count($subject); $i++){
-                    if($subject[$i] == 'retirementCheck'){
-                        $subject[$i] = 'retirement Plan';
-                    }
-                    
-                    $tmp .= $subject[$i] . ', ';
-                }
-                
-            }
-            $sub = '';
-            $tmp = str_replace('Check', ' Cover', $tmp);
-            $count = strlen($tmp) - 2;
-            for($j = 0; $j < $count; $j++){
-                $sub .= $tmp[$j];
-                
-            }
-            
-            $sub = ucwords($sub);
-            echo $sub;
-            ini_set("SMTP", "smtp.afrihost.co.za");
-            ini_set("smtp_port", 25);
-            ini_set("sendmail_from", "no-reply@advicebot.co.za"); 
-            $to = 'admin@advicebot.co.za';
-            $msg = "
-            <html>
-            <head>
-            <title>HTML email</title>
-            </head>
-            <body>
-            <p>First Name: " . $firstName . "</p>
-            <p>Last Name: " . $surname . "</p>
-            <p>Email Address: " . $email . "</p>
-            <p>ID Number: " . $idNum . "</p>
-            <p>Cellphone Number: " . $cell . "</p>
-            </body>
-            </html>
-            ";
-            $headers = "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-            $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
-            $mail = @mail($to, $sub, $msg, $headers);
-            mailToCustomer($email);
-            if($mail){
-                echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
-                header('location: ../index.php');
-            }else{
-                echo "Mail not sent.";
-            }
+        $idNumber = $_SESSION['userID'];
+        $age = $_SESSION['age'];
+        $gender = $_SESSION['gender'];
+        // Life Cover
+        $death = $row['deathCover'];
+        if(isset($_POST['lifeYesNo'])) $deathYesNo = $_POST['lifeYesNo'];
+        if(isset($_POST['lifeAmount'])) $lifeAmount = $_POST['lifeAmount'];
+        if(isset($_POST['lifeAmountNeeded'])) $lifeAmountNeeded = $_POST['lifeAmountNeeded'];
+        if(isset($_POST['lifeAmountDiff'])) $lifeAmountDiff = $_POST['lifeAmountDiff'];
+        // Disability And Trauma
+        $disability = $row['disability'];
+        if(isset($_POST['disabilityYesNo'])) $disabilityYesNo = $_POST['disabilityYesNo'];
+        if(isset($_POST['traumaAmount'])) $traumaAmount = $_POST['traumaAmount'];
+        if(isset($_POST['traumaAmountNeeded'])) $traumaAmountNeeded = $_POST['traumaAmountNeeded'];
+        if(isset($_POST['traumaAmountDiff'])) $traumaAmountDiff = $_POST['traumaAmountDiff'];
+        // Savings
+        $savings = $row['savings'];
+        if(isset($_POST['savingsYesNo'])) $savingsYesNo = $_POST['savingsYesNo'];
+        if(isset($_POST['riskProfile'])) $riskProfile = $_POST['riskProfile'];
+        // Retirement
+        $retirement = $row['retirement'];
+        if(isset($_POST['retirementYesNo'])) $retirementYesNo = $_POST['retirementYesNo'];
+        // Will
+        $will = $row['will'];
+        if(isset($_POST['willYesNo'])) $willYesNo = $_POST['willYesNo'];
+        // Short Term
+        $shortTerm = $row['shortTerm'];
+        if(isset($_POST['shortTermYesNo'])) $shortTermYesNo = $_POST['shortTermYesNo'];
+        if(isset($_POST['schedule'])) $schedule = $_POST['schedule'];
 
-        }
+
+
+        // ini_set("SMTP", "smtp.afrihost.co.za");
+        // ini_set("smtp_port", 25);
+        // ini_set("sendmail_from", "no-reply@advicebot.co.za");
+        $to = 'admin@advicebot.co.za';
+        $subject = "Report of " . $firstName . ' ' . $surname;
+        $msg = '
+        <html>
+        <head>
+        <title>HTML email</title>
+        </head>
+        <body>
+        <table>
+        <tr>
+        <td>First Name: </td>
+        <td>' . $firstName . '</td>
+        </tr>
+        <tr>
+        <td>Last Name: </td>
+        <td> ' . $surname . '</td>
+        </tr>
+        <tr>
+        <td>Email Address: </td>
+        <td>' . $email . '</td>
+        </tr>
+        <tr>
+        <td>ID number: </td>
+        <td>' . $idNumber . '</td>
+        </tr>
+        <tr>
+        <td>Age:</td>
+        <td>' . $age . '</td>
+        </tr>
+        <tr>
+        <td>Gender: </td>
+        <td>' . $gender . '</td>
+        </tr>
+        </table>
+        <table>
+        <th></th>
+        <th></th>
+        <th>Covered or Not</th>
+        <th>Existing Cover</th>
+        <th>Ideal Amount</th>
+        <th>Difference</th>
+        <tr>
+            <td>Death: </td>
+            <td><progress value="' . $death .'" max="65"></progress></td>
+            <td>' . $deathYesNo . '</td>
+            <td>' . $lifeAmount . '</td>
+            <td>' . $lifeAmountNeeded . '</td>
+            <td>' . $lifeAmountDiff . '</td>
+        </tr>
+        <tr>
+            <td>Disability: </td>
+            <td><progress value="' . $disability .'" max="65"></progress></td>
+            <td>' . $disabilityYesNo . '</td>
+            <td>' . $traumaAmount . '</td>
+            <td>' . $traumaAmountNeeded . '</td>
+            <td>' . $traumaAmountDiff . '</td>
+        </tr>
+        <tr>
+            <td>Savings: </td>
+            <td><progress value="' . $savings .'" max="65"></progress></td>
+            <td>' . $savingsYesNo . '</td>
+            <td>' . $riskProfile . '</td>
+        </tr>
+        <tr>
+                <td>Retirement: </td>
+                <td><progress value="' . $retirement .'" max="65"></progress></td>
+                <td>' . $retirementYesNo .'</td>
+        </tr>
+        <tr>
+            <td>Will:</td>
+            <td> ' . $will .' </td>
+            <td class="reportAnswer" name="willYesNo" id="willYesNo" >I don\'t have a will</td>
+        </tr>
+        <tr>
+            <td>Short Term: </td>
+            <td>' . $shortTerm . ' </td>
+            <td>' . $shortTermYesNo .'</td>
+            <td>' . $schedule . '</td>
+        </tr>
+        </table>
+        </body>
+        </html>
+        ';
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+        $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
+        $mail = @mail($to, $subject, $msg, $headers);
+        // mailToCustomer($email);
+        if($mail){
+            echo "Mail sent successfully to Advicebot admins. You will be redirected in 5 seconds.";
+            header('location: ../index.php');
+        }else{
+            echo "Mail not sent.";
+        }   
     }
 
+    
 ?>

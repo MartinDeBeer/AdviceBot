@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Stylesheets/styles.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="Stylesheets/report.css">
+
     <title>Short Term Insurance</title>
 </head>
 <body>
@@ -16,16 +18,14 @@
     <h3><u>IFAA TIP:</u></h3>
     <p>I’m independent. I represent you as client. I do not represent any insurance company. This is especially important at claim stage. </p>
     <p>Every insurance company has its own unique products and value-added service. <br>
-    Luckily for you we can offer you a wide verity of products from most of the insurance companies. <br>
-     </p>
-     We can compare your current insurance schedule to other offers in the market and see if your premium is still market related or if you can perhaps save on your monthly expenses. <br>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <h2>Upload your schedule here:</h2>
-        <input type="file" name="schedule" id="schedule">
-        <input type="submit" value="Upload Your Schedule" name="submitSchedule">
-    </form>
-    <input type="button" id="noSchedule" value="I don't have a schedule" onclick="tellMore('noSchedule')">
-    <input type="button" id="help" value="I need help" onclick="tellMore('help')" >
+    Luckily we can offer you a wide variety of products from different insurance providers. <br>
+    </p>
+    We can compare your current insurance schedule to other offers in the market and see if your premium is still market related or if you can perhaps save on your monthly expenses. <br>
+    
+    <input type="button" id="noShortTerm" value="I don't have short term insurance" onclick="yesOrNo('noShortTerm')">
+    <input type="button" id="haveShortTerm" value="I have short term insurance" onclick="yesOrNo('haveShortTerm')">
+    <div id="scheduleUpload"></div>
+    
 
 </body>
 </html>

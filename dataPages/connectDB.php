@@ -4,6 +4,7 @@
 // $username = 'advicdxe_martin';
 // $pass = 'Y9Pywjsh42tAW2s';
 // $db = 'advicdxe_advicebot';
+
 $host = 'localhost';
 $username = 'root';
 $pass = '';

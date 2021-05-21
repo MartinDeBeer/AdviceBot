@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Stylesheets/styles.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="Stylesheets/report.css">
+
     <title>Life Cover</title>
     <?php
         session_start();
@@ -28,10 +30,10 @@
 
     <h1 style="text-align: center;">Life Cover</h1>
     <p>Life cover provides financial support to your family or beneficiaries in the form of a lump sum after your death. It is also a big contributor to generational wealth.</p>
-    <h3><u>IFAA TIP:</u></h3>
+    <h4><u>IFAA TIP:</u></h4>
     <p>A life policy can have different premium patterns. You can decide to pay the same premium over the premium paying term or to pay less in the beginning and gradually more at a fixed percentage or according to your age. It is extremely important to choose the right premium pattern to ensure the future sustainability of your policy.</p>
 
-    <h2>Examples of people who may need life cover:</h2>
+    <h3>Examples of people who may need life cover:</h3>
     <ul>
         <li>Single parents or where only family member earns an income</li>
         <li>Parents with minor or special-needs children</li>
@@ -47,24 +49,20 @@
     <p>The amount of life cover needed will depend on your specific circumstances. You mentioned that your marriage status is <?php if($marriageStatus == "yes"){echo "married";}else{echo "single";} ?> and that you <?php if($kidsStatus == "yes"){echo "have dependents";}else{echo "don't have dependents";} ?>. You earn an income of R<?php echo $salary; ?> and have liabilities of R<?php echo $liabilities; ?>. As a rule of thumb, the minimum amount of life cover you will need is 6 (six) times income plus liabilities.</p>
 
 
-    <button onclick="haveCover()">I have life cover in place</button>    
-    <input id="life" type="button" value="I need life cover" onclick="tellMore('life')"><br>
+    <input type="button" id="haveLife" onclick="yesOrNo('haveLife')" value="I have life cover in place">
+    <input id="needLife" type="button" value="I need life cover" onclick="yesOrNo('needLife')"><br>
 
-    <div id="amounts" style="visibility: hidden;">
-        
+    <div id="amounts" class="extra" style="visibility: hidden;">
+        <input type="button" value="I don't know how much life cover I have" onclick="window.open('Reports/permission.php', '_blank')"><br>
         <label for="lifeCoverAmount">Amount of life cover</label>
         <input type="text" id="lifeCoverAmount"><br>        
-        <button onclick="window.location.href='Reports/permission.php'">I don't know how much life cover I have</button><br>
+        <input type="button" id="suppBtnLife" value="See how much you're supposed to be covered for" onclick="showSupposed('life')">
 
-        <button onclick="showSupposed('life')">See how much you're supposed to be covered for</button>
-        <div id="supposed" style="visibility: hidden;">
+        <div id="supposed"  style="visibility: hidden;">
             <label for="supposedAmount">You should have</label>
-            <input id="supposedAmount" name="lifeNeeded" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
-            <p id="diff">The difference between the cover you have and what you should have is</p>
+            <input id="supposedAmount" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
+            <p id="diff"></p>
         </div>
     </div>
-
-
-    
 </body>
 </html>

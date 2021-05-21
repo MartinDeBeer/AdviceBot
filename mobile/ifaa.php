@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Auto Advice</title>
     <script src="Scripts/botScripts.js" type="text/javascript"></script>
+    <script src="Scripts/budget.js" type="text/javascript"></script>
     <link rel="stylesheet" href="Stylesheets/bg.css">
     <link rel="stylesheet" href="Stylesheets/ifaaStyles.css">
 

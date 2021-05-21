@@ -61,7 +61,7 @@
         <!-- Robohelp Menu -->
         <div id="homePage">
             <!-- Single Need Menu -->
-            <form action="dataPages/singleNeed.php" id="singleNeed" method="post">
+            <form action="singleNeed.php" id="singleNeed" method="post">
                     <!-- Robot Advice -->
                     <input type="button" onclick='window.location.href="ifaa.php"' id="autoAdvice" class="singleButton" value="Get Auto Advice" name="autoAdvice"> <br>
                     <!-- Life Cover -->
@@ -89,7 +89,7 @@
         <div id="socials">  
             <a href="https://www.facebook.com/www.advicebot.co.za"><img class="social" src="Images/facebook.png" alt="Facebook Logo Black" ></a>
             <a href="https://www.instagram.com/advicebots"><img class="social" src="Images/insta.png" alt="Instagram Logo Black" ></a>
-            <a href="https://www.linkedin.com/company/advicebot"><img class="social" src="Images/linkedIn.png" alt="LinkedIn Logo Black" ></a>
+            <a href="https://www.twitter.com/advicebot10"><img class="social" src="Images/twitter.png" alt="Twitter Logo Black" ></a>
         </div>
             
     </div>

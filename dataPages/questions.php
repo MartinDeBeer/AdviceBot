@@ -121,15 +121,15 @@ switch($row['typeID']){
     case 4:
         if($row['object'] == 'assets'){
             echo $row['question'] . '<br />';
-            echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="10000000" value="0" step="1000" oninput="assetValue.value = this.value" onkeypress="nextQuestion(event)"/>';
+            echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="100000000" value="0" step="1000" oninput="assetValue.value = this.value" onkeypress="nextQuestion(event)"/>';
             echo 'R<input type="number" class="question" disabled id="assetValue" step="1000" oninput="assets.value = this.value"/>';
         }else if($row['object'] == 'liabilities'){
             echo $row['question'] . '<br />';
-            echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="10000000" value="0" step="1000" oninput="liabilitiesValue.value = this.value" onkeypress="nextQuestion(event)"/>';
+            echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="100000000" value="0" step="1000" oninput="liabilitiesValue.value = this.value" onkeypress="nextQuestion(event)"/>';
             echo 'R<input type="number" class="question" style="color: #990000;" disabled id="liabilitiesValue" step="1000" oninput="assets.value = this.value" />';
         }else{
             echo $row['question'] . '<br />';
-            echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="1000000" step="1000" oninput="salaryValue.value = this.value" onkeypress="nextQuestion(event)" />';
+            echo '<input type="range" class="question" id="' . $row['object'] . ' min="0" max="100000000" step="1000" oninput="salaryValue.value = this.value" onkeypress="nextQuestion(event)" />';
             echo 'R<input type="number" class="question"  disabled id="salaryValue" step="1000" oninput="salary.value = this.value" />';
         }
     break;

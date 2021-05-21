@@ -122,6 +122,7 @@
             ';
         }
         elseif(isset($_POST['savings'])){
+            $_SESSION['savings'] == true;
             echo '
                 <h1 style="text-align: center;">Savings And Emergency Fund</h1>
                 <p>Savings should be considered a nest egg and a part of an ongoing long-term savings plan with separate shorter goals like college tuition, a new car, holiday etc. <br>
@@ -160,6 +161,7 @@
             ';
         }
         elseif(isset($_POST['retirement'])){
+            $_SESSION['retirement'] == true;
             echo '
             <h1 style="text-align: center;">Retirement Plan</h1>
             <p><b>Planning</b> for <b>retirement</b> starts with thinking about your goals and how long you have to save before you retire. It is also important to determine the time your money will last after retirement.</p>
@@ -205,7 +207,48 @@
 
         }
         elseif(isset($_POST['shortTerm'])){
-            include('Reports/shortTerm.php');
+            echo '
+            <h1 style="text-align: center;">Short term Insurance</h1>
+
+            <p>You mentioned that you own certain assets.
+            Home or Car insurance is an essential part of any financial plan. It’s the business of your insurance company to put you back in the same financial position you were before an accident or specific event that caused you damage or lost. The insurance company will also cover your liability towards others. <br>
+            Home insurance can be divided into building or content insurance. Your car insurance can be specified to be comprehensive, only third part theft and fire or only third party. It you financed your vehicle through a bank or finance company, comprehensive cover will usually be compulsory. </p>
+            <h3><u>IFAA TIP:</u></h3>
+            <p>I’m independent. I represent you as client. I do not represent any insurance company. This is especially important at claim stage. </p>
+            <p>Every insurance company has its own unique products and value-added service. <br>
+            Luckily we can offer you a wide variety of products from different insurance providers. <br>
+            </p>
+            We can compare your current insurance schedule to other offers in the market and see if your premium is still market related or if you can perhaps save on your monthly expenses. <br>
+            
+            <input type="button" id="noShortTerm" value="I don\'t have short term insurance" onclick="yesOrNo(\'noShortTerm\')">
+            <input type="button" id="haveShortTerm" value="I have short term insurance" onclick="yesOrNo(\'haveShortTerm\')">
+            <form action="dataPages/autoMail.php" method="POST" class="extra">
+                <h3>Please enter your info and someone will get in contact with you</h3>
+                <table id="disabilityInfo">
+                    <tr>
+                        <td>Please enter your first name</td>
+                        <td><input type="text" name="firstName" id="firstName"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your surname</td>
+                        <td><input type="text" name="lastName" id="lastName"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your ID number</td>
+                        <td><input type="text" name="idNumber" id="idNumber"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your cellphone number</td>
+                        <td><input type="text" name="cellNumber" id="cellNumber"></td>
+                    </tr>
+                    <tr>
+                        <td>Please enter your email address</td>
+                        <td><input type="text" name="emailAddress" id="emailAddress"></td>
+                    </tr>
+                </table>
+                <div id="scheduleUpload"></div>
+            </form>
+            ';
             echo '<p id="status"></p>';
 
         }

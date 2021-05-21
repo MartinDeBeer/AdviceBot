@@ -1,4 +1,5 @@
 <?php
+
     // Start the session and connect to db
     session_start();
     include('connectDB.php');
@@ -36,11 +37,11 @@
         }else if(isset($_SESSION['disability'])){
             $tmp = 'Trauma and Disability';
         }
-        // ini_set("SMTP", "smtp.afrihost.co.za");
-        // ini_set("smtp_port", 25);
-        // ini_set("sendmail_from", "no-reply@advicebot.co.za");
+        ini_set("SMTP", "smtp.afrihost.co.za");
+        ini_set("smtp_port", 25);
+        ini_set("sendmail_from", "no-reply@advicebot.co.za");
         $subject = $tmp;
-        $to = 'root@localhost';
+        $to = 'admin@advicebot.co.za';
         $msg = "
         <html>
         <head>
@@ -59,7 +60,7 @@
         $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
         $headers .= "From: No Reply<no-reply@advicebot.co.za>" . "\r\n";
         $mail = @mail($to, $subject, $msg, $headers);
-        // mailToCustomer($email);
+        mailToCustomer($email);
         if($mail){
             header('location: ../index.php');
         }else{
@@ -78,7 +79,7 @@
         ini_set("SMTP", "smtp.afrihost.co.za");
         ini_set("smtp_port", 25);
         ini_set("sendmail_from", "no-reply@advicebot.co.za"); 
-        $to = 'root@localhost';
+        $to = 'admin@advicebot.co.za';
         $subject = "Consent to get information from Astute";
         $msg = "
         <html>
@@ -118,11 +119,15 @@
         $guaranteedOrPotential = $_POST['guaranteedOrPotential'];
         $settle = $_POST['settle'];
         $score = $_POST['score'];
-        // ini_set("SMTP", "smtp.afrihost.co.za");
-        // ini_set("smtp_port", 25);
-        // ini_set("sendmail_from", "no-reply@advicebot.co.za");
-        $to = 'root@localhost';
-        $subject = "Report of " . $firstName . ' ' . $surname;
+        ini_set("SMTP", "smtp.afrihost.co.za");
+        ini_set("smtp_port", 25);
+        ini_set("sendmail_from", "no-reply@advicebot.co.za");
+        $to = 'admin@advicebot.co.za';
+        if(isset($_SESSION['savings'])){
+            $subject = "Single Need Savings Report of " . $firstName . ' ' . $surname;
+        } else if(isset($_SESSION['retirement'])){
+            $subject = "Single Need Retirement Report of " . $firstName . ' ' . $surname;
+        }
         $msg = "
         <html>
         <head>
@@ -253,7 +258,7 @@
         // ini_set("SMTP", "smtp.afrihost.co.za");
         // ini_set("smtp_port", 25);
         // ini_set("sendmail_from", "no-reply@advicebot.co.za");
-        $to = 'root@localhost';
+        $to = 'admin@advicebot.co.za';
         $subject = "Report of " . $firstName . ' ' . $surname;
         $msg = '
         <html>
@@ -348,4 +353,6 @@
             echo "Mail not sent.";
         }   
     }
+
+    
 ?>

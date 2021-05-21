@@ -11,6 +11,21 @@ let will = 0;
 let shortTermInsurance = 0;
 let counter = 3;
 
+function closeTip() {
+    document.getElementById('tip').style.visibility = "hidden";
+}
+
+
+function support(id) {
+    if (id == 'family') {
+        document.getElementById('tip').style.visibility = 'visible';
+        document.getElementById('ifaaTip').innerText = "I can provide life or funeral cover to recoup your expenses if you were supporting your family.";
+    } else if (id == 'vehicle') {
+        document.getElementById('tip').style.visibility = 'visible';
+        document.getElementById('ifaaTip').innerText = "Your vehicle must at least be insured for 3rd party liability. It's worth it and not that expensive. I have a whole lot of options for you.";
+    }
+}
+
 function getDate() {
     let today = new Date();
     let day = today.getDate();
@@ -126,11 +141,24 @@ function updateWeight() {
                 savings += 1;
                 retirement += 1;
             }
+
             document.getElementById('incomeAnswer').value = document.getElementById('salaryValue').value;
+            setTimeout(function() {
+                document.getElementById('tip').style.visibility = 'visible';
+                document.getElementById('ifaaTip').innerText = "An asset is any account, investment or item of value that can be converted into cash.\n" +
+                    "Generally you can distinguish between liquid assets like cash or physical assets like a house";
+            }, 1000);
+
+
             break;
 
         case 13:
             document.getElementById('assetsAnswer').value = document.getElementById('assetValue').value;
+            setTimeout(function() {
+                document.getElementById('tip').style.visibility = 'visible';
+                document.getElementById('ifaaTip').innerText = "A liability in financial terms is any future financial obligation like a mortgage, personal loan or motor financing.";
+            }, 1000);
+
             break;
 
         case 14:
@@ -330,7 +358,8 @@ function updateWeight() {
             if (document.getElementById('extendedFamily').value == 'supporting') {
                 deathCover += 5;
                 disability += 5;
-                alert("I can provide life or funeral cover to recoup your expenses");
+                support('family');
+
             }
             if (document.getElementById('extendedFamily').value == 'beingSupported') {
                 retirement += 6;
@@ -364,7 +393,7 @@ function updateWeight() {
                 retirement += 0;
                 shortTermInsurance += 5;
                 will += 0
-                alert("Your vehicle must at least be insured for 3rd party liability. It's worth it and not that expensive. I have a whole lot of options for you.");
+
             } else if (document.getElementById('vehicleOwned').value == 'no') {
                 deathCover += 0;
                 disability += 0;
@@ -452,6 +481,12 @@ function showQuestion() {
     skipQuestion();
     calculateTotalAssetsMinLiabilities();
     updateWeight();
+    if (counter == 26) {
+        support('family');
+    } else if (counter == 28) {
+        support('vehicle');
+    }
+
     if (skipMarriage == true) {
         if (counter == 18) {
             counter = 19;
@@ -525,6 +560,5 @@ function budget() {
 
     xmlhttp.open("GET", 'Tools/budget.php', true);
     xmlhttp.send();
-    typewriter();
 
 }

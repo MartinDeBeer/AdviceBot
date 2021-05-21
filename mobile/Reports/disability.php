@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Stylesheets/report.css">
     <script src="../Scripts/disability.js"></script>
+    <link rel="stylesheet" href="Stylesheets/report.css">
     
     <title>Disability</title>
     <?php
@@ -37,19 +37,25 @@
 
     <p>The amount of cover needed will depend on your specific circumstances. You mentioned that your marriage status is <?php if($marriageStatus == "yes"){echo "married";}else{echo "single";} ?> and that you <?php if($kidsStatus == "yes"){echo "have dependents";}else{echo "don't have dependents";} ?>. You earn an income of R<?php echo $salary; ?> and have liabilities of R<?php echo $liabilities; ?>. As a rule of thumb, the minimum amount of Disability cover you will need is 6 (six) times income plus liabilities.</p>
 
-    <button id="trauma" onclick="haveCover('trauma')">I have Disability and Trauma cover</button>
-    <input id="disability" type="button" value="I don't have Disability and Trauma cover" onclick="tellMore('disability')">
+    <!-- I have disability cover -->
+    <input type="button" value="I have Disability and Trauma cover" id="haveTrauma" onclick="yesOrNo('haveTrauma')">
 
-    <div id="amounts" style="visibility: hidden;">
+    <!-- I don't have disability cover -->
+
+    <input id="needTrauma" type="button" value="I need Disability and Trauma cover" onclick="yesOrNo('needTrauma')"><br>
+
+    <div id="amounts" class="extra" style="visibility: hidden;">
+        <input type="button" value="I don't know how much cover I have" onclick="window.open('Reports/permission.php', '_blank')">
         Amount of Disability Cover
-        <input type="text" id="disabilityAmount"><br>
-        <button onclick="showSupposed('disability')">See how much you're supposed to be covered for</button>
-        <div id="supposed" style="visibility: hidden;">
-            <label for="supposedAmount">You should have</label>
-            <input id="supposedAmount" name="disabilityNeeded" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
-            <p id="diff"></p>
-        </div>
-        <button onclick="window.location.href='permission.php'">I don't know how much cover I have</button>
+        <input type="text" id="disabilityAmount">
+        <input type="button" onclick="showSupposed('disability')" value="See your ideal amount of cover" >
+    </div>
+    
+    <div id="supposed" style="visibility: hidden;">
+        
+        <label for="supposedAmount">You should have</label>
+        <input id="supposedAmount" name="disabilityNeeded" type="text" value="<?php echo $lifeCoverAmount; ?>"><br>
+        <p id="diff"></p>
     </div>
 
 </body>
